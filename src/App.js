@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import login from './components/Login/Login';
 import {BrowseRouter, Routes, Route } from 'react-router-dom';
+=======
+
+>>>>>>> develop
 import './App.css';
 
 function App() {
