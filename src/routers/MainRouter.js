@@ -4,8 +4,10 @@ import InitialScreen from "../components/InitialScreen/InitialScreen";
 
 import LoginCompany from "../components/AuthCompany/LoginCompany/LoginCompany";
 import RegisterCompany from "../components/AuthCompany/RegisterCompany/RegisterCompany";
-import LoginUserAdmin from "../components/AuthUserAdmin/LoginUserAdmin/LoginUserAdmin";
-import RegisterUserAdmin from "../components/AuthUserAdmin/RegisterUserAdmin/RegisterUserAdmin";
+import LoginUser from "../components/AuthUser/LoginUser/LoginUser";
+import RegisterUser from "../components/AuthUser/RegisterUser/RegisterUser"
+
+import SelectRole from "../components/SelectRole/SelectRole";
 
 import NotFound from "../components/NotFound/NotFound"
 
@@ -21,14 +23,16 @@ export const MainRouter = () => {
 
               <Route path="/logincompany" element={<LoginCompany />} />
               <Route path="/registercompany" element={<RegisterCompany />} />
-              <Route path="/loginuseradmin" element={<LoginUserAdmin />} />
-              <Route path="/registeruseradmin" element={<RegisterUserAdmin />} />
+              <Route path="/loginuser" element={<LoginUser />} />
+              <Route path="/registeruser" element={<RegisterUser />} />
+
+              <Route path="/selectrole" element={<SelectRole />} />
     
               <Route path="/user/*" element= { <UserRouter /> } />
               <Route path="/company/*" element= { <CompanyRouter /> } />
               <Route path="/admin/*" element= { <AdminRouter /> } />
 
-              <Route path="*" element={ <NotFound />  } />
+              <Route path="*" element={ <NotFound /> } />
           </Routes>
         </Router>
     )
