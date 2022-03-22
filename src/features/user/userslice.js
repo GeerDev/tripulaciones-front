@@ -9,22 +9,40 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(register.fulfilled, (state, action) => {
+            .addCase(registerUser.fulfilled, (state, action) => {
                 state.isSucscess = true;
                 state.message = action.payload
             })
-            .addCase(register.rejected, (state, action) => {
+            .addCase(registerUser.rejected, (state, action) => {
                 state.isError = true;
                 state.message = action.payload
             })
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.user = action.payload
+                state.isSucscess = true;
+                state.message = action.payload
+            })
+            .addCase(loginUser.rejected, (state, action) => {
+                state.isError = true;
+                state.message = action.payload
+        })
     }
 });
 
-export const register = createAsyncThunk("auth/register", async (user, thunkApi) => {
+export const registerUser = createAsyncThunk("auth/register", async (user, thunkApi) => {
     try {
-        return await userService.register(user)
+        return await userService.registerUser(user)
     } catch (error) {
         const message = error.response.data[0].message;
+        return thunkApi.rejectWithValue(message)
+    }
+})
+
+export const loginUser = createAsyncThunk("auth/login", async (user, thunkApi) => {
+    try {
+        return await userService.loginUser(user)
+    } catch (error) {
+        const message = error.response.data.message;
         return thunkApi.rejectWithValue(message)
     }
 })
