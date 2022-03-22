@@ -28,7 +28,7 @@ export const MainRouter = () => {
               <Route path="/company/*" element= { <CompanyRouter /> } />
               <Route path="/admin/*" element= { <AdminRouter /> } />
 
-              <Route path="*" element={ <NotFound />  } />
+              <Route path="*" element={ <NotFound /> } />
           </Routes>
         </Router>
     )
