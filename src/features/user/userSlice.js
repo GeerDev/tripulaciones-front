@@ -3,6 +3,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const user = JSON.parse(localStorage.getItem('user'));
 
+const initialState = {
+    user: user ? user : null,
+    isSucess: false,
+    isError: false,
+    message: ''
+  };
+
 export const userSlice = createSlice({
     name: "auth",
     initialState,
@@ -18,6 +25,7 @@ export const userSlice = createSlice({
                 state.message = action.payload
             })
             .addCase(loginUser.fulfilled, (state, action) => {
+                console.log(action.payload);
                 state.user = action.payload
                 state.isSucscess = true;
                 state.message = action.payload

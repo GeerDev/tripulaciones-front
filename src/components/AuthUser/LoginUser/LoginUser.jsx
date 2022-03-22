@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
-import { login } from '../../../features/user/userslice'
+import { loginUser } from '../../../features/user/userSlice'
 
 const LoginUserAdmin = () => {
 
@@ -25,7 +25,7 @@ const LoginUserAdmin = () => {
 
   const onSubmit = (e) => {
       e.preventDefault()
-      dispatch(login(formData))
+      dispatch(loginUser(formData))
       navigate('/selectrole', {
         replace: true
     })
