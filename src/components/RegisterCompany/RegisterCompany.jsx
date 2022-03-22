@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { register, reset } from "../../../features/company/companySlice"
+import { register, reset } from "../../features/company/companySlice"
 import { useEffect } from "react";
 import { notification } from 'antd';
+import "antd/dist/antd.css"
 
 const RegisterCompany = () =>{
     const [formData, setFormData] = useState({
@@ -37,15 +38,17 @@ const RegisterCompany = () =>{
 
     const onSubmit = (e) =>{
         e.preventDefault();
-        return dispatch(register(formData));
-
-        // if(password !== password2){
-        //     return notification.error({
-        //         message: 'error',
-        //         description: "The password does not match",
-        //     });
-        // }else{
-        // }
+        console.log('yee')
+        console.log(password)
+        if(password !== password2){
+            console.log('yee')
+            return notification.error({
+                message: 'error',
+                description: "The password does not match",
+            });
+        }else{
+            return dispatch(register(formData));
+        }
 }
  return (
     <div>
@@ -61,7 +64,7 @@ const RegisterCompany = () =>{
             <label>Contraseña:</label>
             <input type="password" name="password" value={password} onChange={onChange} placeholder="Contraseña" />
             <label>Repita la contraseña:</label>
-            <input type="password" name="password2" value={password} onChange={onChange} placeholder="Repita la contraseña"/>
+            <input type="password" name="password2" value={password2} onChange={onChange} placeholder="Repita la contraseña"/>
             <button type="submit">Registrar</button>
         </form>
     </div>

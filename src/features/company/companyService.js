@@ -4,7 +4,7 @@ const API_URL = "http://localhost:4000";
 
 const register = async(companyData)=>{
     try{
-        const res = await axios.post(API_URL + "/companies/register", companyData);
+        const res = await axios.post(API_URL + "/companies", companyData);
     }catch(error){
         console.error(error);
     }
@@ -19,14 +19,14 @@ const login = async(companyData)=>{
 };
 
 const logout = async() =>{
-    const user = JSON.parse(localStorage.getItem('user'));
+    const company = JSON.parse(localStorage.getItem('company'));
     const res = await axios.delete(API_URL + '/companies/logout', {
         headers:{
             authorization: company?.token, 
         }
     })
     if(res.data){
-        localStorage.removeItem('company');
+        localStorage.removeItem("company");
     }
     return res.data;
 }
