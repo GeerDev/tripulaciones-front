@@ -4,8 +4,8 @@ import InitialScreen from "../components/InitialScreen/InitialScreen";
 
 import LoginCompany from "../components/AuthCompany/LoginCompany/LoginCompany";
 import RegisterCompany from "../components/AuthCompany/RegisterCompany/RegisterCompany";
-import LoginUserAdmin from "../components/AuthUserAdmin/LoginUserAdmin/LoginUserAdmin";
-import RegisterUserAdmin from "../components/AuthUserAdmin/RegisterUserAdmin/RegisterUserAdmin";
+import LoginUserAdmin from "../components/AuthUser/LoginUserAdmin/LoginUserAdmin";
+import RegisterUser from "../components/AuthUser/RegisterUser/RegisterUser"
 
 import NotFound from "../components/NotFound/NotFound"
 
@@ -22,7 +22,7 @@ export const MainRouter = () => {
               <Route path="/logincompany" element={<LoginCompany />} />
               <Route path="/registercompany" element={<RegisterCompany />} />
               <Route path="/loginuseradmin" element={<LoginUserAdmin />} />
-              <Route path="/registeruseradmin" element={<RegisterUserAdmin />} />
+              <Route path="/registeruseradmin" element={<RegisterUser />} />
     
               <Route path="/user/*" element= { <UserRouter /> } />
               <Route path="/company/*" element= { <CompanyRouter /> } />
