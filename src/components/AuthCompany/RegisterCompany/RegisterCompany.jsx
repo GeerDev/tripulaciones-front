@@ -17,17 +17,6 @@ const RegisterCompany = () => {
 
   const dispatch = useDispatch();
 
-  // const { isError, isSuccess, message } = useSelector((state) => state.auth)
-  // useEffect(() => {
-  //     if (isError) {
-  //         notification.error({ message: "error", description: message });
-  //     }
-  //     if (isSuccess) {
-  //         notification.success({ message: "Welcome", description: message?.message })
-  //     }
-  //     dispatch(reset())
-  // }, [isError, isSuccess, message, dispatch]);
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
