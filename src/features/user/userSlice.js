@@ -25,7 +25,6 @@ export const userSlice = createSlice({
                 state.message = action.payload
             })
             .addCase(loginUser.fulfilled, (state, action) => {
-                console.log(action.payload);
                 state.user = action.payload
                 state.isSucscess = true;
                 state.message = action.payload
