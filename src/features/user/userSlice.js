@@ -7,6 +7,7 @@ const initialState = {
     user: user ? user : null,
     isSuccess: false,
     isError: false,
+    infoById: {},
     message: ''
 };
 
@@ -41,7 +42,10 @@ export const userSlice = createSlice({
             })
             .addCase(logoutUser.fulfilled, (state) => {
                 state.user = null;
-        })
+            })
+            .addCase(getById.fulfilled, (state, action) => {
+                state.infoById = action.payload
+            })
     }
 });
 
@@ -67,6 +71,14 @@ export const loginUser = createAsyncThunk("user/login", async (user, thunkApi) =
 export const logoutUser = createAsyncThunk("user/logout", async () => {
     try {
         return await userService.logoutUser()
+    } catch (error) {
+        console.error(error)
+    }
+})
+
+export const getById = createAsyncThunk("user/getById", async (_id) => {
+    try {
+        return await userService.getById()
     } catch (error) {
         console.error(error)
     }
