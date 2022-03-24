@@ -12,4 +12,4 @@ const DashboardUser = () => {
 }
 
   
-  export default DashboardUser
+export default DashboardUser

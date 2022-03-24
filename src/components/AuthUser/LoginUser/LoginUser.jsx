@@ -20,9 +20,7 @@ const LoginUserAdmin = () => {
     }
     if (isSuccess) {
         notification.success({ message: "Success", description: message?.message, });
-        setTimeout(() => {
-            navigate("/user")
-        }, 1000);
+        selectRole()
     }
     dispatch(reset())
 }, [isError, isSuccess, message, navigate, dispatch]);
@@ -38,15 +36,19 @@ const LoginUserAdmin = () => {
 
   const selectRole = () => {
     if (user !== null) {
-      const { role } = user?.user
+      const { role } = user.user
       if (role === 'admin') {
+      setTimeout(() => {
         navigate('/admin', {
           replace: true
         })
+      }, 1000);
       } else {
+      setTimeout(() => {
         navigate('/user', {
           replace: true
         })
+      }, 1000);
       }
     }
   }
@@ -54,7 +56,6 @@ const LoginUserAdmin = () => {
   const onSubmit = async (e) => {
       e.preventDefault()
       await dispatch(loginUser(formData))
-      await selectRole()
   }
 
     return (
