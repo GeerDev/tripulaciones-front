@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterCompany = () => {
   const [formData, setFormData] = useState({
     nameCompany: '',
-    CEO: '',
+    nameCEO: '',
     email: '',
     phone: '',
     password: '',
@@ -61,7 +61,7 @@ const RegisterCompany = () => {
             <option value="Grande">Grande</option>
       </select>
         <label>CEO:</label>
-        <input type="text" name="CEO" value={CEO} onChange={onChange} placeholder="Nombre del CEO" />
+        <input type="text" name="nameCEO" value={CEO} onChange={onChange} placeholder="Nombre del CEO" />
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={onChange} placeholder="Email de la empresa" />
         <label>Teléfono:</label>
