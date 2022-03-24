@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import { login, reset } from "../../../features/company/companySlice"
 import { notification } from 'antd';
 
@@ -26,7 +27,7 @@ const LoginCompany = () => {
     if(isSuccess){
       notification.success({message: "Success", description: message?.message,});
       setTimeout(()=>{
-        navigate("/DashboardCompany")
+        navigate("/loginCompany")
       },500);
     }
     dispatch(reset());
@@ -34,13 +35,17 @@ const LoginCompany = () => {
 
   const onSubmit = (e) =>{
     e.preventDefault();
-    dispatch(login(formData))
+    dispatch(login(formData));
   }
-
-  
-
     return (
-      <div>LoginCompany</div>
+      <div>
+        <h2>Login de Empresa:</h2>
+        <form onSubmit={onSubmit}>
+          <input type="email" value={email} name="email" onChange={onChange} required placeholder="Email"/>
+          <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
     )
   }
   

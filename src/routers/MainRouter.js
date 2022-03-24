@@ -14,6 +14,7 @@ import NotFound from "../components/NotFound/NotFound"
 import { UserRouter } from "./UserRouter";
 import { CompanyRouter } from "./CompanyRouter";
 import { AdminRouter } from "./AdminRouter";
+import DashboardCompany from "../components/DashboardCompany/DashboardCompany";
 
 export const MainRouter = () => {
     return (
@@ -23,9 +24,11 @@ export const MainRouter = () => {
 
               <Route path="/logincompany" element={<LoginCompany />} />
               <Route path="/registercompany" element={<RegisterCompany />} />
+              <Route path="/DashboardCompany" element={<DashboardCompany/>} />
+
               <Route path="/loginuser" element={<LoginUser />} />
               <Route path="/registeruser" element={<RegisterUser />} />
-
+              
               <Route path="/selectrole" element={<SelectRole />} />
     
               <Route path="/user/*" element= { <UserRouter /> } />

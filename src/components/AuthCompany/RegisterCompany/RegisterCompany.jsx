@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { register, reset } from "../../../features/company/companySlice"
 import { useEffect } from "react";
-import { notification } from 'antd';
+import { message, notification } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterCompany = () => {
   const [formData, setFormData] = useState({
@@ -14,8 +15,18 @@ const RegisterCompany = () => {
     password2: '',
   })
   const { nameCompany, CEO, email, phone, password, password2 } = formData;
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isError, isSuccess, message } = useSelector((state)=>state.company);
+
+  useEffect(()=>{
+    if (isError){
+      notification.error({message: "Error", description: "Ha habido un error"});
+    }
+    if(isSuccess){
+      notification.success({message: "Ya está!", description: "Registro completado con éxito"});
+    }
+  })
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -27,19 +38,27 @@ const RegisterCompany = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (password !== password2) {
-      return notification.error({
-        message: 'error',
-        description: "Las contraseñas no coinciden",
+      return notification.error({message: 'error',description: "Las contraseñas no coinciden",
       });
     } else {
-      return dispatch(register(formData));
+      dispatch(register(formData));
+      setTimeout(()=>{
+        navigate("/loginCompany");
+      }, 200);
+      return notification.success({message: "Bienvenido", description: "Te has registrado correctamente"})
     }
   }
   return (
     <div>
+      <h2>Registro de empresa</h2>
       <form onSubmit={onSubmit}>
         <label>Nombre de la empresa:</label>
         <input type="text" name="nameCompany" value={nameCompany} onChange={onChange} placeholder="Nombre de la empresa" />
+        {/* <label>Tamaño de la empresa</label>
+        <select name="companyType" value="" id="">
+          <option value="Pyme">Pyme</option>
+          <option value="Grande">Grande</option>
+        </select> */}
         <label>CEO:</label>
         <input type="text" name="CEO" value={CEO} onChange={onChange} placeholder="Nombre del CEO" />
         <label>Email:</label>
