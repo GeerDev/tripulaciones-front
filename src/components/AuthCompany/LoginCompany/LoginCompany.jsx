@@ -47,6 +47,7 @@ const LoginCompany = () => {
           <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
           <button type="submit">Entrar</button>
         </form>
+        <Link to="/registerCompany" className="link">Register</Link>
       </div>
     )
   }

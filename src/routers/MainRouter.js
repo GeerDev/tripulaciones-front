@@ -26,13 +26,7 @@ export const MainRouter = () => {
 
               <Route path="/loginuser" element={<LoginUser />} />
               <Route path="/registeruser" element={<RegisterUser />} />
-<<<<<<< HEAD
-              
-              <Route path="/selectrole" element={<SelectRole />} />
-    
-=======
             
->>>>>>> develop
               <Route path="/user/*" element= { <UserRouter /> } />
               <Route path="/company/*" element= { <CompanyRouter /> } />
               <Route path="/admin/*" element= { <AdminRouter /> } />

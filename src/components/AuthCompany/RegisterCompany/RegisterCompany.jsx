@@ -25,6 +25,9 @@ const RegisterCompany = () => {
     }
     if(isSuccess){
       notification.success({message: "Ya está!", description: "Registro completado con éxito"});
+      setTimeout(()=>{
+        navigate("/loginCompany");
+      }, 200);
     }
   dispatch(reset());
   })
@@ -43,9 +46,6 @@ const RegisterCompany = () => {
       });
     } else {
       dispatch(register(formData));
-      setTimeout(()=>{
-        navigate("/loginCompany");
-      }, 200);
     }
   }
   return (
