@@ -26,6 +26,7 @@ const RegisterCompany = () => {
     if(isSuccess){
       notification.success({message: "Ya está!", description: "Registro completado con éxito"});
     }
+  dispatch(reset());
   })
 
   const onChange = (e) => {
@@ -45,7 +46,6 @@ const RegisterCompany = () => {
       setTimeout(()=>{
         navigate("/loginCompany");
       }, 200);
-      return notification.success({message: "Bienvenido", description: "Te has registrado correctamente"})
     }
   }
   return (
@@ -54,17 +54,18 @@ const RegisterCompany = () => {
       <form onSubmit={onSubmit}>
         <label>Nombre de la empresa:</label>
         <input type="text" name="nameCompany" value={nameCompany} onChange={onChange} placeholder="Nombre de la empresa" />
-        {/* <label>Tamaño de la empresa</label>
-        <select name="companyType" value="" id="">
-          <option value="Pyme">Pyme</option>
-          <option value="Grande">Grande</option>
-        </select> */}
+        <select name="sectors" className="input-select" defaultValue={'DEFAULT'}>
+        <label>Tamaño de la empresa:</label>
+        <option value="DEFAULT" disabled>Tamaño empresa:</option>
+            <option value="PYME">PYME</option>
+            <option value="Grande">Grande</option>
+      </select>
         <label>CEO:</label>
         <input type="text" name="CEO" value={CEO} onChange={onChange} placeholder="Nombre del CEO" />
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={onChange} placeholder="Email de la empresa" />
         <label>Teléfono:</label>
-        <input type="number" name="phone" value={phone} onChange={onChange} placeholder="Teléfono de contacto" maxLength={9} />
+        <input type="phone" name="phone" value={phone} onChange={onChange} placeholder="Teléfono de contacto" maxLength={9} />
         <label>Contraseña:</label>
         <input type="password" name="password" value={password} onChange={onChange} placeholder="Contraseña" />
         <label>Repita la contraseña:</label>
@@ -74,5 +75,4 @@ const RegisterCompany = () => {
     </div>
   )
 }
-
 export default RegisterCompany

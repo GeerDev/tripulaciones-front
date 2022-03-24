@@ -62,5 +62,14 @@ export const login = createAsyncThunk("company/login", async(company, thunkApi)=
     }
 })
 
+export const logout = createAsyncThunk("company/logout", async(company, thunkApi)=>{
+    try{
+        return await companyService.logout(company);
+    }catch(error){
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message);
+    }
+})
+
 export const { reset } = companySlice.actions;
 export default companySlice.reducer;

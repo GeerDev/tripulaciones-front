@@ -7,8 +7,6 @@ import RegisterCompany from "../components/AuthCompany/RegisterCompany/RegisterC
 import LoginUser from "../components/AuthUser/LoginUser/LoginUser";
 import RegisterUser from "../components/AuthUser/RegisterUser/RegisterUser"
 
-import SelectRole from "../components/SelectRole/SelectRole";
-
 import NotFound from "../components/NotFound/NotFound"
 
 import { UserRouter } from "./UserRouter";
@@ -28,9 +26,13 @@ export const MainRouter = () => {
 
               <Route path="/loginuser" element={<LoginUser />} />
               <Route path="/registeruser" element={<RegisterUser />} />
+<<<<<<< HEAD
               
               <Route path="/selectrole" element={<SelectRole />} />
     
+=======
+            
+>>>>>>> develop
               <Route path="/user/*" element= { <UserRouter /> } />
               <Route path="/company/*" element= { <CompanyRouter /> } />
               <Route path="/admin/*" element= { <AdminRouter /> } />

@@ -25,17 +25,19 @@ const LoginCompany = () => {
       notification.error({message: "Error", description: message,});
     }
     if(isSuccess){
+      console.log(message)
       notification.success({message: "Success", description: message?.message,});
       setTimeout(()=>{
-        navigate("/loginCompany")
+        navigate("/DashboardCompany")
       },500);
     }
     dispatch(reset());
-  }, [isError, isSuccess, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, dispatch]);
 
   const onSubmit = (e) =>{
     e.preventDefault();
     dispatch(login(formData));
+
   }
     return (
       <div>
