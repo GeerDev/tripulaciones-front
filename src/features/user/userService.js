@@ -31,10 +31,23 @@ const logoutUser = async () => {
     }
     return res.data
 }
+
+const getById = async (_id) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const res = await axios.get(API_URL + 'users/id/'+ _id,{
+        headers: {
+            authorization: user?.token
+        }
+    })
+    return res.data
+}
+
+
 const userService = {
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    getById
 };
 
 export default userService;

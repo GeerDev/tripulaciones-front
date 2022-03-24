@@ -7,7 +7,7 @@ export const UserRouter = () => {
     return (
         <Sidebar>
             <Routes>
-            <Route path="/" element={< DashboardUser />} />
+            <Route path="/posts" element={< DashboardUser />} />
             </Routes>
             </Sidebar>
             )
