@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { loginUser, reset } from '../../../features/user/userSlice'
-import {notification} from 'antd'
+import { notification } from 'antd'
+import './LoginUser.scss'
+import logo from '../../../img/logo.svg'
 
 const LoginUserAdmin = () => {
   const navigate = useNavigate();
@@ -58,12 +60,18 @@ const LoginUserAdmin = () => {
       await dispatch(loginUser(formData))
   }
 
-    return (
+  return (
+    <div className='login-form-user'>
+      <div className='logo-urser-form'>
+        <img src={logo} />
+      </div>
+      <h2 className='login-size-user'>Inicia Sesión</h2>
       <form onSubmit={onSubmit}>
             <input type="email" name="email" value={email} onChange={onChange} placeholder={'Email'}/>
             <input type="password" name="password" value={password} onChange={onChange} placeholder={'Contraseña'}/>
-            <button type="submit">Login</button>
+            <button type="submit">Inicia Sesión</button>
       </form>
+      </div>
     )
   }
   
