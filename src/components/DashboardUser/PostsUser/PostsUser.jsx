@@ -12,7 +12,7 @@ const PostsUser = () => {
     return (
         <div>
             <h1>Posts</h1>
-            <PostUser/>
+            {/* <PostUser/> */}
         </div>
       )
     
