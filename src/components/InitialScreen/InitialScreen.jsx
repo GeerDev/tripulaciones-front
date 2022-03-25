@@ -19,7 +19,7 @@ const InitialScreen = () => {
         </li>
         <li>
             <img src={ empleado}  />
-            <Link to='/registeruser'> Empleado </Link>
+            <Link to='/registeruser'> Emplead@ </Link>
           </li>
         </ul>
     </div>

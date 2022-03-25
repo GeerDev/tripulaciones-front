@@ -65,8 +65,7 @@ const RegisterCompany = () => {
       <p>Si ya tienes cuenta de empresa, <Link to='/loginCompany'>Inicia tu sesión</Link></p>
       <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
-        <input type="text" name="nameCompany" value={nameCompany} onChange={onChange} placeholder="Nombre de la empresa" />
-        <label>Nombre de la empresa:</label>
+        <input type="text" name="nameCompany" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
         <select name="sectors" className="input-select" defaultValue={'DEFAULT'}>
             <option value="">Tipo de empresa</option>
@@ -75,7 +74,7 @@ const RegisterCompany = () => {
       </select>
         <input type="text" placeholder="CEO" name="nameCEO" value={CEO} required onChange={onChange}/>
         <input type="email" placeholder="Email" name="email" value={email} required onChange={onChange}/>
-        <input type="number" placeholder="Teléfono" name="phone" value={phone} required onChange={onChange} maxLength={9} />
+        <input type="number" placeholder="Teléfono" name="phone" value={phone} maxLength={9} required onChange={onChange} />
         <input type="password" placeholder="Contraseña" name="password" value={password} required onChange={onChange} />
         <input type="password" placeholder="Repita la contraseña" name="password2" value={password2} required onChange={onChange} />
         <button type="submit">Registrar</button>
