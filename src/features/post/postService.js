@@ -9,10 +9,7 @@ const createPost = async (post) => {
             authorization: user?.token
         }
     })
-    if (res.data) {
-        getAllPost()
-    }
-    return res.data
+    return res.data 
 }
 
 const getAllPost = async () => {
@@ -22,7 +19,7 @@ const getAllPost = async () => {
           authorization: user?.token
         },
       });
-    return res.data
+    return res.data.posts
 }
 
 const getByIdPost = async (_id) => {

@@ -9,7 +9,7 @@ const getAll = async () => {
         authorization: user?.token
       },
     });
-  return res.data;
+  return res.data.challenges;
 };
 
 const getById = async (id) => {
@@ -29,13 +29,14 @@ const addChallenge = async (challenge) => {
         authorization: user?.token
       },
     });
+    console.log("Axios Challenges: ", res.data);
   return res.data;
 };
 
-const challengerService = {
+const challengeService = {
   getAll,
   getById,
   addChallenge
 };
 
-export default challengerService;
+export default challengeService;

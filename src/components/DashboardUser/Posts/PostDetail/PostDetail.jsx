@@ -9,7 +9,6 @@ const PostDetail = () => {
   const { _id } = useParams();
   const dispatch = useDispatch();
   const { post, isLoading } = useSelector((state) => state.post);
-  console.log(post)
 
   useEffect(async () => {
     await dispatch(getByIdPost(_id));
@@ -24,6 +23,11 @@ const PostDetail = () => {
     <div>
       <p>{post.userId?.name}</p>
       <p>{post.description}</p>
+      <div >{post.comments?.map(comment => <div>
+        <span>
+      <p>{comment?.userId?.name}</p>
+      </span>
+      <p>{comment?.comment}</p></div>)}</div>
     </div>
   );
 };
