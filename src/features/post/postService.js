@@ -9,9 +9,6 @@ const createPost = async (post) => {
             authorization: user?.token
         }
     })
-    if (res.data) {
-        getAllPost()
-    }
     return res.data
 }
 

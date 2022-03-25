@@ -89,15 +89,16 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
           },
     },
     extraReducers: (builder) => {
-        // builder.addCase(createPost.fulFilled, (state, action) => {
-        //     state.isSuccess = true;
-        //     state.message = action.payload;
-        //     state.posts = [action.payload, ...state.posts];
-        // });
-        // builder.addCase(createPost.rejected, (state, action) => {
-        //     state.isError = true;
-        //     state.message = action.payload;
-        // });
+      builder.addCase(createPost.fulfilled, (state, action) => {
+       console.log(action.payload)
+        state.isSuccess = true;
+        state.message = action.payload;
+        state.posts = [action.payload, ...state.posts];
+      });
+      builder.addCase(createPost.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
+      });
         builder.addCase(getAllPost.fulfilled, (state, action) => {
             state.posts = action.payload;
             state.isLoading = false;

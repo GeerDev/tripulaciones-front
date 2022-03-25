@@ -9,7 +9,6 @@ const PostDetail = () => {
   const { _id } = useParams();
   const dispatch = useDispatch();
   const { post, isLoading } = useSelector((state) => state.post);
-  console.log(post)
 
   useEffect(async () => {
     await dispatch(getByIdPost(_id));
