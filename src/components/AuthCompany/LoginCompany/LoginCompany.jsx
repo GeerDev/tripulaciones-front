@@ -24,7 +24,7 @@ const LoginCompany = () => {
 
   useEffect(()=>{
     if(isError){
-      notification.error({message: "En espera", description: message,});
+      notification.error({message: "Error al iniciar sesión", description: message,});
     }
     if(isSuccess){
       console.log(message)
@@ -51,7 +51,7 @@ const LoginCompany = () => {
           <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
           <button type="submit">Entrar</button>
         </form>
-        <p>Si no una cuenta registrada, <Link to="/registerCompany" className="link">Regístrate</Link></p>
+        <p>Si no tienes una cuenta registrada, <Link to="/registerCompany" className="link">Regístrate</Link></p>
       </div>
     )
   }
