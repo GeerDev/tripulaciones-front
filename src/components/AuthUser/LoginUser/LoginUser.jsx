@@ -65,7 +65,6 @@ const LoginUserAdmin = () => {
       <div className='logo-user-form'>
         <img src={logo} />
       </div>
-      <h2 className='login-size-user'>Inicia Sesión</h2>
       <form onSubmit={onSubmit}>
             <input type="email" name="email" value={email} onChange={onChange} placeholder={'Email'}/>
             <input type="password" name="password" value={password} onChange={onChange} placeholder={'Contraseña'}/>

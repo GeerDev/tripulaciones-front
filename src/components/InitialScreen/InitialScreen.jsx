@@ -10,7 +10,7 @@ const InitialScreen = () => {
       <section className='section-initial-screen'>
       <img src={logo}  />
         <h1>BIENVENID@</h1>
-        <h3>¿Te atrevés a ser más sostenible?</h3>
+        <h3>¿Te atreves a ser más sostenible?</h3>
         </section>
         <ul>
           <li>
