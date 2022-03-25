@@ -24,7 +24,7 @@ const LoginCompany = () => {
 
   useEffect(()=>{
     if(isError){
-      notification.warning({message: "En espera", description: message,});
+      notification.error({message: "En espera", description: message,});
     }
     if(isSuccess){
       console.log(message)
