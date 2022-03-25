@@ -58,7 +58,6 @@ const RegisterUser = () => {
             <div className='logo-register'>
                 <img src={logo} />
                 </div>
-                <p>Si ya tienes cuenta, <Link to='/loginuser'>Inicia tu sesión</Link></p>
             <h2 className='register-title'>Registrate</h2>
             <form onSubmit={onSubmit}>
                 <input type="text" name="name" value={name} onChange={onChange} required placeholder='Nombre' />
@@ -69,7 +68,8 @@ const RegisterUser = () => {
                 <input type="password" name="password" value={password} onChange={onChange} required placeholder='Contraseña' />
                 <input type="password" name="password2" value={password2} onChange={onChange} required placeholder='Repita contraseña' />
                 <button type="submit">Registrate</button>
-            </form>
+                </form>
+                <p>Si ya tienes cuenta, <Link to='/loginuser'>Inicia tu sesión</Link></p>
                 </section>
         </div>
     )
