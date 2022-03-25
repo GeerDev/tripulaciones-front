@@ -61,7 +61,7 @@ const LoginUserAdmin = () => {
   }
 
   return (
-    <div className='login-form-user'>
+    <div className='login-form-user card animate__animated animate__backInUp'>
       <div className='logo-user-form'>
         <img src={logo} />
       </div>
