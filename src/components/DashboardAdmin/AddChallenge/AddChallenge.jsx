@@ -4,7 +4,7 @@ import { addPost } from '../../../features/post/postSlice'
 
 import '../../../styles/main.scss';
 
-const AddPost = () => {
+const AddChallenge = () => {
 
 
   return (
@@ -17,4 +17,4 @@ const AddPost = () => {
   )
 }
 
-export default AddPost
+export default AddChallenge
