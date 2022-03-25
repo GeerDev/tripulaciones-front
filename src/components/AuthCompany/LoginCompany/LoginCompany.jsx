@@ -42,7 +42,7 @@ const LoginCompany = () => {
 
   }
     return (
-      <div className="login-form-company">
+      <div className="login-form-company card animate__animated animate__backInUp">
       <div className="logo-company-form">
       <img src={logo}/>
       </div>
@@ -51,7 +51,7 @@ const LoginCompany = () => {
           <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
           <button type="submit">Entrar</button>
         </form>
-        <p>Si no una cuenta reigstrada, <Link to="/registerCompany" className="link">Register</Link></p>
+        <p>Si no una cuenta registrada, <Link to="/registerCompany" className="link">Regístrate</Link></p>
       </div>
     )
   }

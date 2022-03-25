@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { loginUser, reset } from '../../../features/user/userSlice';
+import { Link } from 'react-router-dom'; 
 import { notification } from 'antd';
 import './LoginUser.scss';
 import logo from '../../../img/logo.svg';
@@ -70,6 +71,7 @@ const LoginUserAdmin = () => {
             <input type="password" name="password" value={password} onChange={onChange} placeholder={'Contraseña'}/>
             <button type="submit">Inicia Sesión</button>
       </form>
+      <p>Si no tienes una cuenta registrada, <Link to="/registeruser" className="link">Regístrate</Link></p>
       </div>
     )
   }
