@@ -46,7 +46,6 @@ const LoginCompany = () => {
       <div className="logo-company-form">
       <img src={logo}/>
       </div>
-      <h2 className="login-size-company">Inicia Sesión</h2>
         <form onSubmit={onSubmit}>
           <input type="email" value={email} name="email" onChange={onChange} required placeholder="Email"/>
           <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
