@@ -28,7 +28,7 @@ const LoginCompany = () => {
       console.log(message)
       notification.success({message: "Success", description: message?.message,});
       setTimeout(()=>{
-        navigate("/DashboardCompany")
+        navigate("/company")
       },500);
     }
     dispatch(reset());
