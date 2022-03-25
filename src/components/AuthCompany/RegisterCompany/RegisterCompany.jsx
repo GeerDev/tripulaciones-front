@@ -54,7 +54,7 @@ const RegisterCompany = () => {
     }
   }
   return (
-    <div className='register-company-form'>
+    <div className='register-company-form card animate__animated animate__backInLeft'>
       <div className="company-register">
         <img src={empresa}/>
       </div>
@@ -65,7 +65,6 @@ const RegisterCompany = () => {
       <p>Si ya tienes cuenta de empresa, <Link to='/loginCompany'>Inicia tu sesión</Link></p>
       <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
-        <input type="text" name="nameCompany" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
         <select name="sectors" className="input-select" defaultValue={'DEFAULT'}>
             <option value="">Tipo de empresa</option>
