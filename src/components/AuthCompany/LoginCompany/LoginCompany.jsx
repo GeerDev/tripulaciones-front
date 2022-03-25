@@ -24,11 +24,11 @@ const LoginCompany = () => {
 
   useEffect(()=>{
     if(isError){
-      notification.error({message: "Error", description: message,});
+      notification.warning({message: "En espera", description: message,});
     }
     if(isSuccess){
       console.log(message)
-      notification.success({message: "Success", description: message?.message,});
+      notification.success({message: "Hola!", description: message?.message,});
       setTimeout(()=>{
         navigate("/company")
       },500);
