@@ -1,4 +1,4 @@
-import postUserService from "./postUserService";
+import postUserService from "./postService";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
