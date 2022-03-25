@@ -50,7 +50,7 @@ const RegisterUser = () => {
         }
     }
     return (
-        <div className='register-user-form'>
+        <div className='register-user-form card animate__animated animate__backInRight'>
             <div className='empleado-register'>
                 <img src={empleado} />
             </div>
