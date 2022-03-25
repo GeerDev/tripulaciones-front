@@ -34,7 +34,7 @@ export const addChallenge = createAsyncThunk("challenges/addChallenge", async (c
   }
 });
 
-export const challengerSlice = createSlice({
+export const challengeSlice = createSlice({
   name: "challenge",
   initialState,
   reducers: {
@@ -58,5 +58,5 @@ export const challengerSlice = createSlice({
   },
 });
 
-export const { reset } = challengerSlice.actions;
-export default challengerSlice.reducer;
+export const { reset } = challengeSlice.actions;
+export default challengeSlice.reducer;
