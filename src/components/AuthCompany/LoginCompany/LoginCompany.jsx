@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'; 
-import { login, reset } from "../../../features/company/companySlice"
+import { login, reset } from "../../../features/company/companySlice";
 import { notification } from 'antd';
+import './LoginCompany.scss';
+import logo from '../../../img/logo.svg';
 
 const LoginCompany = () => {
 
@@ -22,13 +24,13 @@ const LoginCompany = () => {
 
   useEffect(()=>{
     if(isError){
-      notification.error({message: "Error", description: message,});
+      notification.error({message: "Error al iniciar sesión", description: message,});
     }
     if(isSuccess){
       console.log(message)
-      notification.success({message: "Success", description: message?.message,});
+      notification.success({message: "Hola!", description: message?.message,});
       setTimeout(()=>{
-        navigate("/DashboardCompany")
+        navigate("/company")
       },500);
     }
     dispatch(reset());
@@ -40,14 +42,16 @@ const LoginCompany = () => {
 
   }
     return (
-      <div>
-        <h2>Login de Empresa:</h2>
+      <div className="login-form-company card animate__animated animate__backInUp">
+      <div className="logo-company-form">
+      <img src={logo}/>
+      </div>
         <form onSubmit={onSubmit}>
           <input type="email" value={email} name="email" onChange={onChange} required placeholder="Email"/>
           <input type="password" value={password} name="password" onChange={onChange} required placeholder="Contraseña" />
           <button type="submit">Entrar</button>
         </form>
-        <Link to="/registerCompany" className="link">Register</Link>
+        <p>Si no tienes una cuenta registrada, <Link to="/registerCompany" className="link">Regístrate</Link></p>
       </div>
     )
   }

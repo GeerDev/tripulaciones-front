@@ -26,7 +26,12 @@ const getAllPost = async () => {
 }
 
 const getByIdPost = async (_id) => {
-    const res = await axios.get(API_URL + '/posts/_id/' + _id)
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(API_URL + '/posts/id/' + _id, {
+        headers: {
+          authorization: user?.token
+        },
+    })
     return res.data
 }
 

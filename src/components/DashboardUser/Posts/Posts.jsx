@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getAllPost } from "../../../features/postUser/postUserSlice";
-import PostUser from "./PostUser/PostUser";
+import { getAllPost } from "../../../features/post/postSlice";
+import PostUser from "./Post/Post";
 
 const PostsUser = () => {
     const dispatch = useDispatch();

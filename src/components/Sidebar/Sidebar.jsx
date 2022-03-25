@@ -4,32 +4,36 @@ import { logoutUser } from "../../features/user/userSlice";
 
 
 const Sidebar = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user)
     
     const onLogoutUser = (e) => {
         e.preventDefault();
         dispatch(logoutUser());
-        navigate ('/loginuser')
     }
-    /* const onLogoutCompany = (e) => {
-        e.preventDefault();
-        dispatch(logoutCompay);
-        navigate ('/logincompany')
-    } */
+
     return (
         <nav>
             <div> {user ?
                 <>
                     <ul>
                         <li>
-                            <Link to='/'>
+                            <Link to='user/profile'>
                                 {user?.user.name}
                             </Link>
                         </li>
                         <li>
-                            <Link to='/' onClick={onLogoutUser}>
+                            <Link to='/user'>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/user/forms'>
+                                Forms
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/loginuser' onClick={onLogoutUser}>
                                 Logout
                             </Link>
                         </li>

@@ -2,19 +2,24 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { register, reset } from "../../../features/company/companySlice"
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { message, notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import "antd/dist/antd.css";
+import './RegisterCompany.scss';
+import empresa from '../../../img/empresa.jpg';
+import logo from '../../../img/logo.svg';
 
 const RegisterCompany = () => {
   const [formData, setFormData] = useState({
-    nameCompany: '',
+    name: '',
     nameCEO: '',
     email: '',
     phone: '',
     password: '',
     password2: '',
   })
-  const { nameCompany, CEO, email, phone, password, password2 } = formData;
+  const { name, CEO, email, phone, password, password2 } = formData;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError, isSuccess, message } = useSelector((state)=>state.company);
@@ -49,29 +54,31 @@ const RegisterCompany = () => {
     }
   }
   return (
-    <div>
-      <h2>Registro de empresa</h2>
+    <div className='register-company-form card animate__animated animate__backInLeft'>
+      <div className="company-register">
+        <img src={empresa}/>
+      </div>
+      <section className="section-register-company">
+      <div className='logo-register'>
+        <img src={logo}/>
+      </div>
+      <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
-        <label>Nombre de la empresa:</label>
-        <input type="text" name="nameCompany" value={nameCompany} onChange={onChange} placeholder="Nombre de la empresa" />
+        <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
         <select name="sectors" className="input-select" defaultValue={'DEFAULT'}>
-        <label>Tamaño de la empresa:</label>
-        <option value="DEFAULT" disabled>Tamaño empresa:</option>
+            <option value="">Tipo de empresa</option>
             <option value="PYME">PYME</option>
             <option value="Grande">Grande</option>
       </select>
-        <label>CEO:</label>
-        <input type="text" name="nameCEO" value={CEO} onChange={onChange} placeholder="Nombre del CEO" />
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={onChange} placeholder="Email de la empresa" />
-        <label>Teléfono:</label>
-        <input type="phone" name="phone" value={phone} onChange={onChange} placeholder="Teléfono de contacto" maxLength={9} />
-        <label>Contraseña:</label>
-        <input type="password" name="password" value={password} onChange={onChange} placeholder="Contraseña" />
-        <label>Repita la contraseña:</label>
-        <input type="password" name="password2" value={password2} onChange={onChange} placeholder="Repita la contraseña" />
+        <input type="text" placeholder="CEO" name="nameCEO" value={CEO} required onChange={onChange}/>
+        <input type="email" placeholder="Email" name="email" value={email} required onChange={onChange}/>
+        <input type="number" placeholder="Teléfono" name="phone" value={phone} maxLength={9} required onChange={onChange} />
+        <input type="password" placeholder="Contraseña" name="password" value={password} required onChange={onChange} />
+        <input type="password" placeholder="Repita la contraseña" name="password2" value={password2} required onChange={onChange} />
         <button type="submit">Registrar</button>
       </form>
+      <p>Si ya tienes cuenta de empresa, <Link to='/loginCompany'>Inicia tu sesión</Link></p>
+      </section>
     </div>
   )
 }
