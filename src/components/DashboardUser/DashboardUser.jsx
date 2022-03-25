@@ -1,4 +1,4 @@
-import PostsUser from "./PostsUser/PostsUser"
+import PostsUser from "./PostsUser/Posts"
 import React from 'react'
 
 
