@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { notification } from "antd";
-import { createPost, reset } from "../../../../features/post/postSlice";
+import { createPost, getAllPost, reset } from "../../../../features/post/postSlice";
 
 const AddPost = () => {
   const [formData, setFormData] = useState({ description: ""});
@@ -32,6 +32,7 @@ const AddPost = () => {
 const onSubmit = async (e) => {
     e.preventDefault();
        await dispatch(createPost(formData));
+       await dispatch(getAllPost())
       setFormData({ description: ""})
     }
 
