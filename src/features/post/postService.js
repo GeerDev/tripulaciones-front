@@ -19,7 +19,7 @@ const getAllPost = async () => {
           authorization: user?.token
         },
       });
-    return res.data
+    return res.data.posts
 }
 
 const getByIdPost = async (_id) => {

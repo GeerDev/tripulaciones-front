@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PostUser = () => {
     const { posts, isLoading } = useSelector((state) => state.post);
-    const allPosts = posts.posts || []
+    const allPosts = posts || []
 
     if (isLoading) {
       return (

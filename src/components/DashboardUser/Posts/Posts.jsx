@@ -14,7 +14,7 @@ const PostsUser = () => {
         <div>
             <h1>Posts</h1>
             <AddPost/>
-            {/* <PostUser/> */}
+            <PostUser/>
         </div>
       )
     
