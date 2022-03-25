@@ -12,8 +12,8 @@ export const UserRouter = () => {
         <Sidebar />
             <Routes>
             <Route path="/" element={< DashboardUser />} />
-            <Route path="/post/:id" element={<PostDetail />} />
-            <Route path="/profile/:id" element={<ProfileUser />} />
+            <Route path="/post/:_id" element={<PostDetail />} />
+            <Route path="/profile/:_id" element={<ProfileUser />} />
             <Route path="/forms" element={<Forms />} />
             </Routes>
         </>

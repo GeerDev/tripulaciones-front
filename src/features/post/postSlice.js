@@ -105,12 +105,12 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
         builder.addCase(getAllPost.pending, (state) => {
             state.isLoading = true;
         });
-        // builder.addCase(getByIdPost.fulfilled, (state, action) => {
-        //     state.post = action.payload;
-        //   });
-        //   builder.addCase(getByIdPost.pending, (state) => {
-        //     state.isLoading = true;
-        //   });
+        builder.addCase(getByIdPost.fulfilled, (state, action) => {
+            state.post = action.payload;
+          });
+          builder.addCase(getByIdPost.pending, (state) => {
+            state.isLoading = true;
+          });
         //   builder.addCase(deletePost.fulfilled, (state, action) => {
         //     state.posts = state.posts.filter(
         //       (post) => post._id !== action.payload.post._id

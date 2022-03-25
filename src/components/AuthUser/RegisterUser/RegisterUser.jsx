@@ -59,7 +59,7 @@ const RegisterUser = () => {
                 <img src={logo} />
                 </div>
                 <p>Si ya tienes cuenta, <Link to='/loginuser'>Inicia tu sesión</Link></p>
-            <h2 className='register-title'>Registrate</h2>
+            <h2 className='register-title card animate__animated animate__shakeY'>Registrate</h2>
             <form onSubmit={onSubmit}>
                 <input type="text" name="name" value={name} onChange={onChange} required placeholder='Nombre' />
                 <input type="email" name="email" value={email} onChange={onChange} required placeholder='Email' />
