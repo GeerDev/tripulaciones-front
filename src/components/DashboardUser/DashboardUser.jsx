@@ -1,4 +1,4 @@
-import PostsUser from "./PostsUser/Posts"
+import Posts from "./Posts/Posts"
 import React from 'react'
 
 
@@ -6,7 +6,7 @@ const DashboardUser = () => {
   return (
     <div>
       <h1>Dashboard User</h1>
-      <PostsUser/>
+      <Posts/>
     </div>
   )
 }
