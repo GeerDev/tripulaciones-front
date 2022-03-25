@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import user from '../features/user/userSlice';
 import company from '../features/company/companySlice';
-import challenger from '../features/challenger/challengerSlice';
+import challenge from '../features/challenge/challengeSlice';
+import comment from '../features/comment/commentSlice';
 import post from '../features/post/postSlice'
 
 export const store = configureStore({
     reducer: {
         user,
         company,
-        challenger,
+        challenge,
+        comment,
         post
     }
 })

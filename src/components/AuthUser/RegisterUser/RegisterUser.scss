@@ -49,14 +49,6 @@
                 width: 100%;
                 height: auto;
             }
-            p{
-                font-size: 18px;
-                line-height: 1.4;
-                a{
-                    text-decoration: none;
-                    color: $firstblue !important;
-                }
-            }
         }
         form{
             display: flex;
@@ -93,6 +85,15 @@
                 font-size: 15px;
                 font-weight: bold;
                 cursor: pointer;
+            }
+        }
+        p{
+            font-size: 15px;
+            line-height: 1.4;
+            margin-top: 1em;
+            a{
+                text-decoration: none;
+                color: $firstblue !important;
             }
         }
     }

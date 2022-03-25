@@ -62,7 +62,6 @@ const RegisterCompany = () => {
       <div className='logo-register'>
         <img src={logo}/>
       </div>
-      <p>Si ya tienes cuenta de empresa, <Link to='/loginCompany'>Inicia tu sesión</Link></p>
       <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
@@ -78,6 +77,7 @@ const RegisterCompany = () => {
         <input type="password" placeholder="Repita la contraseña" name="password2" value={password2} required onChange={onChange} />
         <button type="submit">Registrar</button>
       </form>
+      <p>Si ya tienes cuenta de empresa, <Link to='/loginCompany'>Inicia tu sesión</Link></p>
       </section>
     </div>
   )
