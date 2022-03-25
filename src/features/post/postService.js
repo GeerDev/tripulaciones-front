@@ -9,7 +9,7 @@ const createPost = async (post) => {
             authorization: user?.token
         }
     })
-    return res.data
+    return res.data 
 }
 
 const getAllPost = async () => {

@@ -40,8 +40,8 @@ const onSubmit = async (e) => {
     <form id = "create_form" onSubmit={onSubmit}>
     <h1>Crear una publicación</h1>
         <input type="text" name="description" value={description} placeholder="Escribe aqui tu publicacion" id="description" onChange={onChange} />
-        <button className="back-postbutton">Cancelar</button>
-        <button type="submit" className="submit-postbutton">Publicar</button>
+        <button>Cancelar</button>
+        <button type="submit">Publicar</button>
     </form>
     </div>
   )
