@@ -34,7 +34,7 @@ const logoutUser = async () => {
 
 const getById = async (_id) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const res = await axios.get(API_URL + 'users/id/'+ _id,{
+    const res = await axios.get(API_URL + '/users/id/'+ _id,{
         headers: {
             authorization: user?.token
         }
