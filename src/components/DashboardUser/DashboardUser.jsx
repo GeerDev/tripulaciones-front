@@ -1,5 +1,6 @@
 import Posts from "./Posts/Posts"
 import React from 'react'
+import ChallengesUser from "./ChallengesUser/ChallengesUser"
 
 
 const DashboardUser = () => {
@@ -9,7 +10,7 @@ const DashboardUser = () => {
       <h2>Posts</h2>
       <Posts/>
       <h2>Challenges</h2>
-      
+      <ChallengesUser />
     </div>
   )
 }

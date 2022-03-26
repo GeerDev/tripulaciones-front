@@ -1,12 +1,12 @@
 import AddChallenge from "./AddChallenge/AddChallenge"
-import Challenges from "./Challenges/Challenges"
+import ChallengesAdmin from "./ChallengesAdmin/ChallengesAdmin"
 
 const DashboardAdmin = () => {
     return (
       <>
       <div>DashboardAdmin</div>
       <AddChallenge />
-      <Challenges />
+      <ChallengesAdmin />
       </>
     )
   }

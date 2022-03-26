@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAll } from '../../../features/challenge/challengeSlice'
 
-import Challenge from './Challenge/Challenge'
+import ChallengeAdmin from './ChallengeAdmin/ChallengeAdmin'
 
-const Challenges = () => {
+const ChallengesAdmin = () => {
 
   const dispatch = useDispatch()
   const { challenges } = useSelector( state => state.challenge)
@@ -20,7 +20,7 @@ const Challenges = () => {
     <h2>Retos</h2>
     {
       arrayChallenges.map(challenge => (
-        <Challenge 
+        <ChallengeAdmin 
             key= { challenge._id } 
             {...challenge}
             />
@@ -30,4 +30,4 @@ const Challenges = () => {
   )
 }
 
-export default Challenges
+export default ChallengesAdmin
