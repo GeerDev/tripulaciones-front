@@ -39,9 +39,6 @@ const updatePost = async (post) => {
             authorization: user?.token,
         }
     })
-    if (res.data) {
-        getByIdPost()
-    }
     return res.data;
 }
 
@@ -88,7 +85,7 @@ const postUserService = {
     updatePost,
     deletePost,
     like,
-    disLike
+    disLike,
 }
 
 export default postUserService;
