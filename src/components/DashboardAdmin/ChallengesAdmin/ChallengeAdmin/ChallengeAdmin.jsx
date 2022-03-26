@@ -1,4 +1,4 @@
-const Challenge = ({ _id, title, description, imageChallenge }) => {
+const ChallengeAdmin = ({ _id, title, description, imageChallenge }) => {
     console.log(imageChallenge);
   return (
     <div key={_id}>
@@ -16,4 +16,4 @@ const Challenge = ({ _id, title, description, imageChallenge }) => {
   );
 };
 
-export default Challenge;
+export default ChallengeAdmin;

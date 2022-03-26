@@ -7,7 +7,7 @@ const initialState = {
     user: user ? user : null,
     isSuccess: false,
     isError: false,
-    infoById: {},
+    userNow: {},
     message: ''
 };
 
@@ -20,6 +20,9 @@ export const userSlice = createSlice({
             state.isSuccess = false;
             state.message = " ";
         },
+        resetUser: (state) => {
+            state.userNow = {};
+          },
     },
     extraReducers: (builder) => {
         builder
@@ -44,7 +47,7 @@ export const userSlice = createSlice({
                 state.user = null;
             })
             .addCase(getById.fulfilled, (state, action) => {
-                state.infoById = action.payload
+                state.userNow = action.payload
             })
     }
 });
@@ -68,21 +71,23 @@ export const loginUser = createAsyncThunk("user/login", async (user, thunkApi) =
     }
 })
 
-export const logoutUser = createAsyncThunk("user/logout", async () => {
+export const logoutUser = createAsyncThunk("user/logout", async (thunkApi) => {
     try {
         return await userService.logoutUser()
     } catch (error) {
-        console.error(error)
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message)
     }
 })
 
-export const getById = createAsyncThunk("user/getById", async (_id) => {
+export const getById = createAsyncThunk("user/getById", async (_id, thunkApi) => {
     try {
-        return await userService.getById()
+        return await userService.getById(_id)
     } catch (error) {
-        console.error(error)
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message)
     }
 })
 
-export const { reset } = userSlice.actions;
+export const { reset, resetUser } = userSlice.actions;
 export default userSlice.reducer;
