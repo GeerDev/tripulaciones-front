@@ -26,12 +26,17 @@ const PostUser = () => {
   const post = allPosts.map((post) => {
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
-
     return (
       <div>
         <Link to={"/user/post/" + post._id}>
         {post.userId.name && (<p>{post.userId?.name}</p>)}
         <p>{post.description}</p>
+        <img
+          src={`http://localhost:4000/images/Post/` + post.imagePost}
+          alt="Imagen Post"
+          width={320}
+        />
+
         </Link>
         <span className="interactions">
           {isLiked > 0 ? (
