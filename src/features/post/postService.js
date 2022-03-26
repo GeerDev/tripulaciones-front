@@ -88,7 +88,7 @@ const postUserService = {
     updatePost,
     deletePost,
     like,
-    disLike
+    disLike,
 }
 
 export default postUserService;
