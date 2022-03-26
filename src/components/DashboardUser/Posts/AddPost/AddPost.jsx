@@ -21,12 +21,6 @@ const AddPost = () => {
   }, [isError, isSuccess, message,  navigate,dispatch]);
 
 
-//   const onChange = (e)=>{
-//     setFormData((prevState)=> ({
-//         ...prevState,
-//         [e.target.name]:e.target.value,
-//     }))
-// }
 const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
