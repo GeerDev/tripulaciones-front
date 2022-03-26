@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { getById, resetUser } from '../../../features/user/userSlice'
+import './ProfileUser.scss'
 
 import { Tabs } from 'antd';
 import SearchUser from './SearchUser/SearchUser';
@@ -22,6 +23,7 @@ const ProfileUser = () => {
 
   return (
     <>
+      <div className='user-profile'>
         <img
         src={`http://localhost:4000/images/User/` + imageUser}
         alt="Imagen User"
@@ -55,7 +57,8 @@ const ProfileUser = () => {
                     </div>
                   </TabPane>
               </Tabs>
-              <SearchUser />
+        <SearchUser />
+        </div>
     </>
 
 
