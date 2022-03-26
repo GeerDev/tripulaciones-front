@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getByIdPost, reset } from "../../../../features/post/postSlice";
+import { AddComment } from "./AddComment/AddComment";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -23,11 +24,18 @@ const PostDetail = () => {
     <div>
       <p>{post.userId?.name}</p>
       <p>{post.description}</p>
-      <div >{post.comments?.map(comment => <div>
-        <span>
-      <p>{comment?.userId?.name}</p>
-      </span>
-      <p>{comment?.comment}</p></div>)}</div>
+      <h2>Comentarios</h2>
+      <hr />
+      <div>
+      {
+      post.comments?.map(comment => 
+      <div>
+      <span><p>{comment?.userId?.name}</p></span>
+      <p>{comment?.comment}</p>
+      </div>)
+      }
+      </div>
+      <AddComment _id = {_id} />
     </div>
   );
 };
