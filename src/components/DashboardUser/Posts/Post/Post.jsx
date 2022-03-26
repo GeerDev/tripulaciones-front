@@ -30,6 +30,7 @@ const PostUser = () => {
     return (
       <div>
         <Link to={"/user/post/" + post._id}>
+        {post.userId.name && (<p>{post.userId?.name}</p>)}
         <p>{post.description}</p>
         </Link>
         <span className="interactions">

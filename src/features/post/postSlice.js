@@ -136,16 +136,16 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
             state.posts = posts;
             state.post = action.payload;
           });
-        //   builder.addCase(updatePost.fulfilled, (state, action) => {
-        //     const posts = state.posts.map((post) => {
-        //       if (post._id === action.payload._id) {
-        //         post = action.payload;
-        //       }
-        //       return post;
-        //     });
-        //     state.posts = posts;
-        //     state.post = action.payload;
-        //   });
+          builder.addCase(updatePost.fulfilled, (state, action) => {
+            const posts = state.posts.map((post) => {
+              if (post._id === action.payload._id) {
+                post = action.payload;
+              }
+              return post;
+            });
+            state.posts = posts;
+            state.post = action.payload;
+          });
     }
 })
 
