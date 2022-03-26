@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getById, resetUser } from '../../../features/user/userSlice'
 
 import { Tabs } from 'antd';
+import SearchUser from './SearchUser/SearchUser';
 const { TabPane } = Tabs;
 
 const ProfileUser = () => {
@@ -54,7 +55,7 @@ const ProfileUser = () => {
                     </div>
                   </TabPane>
               </Tabs>
-              
+              <SearchUser />
     </>
 
 

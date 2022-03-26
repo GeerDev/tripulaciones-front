@@ -8,6 +8,7 @@ const initialState = {
     isSuccess: false,
     isError: false,
     userNow: {},
+    userSearch: [],
     message: ''
 };
 
@@ -23,6 +24,9 @@ export const userSlice = createSlice({
         resetUser: (state) => {
             state.userNow = {};
           },
+        resetSearch: (state) => {
+            state.userSearch = [];
+        }  
     },
     extraReducers: (builder) => {
         builder
@@ -48,6 +52,9 @@ export const userSlice = createSlice({
             })
             .addCase(getById.fulfilled, (state, action) => {
                 state.userNow = action.payload
+            })
+            .addCase(searchByName.fulfilled, (state, action) => {
+                state.userSearch = action.payload;
             })
     }
 });
@@ -89,5 +96,14 @@ export const getById = createAsyncThunk("user/getById", async (_id, thunkApi) =>
     }
 })
 
-export const { reset, resetUser } = userSlice.actions;
+export const searchByName = createAsyncThunk("user/searchByName", async (name, thunkAPI) => {
+    try {
+      return await userService.searchByName(name);
+    } catch (error) {
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+export const { reset, resetUser, resetSearch } = userSlice.actions;
 export default userSlice.reducer;
