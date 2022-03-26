@@ -6,8 +6,6 @@ import { notification } from "antd";
 import { createPost, getAllPost, reset } from "../../../../features/post/postSlice";
 
 const AddPost = () => {
-  const [formData, setFormData] = useState({ description: ""});
-  const { description } = formData;
   const { isError, isSuccess, message } = useSelector( (state) => state.post )
   const navigate = useNavigate();
   const dispatch = useDispatch()
@@ -23,24 +21,27 @@ const AddPost = () => {
   }, [isError, isSuccess, message,  navigate,dispatch]);
 
 
-  const onChange = (e)=>{
-    setFormData((prevState)=> ({
-        ...prevState,
-        [e.target.name]:e.target.value,
-    }))
-}
+//   const onChange = (e)=>{
+//     setFormData((prevState)=> ({
+//         ...prevState,
+//         [e.target.name]:e.target.value,
+//     }))
+// }
 const onSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    if (e.target.imagePost.files[0]) formData.set('imagePost', e.target.imagePost.files[0]);
+    formData.set('description', e.target.description.value)
        await dispatch(createPost(formData));
        await dispatch(getAllPost())
-      setFormData({ description: ""})
     }
 
   return (
     <div>
-    <form id = "create_form" onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
     <h1>Crear una publicación</h1>
-        <input type="text" name="description" value={description} placeholder="Escribe aqui tu publicacion" id="description" onChange={onChange} />
+        <input type="file" name="imagePost"/>
+        <input type="text" name="description" placeholder="Escribe aqui tu publicacion" />
         <button>Cancelar</button>
         <button type="submit">Publicar</button>
     </form>
