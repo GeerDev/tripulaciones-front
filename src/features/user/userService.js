@@ -34,7 +34,7 @@ const logoutUser = async () => {
 
 const getById = async (_id) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const res = await axios.get(API_URL + 'users/id/'+ _id,{
+    const res = await axios.get(API_URL + '/users/id/'+ _id,{
         headers: {
             authorization: user?.token
         }
@@ -42,12 +42,22 @@ const getById = async (_id) => {
     return res.data
 }
 
+const searchByName = async (name) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const res = await axios(API_URL + `/users/name/${name}`,{
+        headers: {
+            authorization: user?.token
+        }
+    });
+    return res.data;
+};
 
 const userService = {
     registerUser,
     loginUser,
     logoutUser,
-    getById
+    getById,
+    searchByName
 };
 
 export default userService;

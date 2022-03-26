@@ -7,7 +7,8 @@ const initialState = {
     user: user ? user : null,
     isSuccess: false,
     isError: false,
-    infoById: {},
+    userNow: {},
+    userSearch: [],
     message: ''
 };
 
@@ -20,6 +21,12 @@ export const userSlice = createSlice({
             state.isSuccess = false;
             state.message = " ";
         },
+        resetUser: (state) => {
+            state.userNow = {};
+          },
+        resetSearch: (state) => {
+            state.userSearch = [];
+        }  
     },
     extraReducers: (builder) => {
         builder
@@ -44,7 +51,10 @@ export const userSlice = createSlice({
                 state.user = null;
             })
             .addCase(getById.fulfilled, (state, action) => {
-                state.infoById = action.payload
+                state.userNow = action.payload
+            })
+            .addCase(searchByName.fulfilled, (state, action) => {
+                state.userSearch = action.payload;
             })
     }
 });
@@ -68,21 +78,32 @@ export const loginUser = createAsyncThunk("user/login", async (user, thunkApi) =
     }
 })
 
-export const logoutUser = createAsyncThunk("user/logout", async () => {
+export const logoutUser = createAsyncThunk("user/logout", async (thunkApi) => {
     try {
         return await userService.logoutUser()
     } catch (error) {
-        console.error(error)
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message)
     }
 })
 
-export const getById = createAsyncThunk("user/getById", async (_id) => {
+export const getById = createAsyncThunk("user/getById", async (_id, thunkApi) => {
     try {
-        return await userService.getById()
+        return await userService.getById(_id)
     } catch (error) {
-        console.error(error)
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message)
     }
 })
 
-export const { reset } = userSlice.actions;
+export const searchByName = createAsyncThunk("user/searchByName", async (name, thunkAPI) => {
+    try {
+      return await userService.searchByName(name);
+    } catch (error) {
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+export const { reset, resetUser, resetSearch } = userSlice.actions;
 export default userSlice.reducer;

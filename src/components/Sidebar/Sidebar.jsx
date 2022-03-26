@@ -1,29 +1,32 @@
 import { useDispatch, useSelector} from "react-redux";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../features/user/userSlice";
 
 
 const Sidebar = () => {
+
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user)
     
     const onLogoutUser = (e) => {
         e.preventDefault();
         dispatch(logoutUser());
+        navigate("/loginuser");
     }
 
     return (
         <nav>
-            <div> {user ?
+            <div> {user &&
                 <>
                     <ul>
                         <li>
-                            <Link to='user/profile'>
+                            <Link to={`/user/profile/${user?.user._id}`}>
                                 {user?.user.name}
                             </Link>
                         </li>
                         <li>
-                            <Link to='/user'>
+                            <Link to={`/user`}>
                                 Home
                             </Link>
                         </li>
@@ -37,13 +40,6 @@ const Sidebar = () => {
                                 Logout
                             </Link>
                         </li>
-                    </ul>
-                </>
-                :
-                <>
-                    <ul>
-                        <li> <Link to='/registeruser'>Registro</Link> </li>
-                        <li> <Link to='/loginuser'>Login</Link> </li>
                     </ul>
                 </>
             }
