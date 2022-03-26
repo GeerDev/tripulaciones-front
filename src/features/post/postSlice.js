@@ -116,37 +116,36 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
               (post) => post._id !== action.payload.post._id
             );
           });
-        //   builder.addCase(like.fulfilled, (state, action) => {
-        //     const posts = state.posts.map((post) => {
-        //       if (post._id === action.payload._id) {
-        //         post = action.payload;
-        //       }
-      
-        //       return post;
-        //     });
-        //     state.posts = posts;
-        //     state.post = action.payload;
-        //   });
-        //   builder.addCase(disLike.fulfilled, (state, action) => {
-        //     const posts = state.posts.map((post) => {
-        //       if (post._id === action.payload._id) {
-        //         post = action.payload;
-        //       }
-        //       return post;
-        //     });
-        //     state.posts = posts;
-        //     state.post = action.payload;
-        //   });
-        //   builder.addCase(updatePost.fulfilled, (state, action) => {
-        //     const posts = state.posts.map((post) => {
-        //       if (post._id === action.payload._id) {
-        //         post = action.payload;
-        //       }
-        //       return post;
-        //     });
-        //     state.posts = posts;
-        //     state.post = action.payload;
-        //   });
+          builder.addCase(like.fulfilled, (state, action) => {
+            const posts = state.posts.map((post) => {
+              if (post._id === action.payload._id) {
+                post = action.payload;
+              }
+              return post;
+            });
+            state.posts = posts;
+            state.post = action.payload;
+          });
+          builder.addCase(disLike.fulfilled, (state, action) => {
+            const posts = state.posts.map((post) => {
+              if (post._id === action.payload._id) {
+                post = action.payload;
+              }
+              return post;
+            });
+            state.posts = posts;
+            state.post = action.payload;
+          });
+          builder.addCase(updatePost.fulfilled, (state, action) => {
+            const posts = state.posts.map((post) => {
+              if (post._id === action.payload._id) {
+                post = action.payload;
+              }
+              return post;
+            });
+            state.posts = posts;
+            state.post = action.payload;
+          });
     }
 })
 

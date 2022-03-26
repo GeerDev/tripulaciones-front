@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
-      <div className="card animate__animated animate__fadeIn">
-        <div>
+  <div className="card animate__animated animate__fadeIn">
+  <div>
   <div className="starsec"></div>
   <div className="starthird"></div>
   <div className="starfourth"></div>
   <div className="starfifth"></div>
 </div>
-
 
 <div className="lamp__wrap">
   <div className="lamp">
