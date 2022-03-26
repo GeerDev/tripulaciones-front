@@ -1,11 +1,14 @@
 import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { deletePost, disLike, like } from "../../../../features/post/postSlice";
+import { Link, useParams } from "react-router-dom";
+import { deletePost, disLike, getByIdPost, like, reset } from "../../../../features/post/postSlice";
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
+import EditModal from "./EditModal/EditModal";
+import { useState } from "react";
 
 
 const PostUser = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
     const { posts, isLoading } = useSelector((state) => state.post);
     const { user } = useSelector((state) => state.user);
     const allPosts = posts || [];
@@ -18,6 +21,12 @@ const PostUser = () => {
         </h1>
       );
     }
+
+    const showModal = (_id) => {
+      dispatch(getByIdPost(_id));
+      setIsModalVisible(true);
+      dispatch(reset())
+    };
     
     const deleteHere = async (_id) => {
       await dispatch(deletePost(_id));
@@ -99,7 +108,9 @@ const PostUser = () => {
           )}
           <span>{post.comments.length} comentarios</span>
           </span>
+          <button onClick={() => showModal(post._id)}>Edita</button>
         <button onClick={() => deleteHere(post._id)}>Eliminar</button>
+        <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
       </div>
     );
   });

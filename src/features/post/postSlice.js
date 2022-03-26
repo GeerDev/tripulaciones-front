@@ -146,6 +146,7 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
             state.posts = posts;
             state.post = action.payload;
           });
+          
     }
 })
 
