@@ -53,12 +53,23 @@ const confirm = async (_id, company) => {
     return res.data;
 }
 
+const getRankingCompanies = async () => {
+    const company = JSON.parse(localStorage.getItem('company'));
+    const res = await axios(API_URL + "/companies/", {
+        headers: {
+          authorization: company?.token
+        },
+      });
+    return res.data
+}
+
 const companyService = {
     register,
     login,
     logout,
     getAllCompanies,
-    confirm
+    confirm,
+    getRankingCompanies
 }
 
 export default companyService;

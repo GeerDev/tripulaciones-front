@@ -59,6 +59,9 @@ export const companySlice = createSlice({
             })
             state.companies = companies
           });
+        builder.addCase(getRankingCompanies.fulfilled, (state, action) => {
+            state.companies = action.payload;
+        });
     }
 })
 
@@ -100,6 +103,14 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
   export const confirm = createAsyncThunk("posts/confirmCompany", async (_id) => {
     try {
       return await companyService.confirm(_id);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+  export const getRankingCompanies = createAsyncThunk("companies/getRankingCompanies", async () => {
+    try {
+      return await companyService.getRankingCompanies();
     } catch (error) {
       console.error(error);
     }
