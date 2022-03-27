@@ -25,7 +25,6 @@ const ProfileUser = () => {
 
   const deleteUser = (async ()=> {
     await dispatch(deleteMySelf());
-    await dispatch(navigate(`/registeruser`))
   })
 
   return (
@@ -43,10 +42,9 @@ const ProfileUser = () => {
         <Link to={`/user/edit/${_id}`}>
         <button>Edita Perfil</button>
         </Link>
-
-        {/* Funcionalidad para implemetar borrar mi propia cuenta */}
+        <Link to={`/`}>
         <button onClick={() => deleteUser()}>Borra Tu Cuenta</button>
-
+        </Link>
         <Tabs defaultActiveKey="1">
                   <TabPane tab="Tus publicaciones" key="1">
                     <div className="tabs">

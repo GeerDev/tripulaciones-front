@@ -1,13 +1,20 @@
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from "react-router-dom";
-import { updateUser } from '../../../features/user/userSlice'
+import { updateUser, getById } from '../../../features/user/userSlice'
 
 const EditUser = () => {
+
+  const [nameValue, setNameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
   
   const { _id } = useParams();
+
+  const { userNow } = useSelector( state => state.user )
+  const { name, email } = userNow
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -21,11 +28,20 @@ const EditUser = () => {
     }, 1000);
   }
 
+  useEffect(() => {
+    dispatch(getById(_id))
+  },[])
+
+  useEffect(() => {
+    setNameValue(name)
+    setEmailValue(email)
+  },[name, email])
+
   return (
     <form onSubmit={onSubmit}>
         <input type="file" name="imageUser"/>
-        <input type="text" name="name" placeholder="Nombre..." />
-        <input type="text" name="email" placeholder="Email..." />
+        <input type="text" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
+        <input type="text" name="email" placeholder="Email..." value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
         <button type="submit">Editar</button>
     </form>
   )
