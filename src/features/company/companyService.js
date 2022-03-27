@@ -50,7 +50,7 @@ const confirm = async (_id, company) => {
             authorization: user?.token,
         }
     })
-    console.log(res.data)
+    console.log("Hola desde el servicio:", res.data)
     return res.data;
 }
 

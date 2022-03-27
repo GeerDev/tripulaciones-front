@@ -50,8 +50,14 @@ export const companySlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(confirm.fulfilled, (state, action) => {
-            state.company = action.payload;
             state.isLoading = false;
+            const companies = state.companies.map((element) => {
+                if (element._id === action.payload.company._id) {
+                  element = action.payload.company;
+                }
+                return element
+            })
+            state.companies = companies
           });
     }
 })
