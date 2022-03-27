@@ -1,6 +1,6 @@
 import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deletePost, disLike, getByIdPost, like, reset } from "../../../../features/post/postSlice";
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import EditModal from "./EditModal/EditModal";

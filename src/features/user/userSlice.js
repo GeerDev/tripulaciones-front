@@ -65,6 +65,10 @@ export const userSlice = createSlice({
               })
               state.user = user
               })
+              .addCase(deleteMySelf.fulfilled, (state, action) => {
+                state.user = null;
+                state.message = action.payload;
+              });
     }
 });
 
@@ -120,6 +124,14 @@ export const updateUser = createAsyncThunk("user/updateUser", async (user, thunk
     } catch (error) {
       const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+  export const deleteMySelf = createAsyncThunk("user/deleteMySelf", async () => {
+    try {
+      return await userService.deleteMySelf();
+    } catch (error) {
+      console.error(error);
     }
   });
 
