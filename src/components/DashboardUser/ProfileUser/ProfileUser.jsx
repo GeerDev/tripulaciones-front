@@ -17,8 +17,6 @@ const ProfileUser = () => {
 
   useEffect(() => {
     dispatch(getById(_id))
-
-    return () => dispatch(resetUser())
   },[])
 
   return (
