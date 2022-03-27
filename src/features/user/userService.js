@@ -59,9 +59,18 @@ const updateUser = async (userData) => {
         authorization: user?.token,
       },
     });
-    console.log(res.data);
     return res.data;
   };
+
+  const deleteMySelf = async () => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    const res = await axios.delete(API_URL + '/users/', {
+        headers: {
+            authorization: user?.token
+        }
+    })
+    return res.data
+}
 
 const userService = {
     registerUser,
@@ -69,7 +78,8 @@ const userService = {
     logoutUser,
     getById,
     searchByName,
-    updateUser
+    updateUser,
+    deleteMySelf
 };
 
 export default userService;

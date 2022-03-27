@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from "react-router-dom";
-import { getById } from '../../../features/user/userSlice'
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { deleteMySelf, getById } from '../../../features/user/userSlice'
 import './ProfileUser.scss'
 
 import { Tabs } from 'antd';
@@ -9,15 +9,23 @@ import SearchUser from './SearchUser/SearchUser';
 const { TabPane } = Tabs;
 
 const ProfileUser = () => {
+  const { companies } = useSelector((state) => state.company);
+
 
   const { _id } = useParams();
   const dispatch = useDispatch()
+  const navigate = useNavigate();
+
   const { userNow } = useSelector( state => state.user )
   const { name, email, imageUser, postIds, favorites } = userNow
 
   useEffect(() => {
     dispatch(getById(_id))
   },[])
+
+  const deleteUser = (async ()=> {
+    await dispatch(deleteMySelf());
+  })
 
   return (
     <>
@@ -91,10 +99,9 @@ const ProfileUser = () => {
         <Link to={`/user/edit/${_id}`}>
         <button>Edita Perfil</button>
         </Link>
-
-        <button onClick={() => console.log("Hola")}>Borra Tu Cuenta</button>
-        </div>
-        <div>
+        <Link to={`/`}>
+        <button onClick={() => deleteUser()}>Borra Tu Cuenta</button>
+        </Link>
         <Tabs defaultActiveKey="1">
                   <TabPane tab="Tus publicaciones" key="1">
                     <div className="tabs">
