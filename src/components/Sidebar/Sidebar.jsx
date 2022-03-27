@@ -93,7 +93,6 @@ const Sidebar = () => {
                                                 />
                                             </div>
                                             <h3 className="name-profile-sidebar">{name}</h3>
-
                                             <ul>
                                                 <li>
                                                     <Link to={`/user`}>
