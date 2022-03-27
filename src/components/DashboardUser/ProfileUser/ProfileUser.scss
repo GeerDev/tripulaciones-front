@@ -5,8 +5,13 @@
     justify-content: center;
     align-items: center;
 }
+#link-edit{
+    color: $firstblue;
+    &:hover{
+        color: $firstblue;
+    }
+}
 .profile-info{
-    border: 1px solid black;
     padding: 2em;
 	position: absolute;
 	top: 50px;
@@ -127,9 +132,9 @@
 		#save {
 			border: none;
 			background-color: $firstblue;
-			font-size: 25px;
+			font-size: 15px;
 			color: #fff;
-			width: calc(100% - 80px - 20px);
+			width: calc(100% - 40px - 10px);
 		}
 	}
 	#home-bar {

@@ -21,29 +21,42 @@ const ProfileUser = () => {
 
   return (
     <>
+    <div className="main-container">
+    <div className="container-1">
     <main className="profile-info">
 	<div id="profil-container">
 		<h1 id="profile">Profile</h1>
 	</div>
-	<img id="profile-picture" src="https://pbs.twimg.com/profile_images/1229609043108540416/cRAoH7_f_400x400.jpg" alt="Profile Picture"/>
+	<img id="profile-picture" src={`http://localhost:4000/images/User/` + imageUser} alt="Imagen User"/>
 	<div id="container-info">
 		<ul>
-			<li><h3 id="name">Black Rose</h3></li>
-			<li id="mail">black.rose@icloud.com</li>
+			<li><h3 id="name">{ name }</h3></li>
+			<li id="mail">{ email }</li>
 			<li className="line"></li>
 			<li>
-				<h2 class="info">My Project</h2>
+				<h2 className="info">My Project</h2>
 			</li>
 			<li>
-				<h2 class="info">Account</h2>
+				<h2 className="info">Account</h2>
 			</li>
+      <li>
+        <h2 className="info" id="link-edit"><Link to={`/user/edit/${_id}`}>
+        Editar perfil
+        </Link></h2>
+      </li>
 		</ul>
 	</div>
 	<div id="button">
-		<div id="save" class="button">save</div>
+		<div id="save" className="button">save</div>
+    <div id="save" className="button">Borra Tu Cuenta</div>
 	</div>
 	<div id="home-bar"></div>
 </main>
+    </div>
+    <div className="container-2">
+
+    </div>
+    </div>
       {/* <div className='user-profile'>
         <img
         src={`http://localhost:4000/images/User/` + imageUser}
