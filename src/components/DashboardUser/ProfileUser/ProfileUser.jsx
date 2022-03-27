@@ -26,16 +26,73 @@ const ProfileUser = () => {
 
   return (
     <>
-      <div className='user-profile'>
+    
+      <div className="container-1">
+        <main className="profile-info">
+	      <div id="profil-container">
+		      <h1 id="profile">Profile</h1>
+	      </div>
+	  <img id="profile-picture" src={`http://localhost:4000/images/User/` + imageUser} alt="Imagen User"/>
+	  <div id="container-info">
+		  <ul>
+			<li><h3 id="name">{ name }</h3></li>
+			<li id="mail">{ email }</li>
+			<li className="line"></li>
+      <div id="button">
+    <div id="save" className="button">Borra Tu Cuenta</div>
+	</div>
+      <li>
+        <h2 className="info" id="link-edit"><Link to={`/user/edit/${_id}`}>
+        Editar perfil
+        </Link></h2>
+      </li>
+		</ul>
+	</div>
+    </main>
+    </div>
+      <div className="container-2">
+        <div className="posts-favs">
+      <Tabs defaultActiveKey="1">
+                  <TabPane tab="Tus publicaciones" key="1">
+                    <div className="tabs">
+                    {
+                        postIds && postIds.map(post => (
+                            <div key = {post._id} className='inside card animate__animated animate__fadeIn'>
+                              <div>
+                                <p className="post-book">{ post.description }</p>
+                              </div>
+                            </div>
+                          ))
+                    }
+                    </div>
+                  </TabPane>
+                  <TabPane tab="Tus favoritos" key="2">
+                  <div className="tabs">
+                    {
+                        favorites && favorites.map(post => (
+                            <div key = {post._id} className='inside card animate__animated animate__fadeIn'>
+                                        <p className="post-book">{ post.description }</p>
+                            </div>
+                          ))
+                    }
+                    </div>
+                  </TabPane>
+              </Tabs>
+        </div>
+              <div className="search-user">
+          <SearchUser />
+              </div>
+    </div>
+  
+      {/* <div className='user-profile'>
         <img
         src={`http://localhost:4000/images/User/` + imageUser}
         alt="Imagen User"
         width={320}
         />
-
-        <h3>{ name }</h3>
-        <h4>{ email }</h4>
-
+        <div className="profile-info">
+          <h3>{ name }</h3>
+          <h4>{ email }</h4>
         <Link to={`/user/edit/${_id}`}>
         <button>Edita Perfil</button>
         </Link>
@@ -66,8 +123,9 @@ const ProfileUser = () => {
                     </div>
                   </TabPane>
               </Tabs>
-        <SearchUser />
         </div>
+        <SearchUser />
+        </div> */}
     </>
 
 

@@ -1,45 +1,5 @@
 @import '../../colors.scss';
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-text-size-adjust: none;
-}
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-body {
-  padding: 0;
-  margin: 0;
-  background: white;
-  font-size: 14px;
-  line-height: 1;
-}
-label {
-  cursor: pointer;
-}
-a {
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  background: transparent;
-  text-decoration: none;
-  color: $firstblue;
-}
-input, select, button, textarea {
-  margin: 0;
-  font-size: 100%;
-}
-html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input {
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
+
 .starsec{
   content: " ";
     position: absolute;
@@ -89,14 +49,7 @@ fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, 
     transform: translateY(-2000px);
 }
 }
-button {
-  border: none;
-  padding: 0;
-  font-size: 0;
-  line-height: 0;
-  background: none;
-  cursor: pointer;
-}
+
 
 :focus {
   outline: 0;
