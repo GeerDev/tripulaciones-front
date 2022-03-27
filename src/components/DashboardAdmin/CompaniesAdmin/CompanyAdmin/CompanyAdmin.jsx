@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { confirm, getAllCompanies } from "../../../../features/company/companySlice";
+import { confirm } from "../../../../features/company/companySlice";
 
 const CompanyAdmin = () => {
     const { companies } = useSelector((state) => state.company);
@@ -21,7 +21,7 @@ const CompanyAdmin = () => {
           <p>{company.companyType}</p>
 
     {company.confirmed ?
-    null
+    <h3>Ole! Empresa registrada con exito</h3>
     :
     <button onClick={() => confirmCompany(company._id)}>Confirmar NO TOCAR ESTE BOTON POR FAVOR!!!</button>
     }

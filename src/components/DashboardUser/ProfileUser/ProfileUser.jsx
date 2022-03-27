@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getById, resetUser } from '../../../features/user/userSlice'
 import './ProfileUser.scss'
 
@@ -32,6 +32,13 @@ const ProfileUser = () => {
 
         <h3>{ name }</h3>
         <h4>{ email }</h4>
+
+        <Link to={`/user/edit/${_id}`}>
+        <button>Edita Perfil</button>
+        </Link>
+
+        {/* Funcionalidad para implemetar borrar mi propia cuenta */}
+        <button onClick={() => console.log("Hola")}>Borra Tu Cuenta</button>
 
         <Tabs defaultActiveKey="1">
                   <TabPane tab="Tus publicaciones" key="1">
