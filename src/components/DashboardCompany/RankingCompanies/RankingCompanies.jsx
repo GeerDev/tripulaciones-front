@@ -1,27 +1,59 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRankingCompanies } from '../../../features/company/companySlice'
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getRankingCompanies } from "../../../features/company/companySlice";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const RankingCompanies = () => {
-
-  const dispatch = useDispatch()
-  const { companies } = useSelector( state => state.company)
+  const dispatch = useDispatch();
+  const { companies } = useSelector((state) => state.company);
 
   useEffect(() => {
-    dispatch(getRankingCompanies())
-  },[])
+    dispatch(getRankingCompanies());
+  }, []);
+  const scores = [];
+  const names = [];
+  for (let i = 0; i < companies.length; i++) {
+    scores.push(companies[i].score);
+    names.push(companies[i].name);
+  }
 
-  const mapeo = companies.map(elemento => {
-    return elemento.name
-  })
-
-  const mapeo2 = companies.map(elemento => {
-    return elemento.score
-  })
-  
   return (
-    <div>RankingCompanies... A la espera de gráfico de barras</div>
-  )
-}
+    <>
+      <Bar
+        width={4600}
+        height={3400}
+        data={{
+          labels: names,
+          datasets: [
+            {
+              label: "months",
+              data: scores,
+              backgroundColor: ["red", "blue", "yellow", "black"],
+            },
+          ],
+        }}
+      />
+    </>
+  );
+};
 
-export default RankingCompanies
+export default RankingCompanies;
