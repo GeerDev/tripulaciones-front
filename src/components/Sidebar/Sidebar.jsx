@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../features/company/companySlice";
-import { logoutUser } from "../../features/user/userSlice";
+import { logoutUser, getById } from "../../features/user/userSlice";
+import { useEffect } from 'react';
 import './Sidebar.scss';
 import profile from '../../img/profile.svg'
 import home from '../../img/home.svg'
@@ -14,9 +15,8 @@ const Sidebar = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { userNow } = useSelector(state => state.user)
-    const { name, imageUser } = userNow
-    const { user } = useSelector((state) => state.user)
+    const { user, userNow } = useSelector((state) => state.user)
+ 
     const { company } = useSelector((state) => state.company)
 
     const onLogoutUser = (e) => {
@@ -30,6 +30,10 @@ const Sidebar = () => {
         dispatch(logout());
         navigate("/loginCompany");
     }
+
+    useEffect(() => {
+        dispatch(getById(user.user._id))
+      },[])
 
     return (
         <>
@@ -59,7 +63,7 @@ const Sidebar = () => {
                                     <>
                                         <ul>
                                             <li>
-                                                {user?.user.name}
+                                                {userNow.name}
                                             </li>
                                             <li>
                                                 <Link to={`/admin`}>
@@ -89,35 +93,36 @@ const Sidebar = () => {
                                             <div className="profile-img">
                                                 <img
                                                     className="img-user-profile"
-                                                    src={`http://localhost:4000/images/User/` + imageUser}
+                                                    src={`http://localhost:4000/images/User/` + userNow.imageUser}
                                                 />
                                             </div>
-                                            <h3 className="name-profile-sidebar">{name}</h3>
+                                            <h3 className="name-profile-sidebar">{userNow.name}</h3>
+
                                             <ul>
                                                 <li>
                                                     <Link to={`/user`}>
                                                         <img src={home} />
-                                                        Home
+                                                        <span>Home</span> 
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={`/user/profile/${user?.user._id}`}>
                                                         <img src={profile} />
-                                                        {user?.user.name}
+                                                    <span>Profile</span> 
                                                     </Link>
 
                                                 </li>
                                                 <li>
                                                     <Link to='/user/forms'>
                                                         <img src={checklist} />
-                                                        Forms
+                                                    <span>Forms</span> 
                                                     </Link>
 
                                                 </li>
                                                 <li>
                                                     <Link to='/loginuser' onClick={onLogoutUser}>
                                                         <img src={logoutapp} />
-                                                        Logout
+                                                         <span>Logout</span> 
                                                     </Link>
 
                                                 </li>
