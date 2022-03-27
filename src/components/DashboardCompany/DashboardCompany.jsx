@@ -8,8 +8,6 @@ const DashboardCompany = () => {
       <>
       <SearchCompany />
       <hr />
-      <ProfileCompany />
-      <hr />
       <StatsCompany />
       <hr />
       <RankingCompanies />

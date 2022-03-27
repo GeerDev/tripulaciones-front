@@ -68,6 +68,16 @@ const searchByCompanyName = async (name) => {
     return res.data;
 };
 
+const getCompanyById = async (_id) => {
+    const company = JSON.parse(localStorage.getItem('company'));
+    const res = await axios.get(API_URL + '/companies/id/'+ _id,{
+        headers: {
+            authorization: company?.token
+        }
+    })
+    return res.data
+}
+
 
 const companyService = {
     register,
@@ -76,7 +86,8 @@ const companyService = {
     getAllCompanies,
     confirm,
     getRankingCompanies,
-    searchByCompanyName
+    searchByCompanyName,
+    getCompanyById
 }
 
 export default companyService;

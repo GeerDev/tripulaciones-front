@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../features/company/companySlice";
+import { logout, getCompanyById } from "../../features/company/companySlice";
 import { logoutUser, getById } from "../../features/user/userSlice";
 import { useEffect } from 'react';
 import './Sidebar.scss';
@@ -17,7 +17,7 @@ const Sidebar = () => {
     const dispatch = useDispatch();
     const { user, userNow } = useSelector((state) => state.user)
  
-    const { company } = useSelector((state) => state.company)
+    const { company, companyInfo } = useSelector((state) => state.company)
 
     const onLogoutUser = (e) => {
         e.preventDefault();
@@ -32,7 +32,10 @@ const Sidebar = () => {
     }
 
     useEffect(() => {
-        if (user !== null) dispatch(getById(user.user._id))
+        if (user !== null)
+        {dispatch(getById(user.user._id))}  
+        else 
+        {dispatch(getCompanyById(company.company._id))}
       },[])
 
     return (
@@ -42,9 +45,14 @@ const Sidebar = () => {
                     <>
                         <ul>
                             <li>
-                                {/* <Link to={`/company/profile/${user?.user._id}`}> */}
+                                <Link to={`/company/profile/${company?.company._id}`}>
                                 {company?.company.name}
-                                {/* </Link> */}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/company`}>
+                                    Inicio
+                                </Link>
                             </li>
                             <li>
                                 <Link to='/logincompany' onClick={onLogoutCompany}>
