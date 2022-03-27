@@ -13,13 +13,14 @@ import logo from '../../../img/logo.svg';
 const RegisterCompany = () => {
   const [formData, setFormData] = useState({
     name: '',
+    companyType: '',
     nameCEO: '',
     email: '',
     phone: '',
     password: '',
     password2: '',
   })
-  const { name, CEO, email, phone, password, password2 } = formData;
+  const { name, companyType, CEO, email, phone, password, password2 } = formData;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError, isSuccess, message } = useSelector((state)=>state.company);
@@ -65,7 +66,7 @@ const RegisterCompany = () => {
       <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
-        <select name="sectors" className="input-select" defaultValue={'DEFAULT'}>
+        <select value={companyType} name="companyType" className="input-select" >
             <option value="">Tipo de empresa</option>
             <option value="PYME">PYME</option>
             <option value="Grande">Grande</option>

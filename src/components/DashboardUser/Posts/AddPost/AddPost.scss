@@ -1,0 +1,33 @@
+@import '../../../../colors.scss';
+.container-createPost{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-addPost{
+    width: 40%;
+    height: 250px;
+    color: $firstblue;
+    background-color: azure;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px 1px rgb(27, 27, 27);
+    &.text-post{
+        height: 300px;
+    }
+}
+
+.submit-post{
+    justify-content: center;
+    height: 30px;
+    background-color: $firstblue;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    color: azure;
+    border-radius: 25px;
+    margin-top: 10px;
+    &:hover{
+        background-color: $secondblue;
+        animation: alternate 2ms;
+    }
+}

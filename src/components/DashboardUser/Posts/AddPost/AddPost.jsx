@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { notification } from "antd";
 import { createPost, getAllPost, reset } from "../../../../features/post/postSlice";
+import './AddPost.scss';
 
 const AddPost = () => {
   const { isError, isSuccess, message } = useSelector( (state) => state.post )
@@ -37,13 +38,12 @@ const onSubmit = async (e) => {
     }
 
   return (
-    <div>
-    <form onSubmit={onSubmit}>
+    <div className="container-createPost">
+    <form onSubmit={onSubmit} className="form-addPost">
     <h1>Crear una publicación</h1>
+        <textarea type="text" className="text-post" name="description" placeholder="Escribe aqui tu publicacion" />
         <input type="file" name="imagePost"/>
-        <input type="text" name="description" placeholder="Escribe aqui tu publicacion" />
-        <button>Cancelar</button>
-        <button type="submit">Publicar</button>
+        <button className="submit-post" type="submit">Publicar</button>
     </form>
     </div>
   )
