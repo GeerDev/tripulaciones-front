@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getById, resetUser } from '../../../features/user/userSlice'
+import './ProfileUser.scss'
 
 import { Tabs } from 'antd';
 import SearchUser from './SearchUser/SearchUser';
@@ -16,12 +17,11 @@ const ProfileUser = () => {
 
   useEffect(() => {
     dispatch(getById(_id))
-
-    return () => dispatch(resetUser())
   },[])
 
   return (
     <>
+      <div className='user-profile'>
         <img
         src={`http://localhost:4000/images/User/` + imageUser}
         alt="Imagen User"
@@ -30,6 +30,13 @@ const ProfileUser = () => {
 
         <h3>{ name }</h3>
         <h4>{ email }</h4>
+
+        <Link to={`/user/edit/${_id}`}>
+        <button>Edita Perfil</button>
+        </Link>
+
+        {/* Funcionalidad para implemetar borrar mi propia cuenta */}
+        <button onClick={() => console.log("Hola")}>Borra Tu Cuenta</button>
 
         <Tabs defaultActiveKey="1">
                   <TabPane tab="Tus publicaciones" key="1">
@@ -55,7 +62,8 @@ const ProfileUser = () => {
                     </div>
                   </TabPane>
               </Tabs>
-              <SearchUser />
+        <SearchUser />
+        </div>
     </>
 
 

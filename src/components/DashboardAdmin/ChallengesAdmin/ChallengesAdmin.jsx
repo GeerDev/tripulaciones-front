@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAll } from '../../../features/challenge/challengeSlice'
 
 import ChallengeAdmin from './ChallengeAdmin/ChallengeAdmin'
+import AddChallenge from '../AddChallenge/AddChallenge'
 
 const ChallengesAdmin = () => {
 
@@ -18,6 +19,7 @@ const ChallengesAdmin = () => {
   return (
     <>
     <h2>Retos</h2>
+    <AddChallenge />
     {
       arrayChallenges.map(challenge => (
         <ChallengeAdmin 
