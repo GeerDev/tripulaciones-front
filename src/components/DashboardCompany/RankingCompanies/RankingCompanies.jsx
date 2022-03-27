@@ -18,10 +18,7 @@ const RankingCompanies = () => {
   const mapeo2 = companies.map(elemento => {
     return elemento.score
   })
-
-  console.log(mapeo);
-  console.log(mapeo2);
-
+  
   return (
     <div>RankingCompanies... A la espera de gráfico de barras</div>
   )

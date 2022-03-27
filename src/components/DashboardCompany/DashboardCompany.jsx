@@ -7,8 +7,11 @@ const DashboardCompany = () => {
     return (
       <>
       <SearchCompany />
+      <hr />
       <ProfileCompany />
+      <hr />
       <StatsCompany />
+      <hr />
       <RankingCompanies />
       </>
     )

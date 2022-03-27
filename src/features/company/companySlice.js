@@ -7,6 +7,7 @@ const initialState = {
     company: company ? company : null,
     companies: [],
     companyInfoProfile: {},
+    companySearch: [],
     isError: false,
     isSuccess: false,
     message: " ",
@@ -21,6 +22,9 @@ export const companySlice = createSlice({
             state.isSuccess = false;
             state.message = " ";
         },
+        resetSearchCompany: (state) => {
+            state.companySearch = [];
+        }  
     },
 
     extraReducers: (builder) => {
@@ -49,6 +53,9 @@ export const companySlice = createSlice({
         builder.addCase(getAllCompanies.pending, (state) => {
             state.isLoading = true;
         });
+        builder.addCase(searchByCompanyName.fulfilled, (state, action) => {
+            state.companySearch = action.payload;
+        })
         builder.addCase(confirm.fulfilled, (state, action) => {
             state.isLoading = false;
             const companies = state.companies.map((element) => {
@@ -116,5 +123,14 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
     }
   });
 
-export const { reset } = companySlice.actions;
+  export const searchByCompanyName = createAsyncThunk("companies/searchByCompanyName", async (name, thunkAPI) => {
+    try {
+      return await companyService.searchByCompanyName(name);
+    } catch (error) {
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+export const { reset, resetSearchCompany } = companySlice.actions;
 export default companySlice.reducer;

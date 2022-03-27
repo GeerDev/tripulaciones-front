@@ -32,7 +32,7 @@ const Sidebar = () => {
     }
 
     useEffect(() => {
-        dispatch(getById(user.user._id))
+        if (user !== null) dispatch(getById(user.user._id))
       },[])
 
     return (
