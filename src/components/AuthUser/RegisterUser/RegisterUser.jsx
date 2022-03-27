@@ -8,13 +8,17 @@ import "antd/dist/antd.css"
 import "./RegisterUser.scss"
 import empleado from '../../../img/empleado.jpg'
 import logo from '../../../img/logo.svg'
-import { getAllCompanies } from "../../../features/company/companySlice";
+import { getRankingCompanies } from "../../../features/company/companySlice";
 
 
 const RegisterUser = () => {
+    const { companies } = useSelector((state) => state.company);
+    const enterprise = companies || []
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        company: '',
         password: '',
         password2: '',
     })
@@ -31,7 +35,7 @@ const RegisterUser = () => {
             notification.success({ message: "Bienveni@", description: message?.message })
         }
         await dispatch(reset())
-        await dispatch(getAllCompanies())
+        await dispatch(getRankingCompanies())
     }, [isError, isSuccess, message, dispatch]);
 
     const onChange = (e) => {
@@ -49,9 +53,16 @@ const RegisterUser = () => {
             });
 
         } else {
+            console.log(formData)
             return dispatch(registerUser(formData))
         }
     }
+
+    const enterprises = enterprise.map((company) => {
+        return (            
+                <option value={company._id}>{company.name}</option>
+            )})
+
     return (
         <div className='register-user-form card animate__animated animate__backInRight'>
             <div className='empleado-register'>
@@ -65,8 +76,9 @@ const RegisterUser = () => {
             <form onSubmit={onSubmit}>
                 <input type="text" name="name" value={name} onChange={onChange} required placeholder='Nombre' />
                 <input type="email" name="email" value={email} onChange={onChange} required placeholder='Email' />
-                    <select name="company" id="">
-                        <option value="">Elige tu empresa</option>
+                <select name="company" id="" onChange={onChange}>
+                    <option>Elige tu empresa</option>
+                {enterprises}
                 </select>
                 <input type="password" name="password" value={password} onChange={onChange} required placeholder='Contraseña' />
                 <input type="password" name="password2" value={password2} onChange={onChange} required placeholder='Repita contraseña' />
