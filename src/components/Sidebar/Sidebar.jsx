@@ -1,5 +1,6 @@
 import { useDispatch, useSelector} from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../features/company/companySlice";
 import { logoutUser } from "../../features/user/userSlice";
 
 
@@ -8,6 +9,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user)
+    const { company } = useSelector((state) => state.company)
     
     const onLogoutUser = (e) => {
         e.preventDefault();
@@ -15,29 +17,50 @@ const Sidebar = () => {
         navigate("/loginuser");
     }
 
+    const onLogoutCompany = (e) => {
+        e.preventDefault();
+        dispatch(logout());
+        navigate("/loginCompany");
+    }
+
     return (
         <>
-        {
-            user.user.role === 'admin' ?
-                <h1>Hola Admin</h1>
-             :
+        { company ?
+                            <nav>
+                                <>
+                                    <ul>
+                                        <li>
+                                            {/* <Link to={`/company/profile/${user?.user._id}`}> */}
+                                                {company?.company.name}
+                                            {/* </Link> */}
+                                        </li>           
+                                        <li>
+                                            <Link to='/logincompany' onClick={onLogoutCompany}>
+                                                Logout
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </>
+                        </nav>    
+            :
+            <>
+            {
+                user.user.role === 'admin' ?
                 <nav>
-                <div> {user &&
+                {user &&
                     <>
                         <ul>
                             <li>
-                                <Link to={`/user/profile/${user?.user._id}`}>
                                     {user?.user.name}
+                            </li>
+                            <li>
+                                <Link to={`/admin`}>
+                                    Inicio
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/user`}>
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/user/forms'>
-                                    Forms
+                                <Link to='/admin/challenges'>
+                                    Retos
                                 </Link>
                             </li>
                             <li>
@@ -48,8 +71,38 @@ const Sidebar = () => {
                         </ul>
                     </>
                 }
-                </div>
-            </nav>       
+            </nav>     
+                 :
+                    <nav>
+                    {user &&
+                        <>
+                            <ul>
+                                <li>
+                                    <Link to={`/user/profile/${user?.user._id}`}>
+                                        {user?.user.name}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={`/user`}>
+                                        Inicio
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/user/forms'>
+                                        Pruebas
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/loginuser' onClick={onLogoutUser}>
+                                        Logout
+                                    </Link>
+                                </li>
+                            </ul>
+                        </>
+                    }
+                </nav>       
+            }
+            </>
         }
         </>
     )
