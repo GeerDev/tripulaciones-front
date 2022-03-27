@@ -5,7 +5,7 @@ import { deletePost, disLike, getByIdPost, like, reset } from "../../../../featu
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import EditModal from "./EditModal/EditModal";
 import { useState } from "react";
-
+import './Post.scss';
 
 const PostUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -36,7 +36,7 @@ const PostUser = () => {
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
-      <div>
+      <div className="post-div">
         <Link to={"/user/post/" + post._id}>
         {post.userId.name && (<p>{post.userId?.name}</p>)}
         <p>{post.description}</p>

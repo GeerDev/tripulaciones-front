@@ -30,7 +30,7 @@ const SearchUser = () => {
 
   return (
     <>
-    <input type="text" name="search" value={search} onChange={onChange} placeholder='Busqueda...'/>
+    <input type="text" name="search" value={search} onChange={onChange} placeholder='...'/>
     {
         (search === '')
             ? <div> Buscar un usuario </div>
