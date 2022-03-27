@@ -6,7 +6,6 @@ const SearchUser = () => {
 
     const dispatch = useDispatch()
     const { userSearch } = useSelector( state => state.user )
-    console.log(userSearch);
     const [searchHook, setSearchHook] = useState({
         search : ''
     })

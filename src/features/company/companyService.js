@@ -33,10 +33,33 @@ const logout = async() =>{
     return res.data;
 }
 
+const getAllCompanies = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios(API_URL + "/companies/admin", {
+        headers: {
+          authorization: user?.token
+        },
+      });
+    return res.data
+}
+
+const confirm = async (_id, company) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.put(API_URL + "/companies/confirm/" + _id,company, {
+        headers: {
+            authorization: user?.token,
+        }
+    })
+    console.log("Hola desde el servicio:", res.data)
+    return res.data;
+}
+
 const companyService = {
     register,
     login,
-    logout
+    logout,
+    getAllCompanies,
+    confirm
 }
 
 export default companyService;

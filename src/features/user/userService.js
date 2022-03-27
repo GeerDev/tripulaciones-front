@@ -52,12 +52,24 @@ const searchByName = async (name) => {
     return res.data;
 };
 
+const updateUser = async (userData) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.put(API_URL + `/users/`, userData, {
+      headers: {
+        authorization: user?.token,
+      },
+    });
+    console.log(res.data);
+    return res.data;
+  };
+
 const userService = {
     registerUser,
     loginUser,
     logoutUser,
     getById,
-    searchByName
+    searchByName,
+    updateUser
 };
 
 export default userService;

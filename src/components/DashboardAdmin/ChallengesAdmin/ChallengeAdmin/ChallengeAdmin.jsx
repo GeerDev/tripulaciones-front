@@ -1,5 +1,4 @@
 const ChallengeAdmin = ({ _id, title, description, imageChallenge }) => {
-    console.log(imageChallenge);
   return (
     <div key={_id}>
      

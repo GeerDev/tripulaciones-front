@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../features/company/companySlice";
 import { logoutUser } from "../../features/user/userSlice";
 import './Sidebar.scss';
-import logoSidebar from '../../img/logo-sidebar.svg'
 import profile from '../../img/profile.svg'
 import home from '../../img/home.svg'
 import checklist from '../../img/checklist.svg'
-import logout from '../../img/logout.svg'
+import logoutSidebar from '../../img/logo-sidebar.svg'
 
 
 const Sidebar = () => {
@@ -16,6 +16,7 @@ const Sidebar = () => {
     const { userNow } = useSelector(state => state.user)
     const { name, imageUser } = userNow
     const { user } = useSelector((state) => state.user)
+    const { company } = useSelector((state) => state.company)
 
     const onLogoutUser = (e) => {
         e.preventDefault();
@@ -23,50 +24,112 @@ const Sidebar = () => {
         navigate("/loginuser");
     }
 
+    const onLogoutCompany = (e) => {
+        e.preventDefault();
+        dispatch(logout());
+        navigate("/loginCompany");
+    }
+
     return (
-        <nav className="sidebar-nav">
-            <div> {user &&
+        <>
+            {company ?
+                <nav>
+                    <>
+                        <ul>
+                            <li>
+                                {/* <Link to={`/company/profile/${user?.user._id}`}> */}
+                                {company?.company.name}
+                                {/* </Link> */}
+                            </li>
+                            <li>
+                                <Link to='/logincompany' onClick={onLogoutCompany}>
+                                    Logout
+                                </Link>
+                            </li>
+                        </ul>
+                    </>
+                </nav>
+                :
                 <>
-                <img src={logoSidebar} className="logo-sidebar" />
-                <div className="profile-div">
-                <div className="profile-img">
-                    <img
-                        className="img-user-profile"
-                            src={`http://localhost:4000/images/User/` + imageUser}
-                        />
-                    </div>
-                    <h3 className="name-profile-sidebar">{name}</h3>
-                </div>
-                    <ul>
-                        <li >
-                            <Link to={`/user`} >
-                                <img src={home} />
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to={`/user/profile/${user?.user._id}`}>
-                                <img src={profile} />
-                                {user?.user.name}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/user/forms'>
-                                <img src={checklist} />
-                                Forms
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/loginuser' onClick={onLogoutUser}>
-                                <img src={logout} />
-                                Logout
-                            </Link>
-                        </li>
-                    </ul>
+                    {
+                        user.user.role === 'admin' ?
+                            <nav>
+                                {user &&
+                                    <>
+                                        <ul>
+                                            <li>
+                                                {user?.user.name}
+                                            </li>
+                                            <li>
+                                                <Link to={`/admin`}>
+                                                    Inicio
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to='/admin/challenges'>
+                                                    Retos
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to='/loginuser' onClick={onLogoutUser}>
+                                                    Logout
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </>
+                                }
+                            </nav>
+                            :
+                            <nav className="sidebar-nav" >
+                                {user &&
+                                    <>
+                                        <img src={logoutSidebar} className="logo-sidebar" />
+                                        <div className="profile-div">
+                                            <div className="profile-img">
+                                                <img
+                                                    className="img-user-profile"
+                                                    src={`http://localhost:4000/images/User/` + imageUser}
+                                                />
+                                            </div>
+                                            <h3 className="name-profile-sidebar">{name}</h3>
+
+                                            <ul>
+                                                <li>
+                                                    <Link to={`/user`}>
+                                                        <img src={home} />
+                                                        Home
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link to={`/user/profile/${user?.user._id}`}>
+                                                        <img src={profile} />
+                                                        {user?.user.name}
+                                                    </Link>
+
+                                                </li>
+                                                <li>
+                                                    <Link to='/user/forms'>
+                                                        <img src={checklist} />
+                                                        Forms
+                                                    </Link>
+
+                                                </li>
+                                                <li>
+                                                    <Link to='/loginuser' onClick={onLogoutUser}>
+                                                        <img src={logout} />
+                                                        Logout
+                                                    </Link>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </>
+                                }
+                            </nav>
+                    }
                 </>
             }
-            </div>
-        </nav>
+        </>
     )
 }
 
