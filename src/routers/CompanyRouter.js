@@ -1,12 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 
 import DashboardCompany from "../components/DashboardCompany/DashboardCompany";
-import CompanyZone from "../guards/CompanyZone";
+import Sidebar from '../components/Sidebar/Sidebar';
+
 export const CompanyRouter = () => {
     return (
+        <>
+        <Sidebar />
             <Routes>
                 <Route path="/" element={< DashboardCompany/>} />
                 <Route path="/profile" />
             </Routes>
+        </>
             )
 }

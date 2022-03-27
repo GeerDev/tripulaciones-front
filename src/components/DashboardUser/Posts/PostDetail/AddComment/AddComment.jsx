@@ -28,8 +28,6 @@ export const AddComment = ({_id}) => {
     const onSubmit = async (e) => {
       e.preventDefault()
       await dispatch(createComment(formData))
-      await dispatch(getByIdPost(_id));
-      await dispatch(reset())
     }
 
   return (

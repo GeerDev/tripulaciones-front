@@ -5,6 +5,7 @@ const company = JSON.parse(localStorage.getItem("company"));
 
 const initialState = {
     company: company ? company : null,
+    companies: [],
     companyInfoProfile: {},
     isError: false,
     isSuccess: false,
@@ -41,6 +42,23 @@ export const companySlice = createSlice({
             state.isError = true;
             state.message = action.payload;
         })
+        builder.addCase(getAllCompanies.fulfilled, (state, action) => {
+            state.companies = action.payload;
+            state.isLoading = false;
+        });
+        builder.addCase(getAllCompanies.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(confirm.fulfilled, (state, action) => {
+            state.isLoading = false;
+            const companies = state.companies.map((element) => {
+                if (element._id === action.payload.company._id) {
+                  element = action.payload.company;
+                }
+                return element
+            })
+            state.companies = companies
+          });
     }
 })
 
@@ -70,6 +88,22 @@ export const logout = createAsyncThunk("company/logout", async(company, thunkApi
         return thunkApi.rejectWithValue(message);
     }
 })
+
+export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", async () => {
+    try {
+      return await companyService.getAllCompanies();
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+  export const confirm = createAsyncThunk("posts/confirmCompany", async (_id) => {
+    try {
+      return await companyService.confirm(_id);
+    } catch (error) {
+      console.error(error);
+    }
+  });
 
 export const { reset } = companySlice.actions;
 export default companySlice.reducer;
