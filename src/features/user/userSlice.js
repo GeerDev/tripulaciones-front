@@ -56,6 +56,15 @@ export const userSlice = createSlice({
             .addCase(searchByName.fulfilled, (state, action) => {
                 state.userSearch = action.payload;
             })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                const user = state.user.map((element) => {
+                  if (element._id === action.payload.user._id) {
+                    element = action.payload.user;
+                  }
+                  return element
+              })
+              state.user = user
+              })
     }
 });
 
@@ -99,6 +108,15 @@ export const getById = createAsyncThunk("user/getById", async (_id, thunkApi) =>
 export const searchByName = createAsyncThunk("user/searchByName", async (name, thunkAPI) => {
     try {
       return await userService.searchByName(name);
+    } catch (error) {
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+export const updateUser = createAsyncThunk("user/updateUser", async (user, thunkAPI) => {
+    try {
+      return await userService.updateUser(user);
     } catch (error) {
       const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
