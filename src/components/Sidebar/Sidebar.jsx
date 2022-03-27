@@ -6,7 +6,8 @@ import './Sidebar.scss';
 import profile from '../../img/profile.svg'
 import home from '../../img/home.svg'
 import checklist from '../../img/checklist.svg'
-import logoutSidebar from '../../img/logo-sidebar.svg'
+import logoSidebar from '../../img/logo-sidebar.svg'
+import logoutapp from '../../img/logout.svg'
 
 
 const Sidebar = () => {
@@ -83,7 +84,7 @@ const Sidebar = () => {
                             <nav className="sidebar-nav" >
                                 {user &&
                                     <>
-                                        <img src={logoutSidebar} className="logo-sidebar" />
+                                        <img src={logoSidebar} className="logo-sidebar" />
                                         <div className="profile-div">
                                             <div className="profile-img">
                                                 <img
@@ -116,7 +117,7 @@ const Sidebar = () => {
                                                 </li>
                                                 <li>
                                                     <Link to='/loginuser' onClick={onLogoutUser}>
-                                                        <img src={logout} />
+                                                        <img src={logoutapp} />
                                                         Logout
                                                     </Link>
 
