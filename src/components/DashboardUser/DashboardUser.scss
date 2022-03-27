@@ -1,0 +1,12 @@
+@import '../../colors.scss';
+.user-principal{
+    max-width: calc(100% - 320px);
+    width: calc(100% - 320px);
+    background-color: rgba($firstblue, 5%);
+    h1{
+        font-size: 48px;
+        line-height: 1;
+        color: $firstblue;
+        margin: 48px 24px;
+    }
+}

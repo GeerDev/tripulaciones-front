@@ -1,0 +1,73 @@
+@import '../../../../colors.scss';
+
+.post{
+    width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    background: #FFFFFF;
+    border: 1px solid $white;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin: 12px 24px;
+    
+    .post-author{
+        padding: 12px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        a{
+            color: $black;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+    .post-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 12px;
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        p{
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: 12px;
+            margin-bottom: 36px;
+        }
+    }
+    .toolbar{
+        padding: 12px;
+        width: calc(100% - 0px);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        border-top: 1px solid $firstblue;
+        button {
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            max-width: max-content;
+            padding: 8px 24px;
+            color: $white;
+            font-weight: 500;
+            border-radius: 12px;
+            border: 0;
+            margin-left: 16px;
+            background: #EF5DA8;
+                &[type="submit"] {
+                background: #5D5FEF;
+                }
+        }
+        .comment-length{
+            margin-left: 16px;
+            
+        }
+    }
+}

@@ -1,0 +1,106 @@
+@import '../../../../colors.scss';
+
+.create-post_form{
+    width: calc(100% - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    background: #FFFFFF;
+    border: 1px solid $white;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin: 0 auto;
+    h3{
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+        margin: 0;
+        padding: 12px 24px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        textarea{
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            border: 0;
+            margin: 0;
+            padding: 12px 24px;
+            width: calc(100% - 48px);
+            font-size: 16px;
+            line-height: 24px;
+            height: calc(24px * 6);
+            resize: none;
+            font-family: 'Montserrat';
+            border-radius: 0;
+            &:focus {
+              outline: none;
+            }
+        }
+        .toolbar {
+            padding: 12px;
+            width: calc(100% - 0px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-top: 1px solid $firstblue;
+            .input-class {
+              position: relative;
+              width: 28px;
+              height: 28px;
+              overflow: hidden;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              img {
+                width: 100%;
+                height: auto;
+                pointer-events: none;
+              }
+              input {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+              }
+            }
+        
+            button {
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            max-width: max-content;
+            padding: 8px 24px;
+            color: $white;
+            font-weight: 500;
+            border-radius: 12px;
+            border: 0;
+            margin-left: 16px;
+            background: #EF5DA8;
+                &[type="submit"] {
+                background: #5D5FEF;
+                }
+            }
+            select{
+                -webkit-appearance: none;
+                -moz-appearance:    none;
+                appearance:         none;
+                margin: 0;
+                margin-left: 16px;
+                border: 0;
+                border-radius: 0;
+                font-family: 'Montserrat';
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+}
