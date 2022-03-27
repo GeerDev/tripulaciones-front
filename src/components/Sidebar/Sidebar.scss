@@ -1,22 +1,26 @@
 @import '../../colors.scss';
 
 .sidebar-nav{
-    width: 300px;
-    pointer-events: none;
-    height: 100%;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    padding: 48px 24px;
+    width: 100%;
+    height: calc(100vh - 48px - 48px);
     background-color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 320px;
     .logo-sidebar{
-        height: 30px;
-        width: auto;
-        padding: 0 35px;
-        margin-top: 30px;
-        margin-bottom: 48px;
+        height: auto;
+        width: 220px;
+        margin-bottom: 36px;
     }
     .profile-div{
-
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         .profile-img{
             margin: auto;
             width: 100px;
@@ -43,31 +47,36 @@
             font-size: 20px;
         }
     }
-    ul{
-        list-style: none;
-        width: 250px;
+    ul {
+        width: 100%;
+        margin: 48px 0;
         display: flex;
         flex-direction: column;
-    }
-    li{
-        height: 40px;
-            padding: 0 35px;
+        padding: 0;
+        list-style: none;
+        li {
+          width: calc(100% - 0px);
+          height: 48px;
+          display: flex;
+          align-items: center;
+          border-radius: 12px;
+          a {
             width: 100%;
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
-            border-radius: 100px;
-            a{
-                color: $thirdblue;
-                font-size: 20px;
-                font-weight: 500;
-                text-decoration: none;
-                pointer-events: all;
-                img{
-                    height: 24px;
-                    width: auto;
-                    margin-right: 30px;
-                }
+            justify-content: flex-start;
+            color: $thirdblue;
+            text-decoration: none;
+            img {
+              height: 28px;
+              width: auto;
+              margin-right: 8px;
+              display: block;
             }
-    }
+            span{
+                font-size: 20px;
+            }
+          }
+        }
+      }
 }

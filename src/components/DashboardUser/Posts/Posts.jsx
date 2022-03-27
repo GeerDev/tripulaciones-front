@@ -12,7 +12,7 @@ const PostsUser = () => {
   
     return (
         <div>
-            <AddPost/>
+        <AddPost />
             <PostUser/>
         </div>
       )

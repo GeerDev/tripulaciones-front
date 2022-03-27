@@ -5,48 +5,54 @@ import { deletePost, disLike, getByIdPost, like, reset } from "../../../../featu
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import EditModal from "./EditModal/EditModal";
 import { useState } from "react";
-import './Post.scss';
+import './Post.scss'
+
 
 const PostUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-    const { posts, isLoading } = useSelector((state) => state.post);
-    const { user } = useSelector((state) => state.user);
-    const allPosts = posts || [];
-    const dispatch = useDispatch();
+  const { posts, isLoading } = useSelector((state) => state.post);
+  const { user } = useSelector((state) => state.user);
+  const allPosts = posts || [];
+  const dispatch = useDispatch();
 
-    if (isLoading) {
-      return (
-        <h1>
-          <Spin />
-        </h1>
-      );
-    }
+  if (isLoading) {
+    return (
+      <h1>
+        <Spin />
+      </h1>
+    );
+  }
 
-    const showModal = (_id) => {
-      dispatch(getByIdPost(_id));
-      setIsModalVisible(true);
-      dispatch(reset())
-    };
-    
-    const deleteHere = async (_id) => {
-      await dispatch(deletePost(_id));
-    };
+  const showModal = (_id) => {
+    dispatch(getByIdPost(_id));
+    setIsModalVisible(true);
+    dispatch(reset())
+  };
+
+  const deleteHere = async (_id) => {
+    await dispatch(deletePost(_id));
+  };
 
   const post = allPosts.map((post) => {
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
-      <div className="post-div">
-        <Link to={"/user/post/" + post._id}>
-        {post.userId.name && (<p>{post.userId?.name}</p>)}
-        <p>{post.description}</p>
+      <div className="post">
+        <div className="post-author">
+          <Link to={"/user/post/" + post._id}>
+            {post.userId.name && (<strong>{post.userId?.name}</strong>)}
+          </Link>
+        </div>
+        <div className="post-content">
         <img
-          src={`http://localhost:4000/images/Post/` + post.imagePost}
-          alt="Imagen Post"
-          width={320}
-        />
+              src={`http://localhost:4000/images/Post/` + post.imagePost}
+              alt="Imagen Post"
+              width={320}
+          />
+           <p>{post.description}</p>
 
-        </Link>
+        </div>
+        <div className="toolbar">
         <span className="interactions">
           {isLiked > 0 ? (
             <span >
@@ -106,12 +112,13 @@ const PostUser = () => {
               )}
             </>
           )}
-          <span>{post.comments.length} comentarios</span>
-          </span>
-          <button onClick={() => showModal(post._id)}>Edita</button>
+          <span className="comment-length">{post.comments.length} comentarios</span>
+        </span>
+        <button onClick={() => showModal(post._id)}>Edita</button>
         <button onClick={() => deleteHere(post._id)}>Eliminar</button>
-        <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
       </div>
+        <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
+        </div>
     );
   });
   return <div>{post}</div>;

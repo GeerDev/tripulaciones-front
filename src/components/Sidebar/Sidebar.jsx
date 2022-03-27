@@ -102,27 +102,27 @@ const Sidebar = () => {
                                                 <li>
                                                     <Link to={`/user`}>
                                                         <img src={home} />
-                                                        Home
+                                                        <span>Home</span> 
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={`/user/profile/${user?.user._id}`}>
                                                         <img src={profile} />
-                                                        {userNow.name}
+                                                    <span>Profile</span> 
                                                     </Link>
 
                                                 </li>
                                                 <li>
                                                     <Link to='/user/forms'>
                                                         <img src={checklist} />
-                                                        Forms
+                                                    <span>Forms</span> 
                                                     </Link>
 
                                                 </li>
                                                 <li>
                                                     <Link to='/loginuser' onClick={onLogoutUser}>
                                                         <img src={logoutapp} />
-                                                        Logout
+                                                         <span>Logout</span> 
                                                     </Link>
 
                                                 </li>
