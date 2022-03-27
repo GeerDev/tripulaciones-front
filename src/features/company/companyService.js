@@ -54,12 +54,7 @@ const confirm = async (_id, company) => {
 }
 
 const getRankingCompanies = async () => {
-    const company = JSON.parse(localStorage.getItem('company'));
-    const res = await axios(API_URL + "/companies/", {
-        headers: {
-          authorization: company?.token
-        },
-      });
+    const res = await axios(API_URL + "/companies/");
     return res.data
 }
 

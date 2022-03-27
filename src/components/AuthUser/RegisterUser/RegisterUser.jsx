@@ -8,6 +8,8 @@ import "antd/dist/antd.css"
 import "./RegisterUser.scss"
 import empleado from '../../../img/empleado.jpg'
 import logo from '../../../img/logo.svg'
+import { getAllCompanies } from "../../../features/company/companySlice";
+
 
 const RegisterUser = () => {
     const [formData, setFormData] = useState({
@@ -21,14 +23,15 @@ const RegisterUser = () => {
     const dispatch = useDispatch()
 
     const { isSuccess, isError, message } = useSelector((state) => state.user)
-    useEffect(() => {
+    useEffect(async () => {
         if (isError) {
             notification.error({ message: "Ha habido un error", description: message });
         }
         if (isSuccess) {
             notification.success({ message: "Bienveni@", description: message?.message })
         }
-        dispatch(reset())
+        await dispatch(reset())
+        await dispatch(getAllCompanies())
     }, [isError, isSuccess, message, dispatch]);
 
     const onChange = (e) => {

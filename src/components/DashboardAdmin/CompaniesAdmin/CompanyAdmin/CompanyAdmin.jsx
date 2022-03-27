@@ -20,7 +20,7 @@ const CompanyAdmin = () => {
           <p>{company.employees}</p>
           <p>{company.companyType}</p>
 
-    {company.confirmed ?
+    {company.confirmed ? 
     <h3>Ole! Empresa registrada con exito</h3>
     :
     <button onClick={() => confirmCompany(company._id)}>Confirmar NO TOCAR ESTE BOTON POR FAVOR!!!</button>
