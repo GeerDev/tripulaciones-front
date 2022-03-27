@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from "react-router-dom";
-import { getById, resetUser } from '../../../features/user/userSlice'
+import { getById } from '../../../features/user/userSlice'
 import './ProfileUser.scss'
 
 import { Tabs } from 'antd';
