@@ -9,17 +9,17 @@ const DashboardCompany = () => {
     return (
       
       <>
-      <div className="container-stats-search">
+      <div className="container-stats-search card animate__animated animate__fadeIn">
         <div className="stats-company-container">
       <StatsCompany />
         </div>
         <div className="search-company-container">
-      <SearchCompany />
+      <RankingCompanies />
         </div>
       </div>
       <hr />
       <hr />
-      <RankingCompanies />
+      <SearchCompany />
       </>
     )
   }
