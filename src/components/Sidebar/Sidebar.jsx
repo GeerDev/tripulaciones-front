@@ -40,7 +40,7 @@ const Sidebar = () => {
   return (
     <>
       {company ? (
-        <nav className="sidebar-nav">
+        <nav className="sidebar-nav card animate__animated animate__fadeInLeft">
           <>
             <img src={logoSidebar} className="logo-sidebar" />
             <div className="profile-div">
@@ -82,7 +82,7 @@ const Sidebar = () => {
       ) : (
         <>
           {user.user.role === "admin" ? (
-            <nav className="sidebar-nav">
+            <nav className="sidebar-nav card animate__animated animate__fadeInLeft">
               {user && (
                 <>
                   <ul>
@@ -111,13 +111,13 @@ const Sidebar = () => {
               )}
             </nav>
           ) : (
-            <nav className="sidebar-nav">
+            <nav className="sidebar-nav card animate__animated animate__fadeInLeft">
               {user && (
                 <>
                   <img src={logoSidebar} className="logo-sidebar" />
                   <div className="profile-div">
                     <div className="profile-img">
-                      <img
+                      <img onLoad="this.style.viibility='visible'"
                         className="img-user-profile"
                         src={
                           `http://localhost:4000/images/User/` +

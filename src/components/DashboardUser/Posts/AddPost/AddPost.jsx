@@ -44,7 +44,7 @@ const AddPost = () => {
         )})
 
   return (
-    <div className="create-post_form">
+    <div className="create-post_form card animate__animated animate__fadeInRight">
       <h3>Crear una publicación</h3>
       <form method="post" onSubmit={onSubmit}>
         <textarea name="description" placeholder="Escribe aqui tu publicación"></textarea>
