@@ -12,8 +12,6 @@ const ProfileCompany = () => {
 
   const { name, nameCEO, phone, email, imageCompany, score, companyType, employees } = companyInfo
 
-  console.log(companyInfo);
-
   useEffect(() => {
     dispatch(getCompanyById(_id))
   },[])

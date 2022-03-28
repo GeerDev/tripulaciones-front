@@ -34,6 +34,7 @@ const PostUser = () => {
   };
 
   const post = allPosts.map((post) => {
+    console.log(post)
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
@@ -44,12 +45,24 @@ const PostUser = () => {
           </Link>
         </div>
         <div className="post-content">
-        <img
+          {post.imagePost ? (        
+            <>
+          <img
               src={`http://localhost:4000/images/Post/` + post.imagePost}
               alt="Imagen Post"
               width={320}
           />
+          
            <p>{post.description}</p>
+           <p>{post.challengeId?.title}</p>
+           </>
+           ) : (  
+             <>
+         <p>{post.description}</p>
+         <p>{post.challengeId?.title}</p>
+           </>)
+           
+          }
 
         </div>
         <div className="toolbar">

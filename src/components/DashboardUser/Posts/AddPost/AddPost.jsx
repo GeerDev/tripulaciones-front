@@ -6,9 +6,12 @@ import { notification } from "antd";
 import './AddPost.scss'
 import { createPost, getAllPost, reset } from "../../../../features/post/postSlice";
 import imageAdd from '../../../../img/image.svg'
+import {getAll} from '../../../../features/challenge/challengeSlice'
 
 const AddPost = () => {
   const { isError, isSuccess, message } = useSelector((state) => state.post)
+  const { challenges } = useSelector((state) => state.challenge);
+  const allChallenges = challenges || []
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
@@ -20,31 +23,39 @@ const AddPost = () => {
       notification.success({ message: "Success", description: message?.message });
     }
     dispatch(reset())
+    dispatch(getAll())
   }, [isError, isSuccess, message, navigate, dispatch]);
-
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     if (e.target.imagePost.files[0]) formData.set('imagePost', e.target.imagePost.files[0]);
     formData.set('description', e.target.description.value)
+    if (e.target.challengeId) formData.set('challengeId', e.target.challengeId.value);
+
     await dispatch(createPost(formData));
     await dispatch(getAllPost())
   }
 
+  const printChallenges = allChallenges.map((challenge) => {
+    return (            
+            <option value={challenge._id}>{challenge.title}</option>
+        )})
+
   return (
     <div className="create-post_form">
       <h3>Crear una publicación</h3>
-      <form method="post">
+      <form method="post" onSubmit={onSubmit}>
         <textarea name="description" placeholder="Escribe aqui tu publicación"></textarea>
         <div class="toolbar">
           <div className="input-class">
             <img src={imageAdd} />
             <input type="file" name="imagePost" />
           </div>
-          <select>
-            <option value="">Seleccionar reto</option>
-          </select>
+          <select name="challengeId" id="" >
+                    <option>Elige un desafio</option>
+                {printChallenges}
+                </select>
           <button type="button" name="button">Cancelar</button>
           <button type="submit" name="button">Publicar</button>
         </div>
