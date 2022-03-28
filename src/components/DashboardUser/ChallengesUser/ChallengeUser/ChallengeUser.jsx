@@ -14,7 +14,7 @@ const ChallengeUser = ({ _id, title, description, imageChallenge }) => {
           />
         </div>
         <div className='toolbar'>
-          <p>Aquí estaría de descripción</p>
+          <p>{description}</p>
         </div>
       </div>
   );

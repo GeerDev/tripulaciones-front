@@ -26,13 +26,16 @@ const ProfileUser = () => {
 
   return (
     <>
-      <div className="container-1">
+      <div className="container-1 card animate__animated animate__fadeInRight">
         <main className="profile-info">
 	      <div id="profil-container">
 		      <h1 id="profile">Profile</h1>
 	      </div>
-	  <img id="profile-picture" src={`http://localhost:4000/images/User/` + imageUser} alt="Imagen User"/>
-	  <div id="container-info">
+      {imageUser ? (
+	  <img id="profile-picture" src={`http://localhost:4000/images/User/` + imageUser}  alt="Imagen User"/>
+    ) : (<img id="profile-picture" src={`https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg`} onError="this.src='tripulaciones-front\src\img\profile-default.png'" alt="Imagen User"/>)
+    }
+    <div id="container-info">
 		  <ul>
 			<li><h3 id="name">{ name }</h3></li>
 			<li id="mail">{ email }</li>
@@ -49,7 +52,7 @@ const ProfileUser = () => {
 	</div>
     </main>
     </div>
-      <div className="container-2">
+      <div className="container-2 card animate__animated animate__fadeInRight">
         <div className="posts-favs">
       <Tabs defaultActiveKey="1">
                   <TabPane tab="Tus publicaciones" key="1">

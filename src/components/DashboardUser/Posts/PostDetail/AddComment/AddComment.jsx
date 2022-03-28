@@ -4,6 +4,7 @@ import { createComment } from '../../../../../features/comment/commentSlice'
 import { getByIdPost, reset } from "../../../../../features/post/postSlice";
 import './AddComment.scss'
 
+
 export const AddComment = ({_id}) => {
 
     const dispatch = useDispatch()
@@ -32,6 +33,7 @@ export const AddComment = ({_id}) => {
     }
 
   return (
+    <>
     <div className='comment-content'>
     <p className='comment-title card animate__animated animate__fadeIn'>Añade un comentario:</p>
     <section className='comment-form order card animate__animated animate__fadeIn'>
@@ -41,5 +43,6 @@ export const AddComment = ({_id}) => {
     </form>
     </section>
     </div>
+    </>
   )
 }

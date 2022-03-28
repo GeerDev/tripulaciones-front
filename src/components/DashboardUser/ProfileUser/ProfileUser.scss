@@ -12,8 +12,8 @@
     }
 }
 .tabs{
-	overflow: scroll;
-    overflow-x: hidden;
+	overflow: hidden;
+
     height: 10em;
 }
 .ant-tabs{
@@ -73,6 +73,9 @@
 		border-radius: 50%;
 		width: 150px;
 		height: 150px;
+	}
+	.container-1{
+		background-color: rgba($firstblue, 5%);
 	}
 	#container-info {
 		position: absolute;

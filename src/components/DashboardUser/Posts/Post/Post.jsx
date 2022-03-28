@@ -37,7 +37,7 @@ const PostUser = () => {
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
-      <div className="post">
+      <div className="post card animate__animated animate__fadeInUp">
         <div className="post-author">
           <Link to={"/user/post/" + post._id}>
             {post.userId.name && (<strong>{post.userId?.name}</strong>)}
@@ -132,8 +132,9 @@ const PostUser = () => {
         </div>
     );
   });
-  return <div>{post}
-          <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
+  return <div>
+          {post}
+          <EditModal visible={isModalVisible} setVisible={setIsModalVisible} />
         </div>;
 
 };

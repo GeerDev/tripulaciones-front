@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import { getForm } from "../../../features/datascience/datascienceSlice";
+import './Forms.scss'
 
 const Forms = () => {
   const { user } = useSelector((state) => state.user);
@@ -64,9 +65,9 @@ const Forms = () => {
       id="CuestionarioData"
       name="Cuestionario_DataScience"
       onSubmit={onSubmit}
-    >
+    className="card animate__animated animate__fadeIn">
       {myForm}
-      <button type="submit" id="CuestionarioData">
+      <button type="submit" id="CuestionarioDataButton">
         Enviar
       </button>
     </form>

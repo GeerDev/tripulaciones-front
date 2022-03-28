@@ -1,12 +1,87 @@
-.route-div{
-    display: flex;
-    width: 100%;
+@import "../colors.scss";
+.route-div {
+  display: flex;
+  width: 100%;
 }
-.router-div-company{
-display:flex;
-margin-top: 30px;
+.router-div-company {
+  display: flex;
 }
-.container-company-routes{
-display:flex;
-flex-direction: row;
+.container-company-routes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2em;
+}
+.container-company-routes form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 100%;
+  gap: 1.5em;
+  margin-top: 7em;
+}
+.container-company-routes form button {
+  font-size: 0.9em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  max-width: 350px;
+  border: 0;
+  border-radius: 8px;
+  height: 42px;
+  background: $firstblue;
+  color: $white;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container-input-file {
+  font-size: 0.9em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  max-width: 350px;
+  border: 0;
+  border-radius: 8px;
+  height: 42px;
+  background: $firstblue;
+  color: $white;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+.container-company-routes form input[type="file"]::-webkit-file-upload-button {
+  font-size: 0.9em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  max-width: 350px;
+  border: 0;
+  border-radius: 8px;
+  height: 42px;
+  background: $firstblue;
+  color: $white;
+  width: 330px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container-company-routes form input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  max-width: 350px;
+  appearance: none;
+  width: calc(100% - 20px - 20px);
+  border: 0;
+  margin-bottom: 20px;
+  height: 42px;
+  padding: 0 20px;
 }

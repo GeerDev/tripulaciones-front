@@ -1,0 +1,14 @@
+.challenges-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+img {
+  width: 300px;
+  height: 350px;
+  border-radius: 1.5em;
+}
+img:hover {
+  -webkit-box-shadow: 0px 0px 17px 5px rgba(241, 245, 2, 0.342);
+  box-shadow: 0px 0px 17px 5px rgba(241, 245, 2, 0.342);
+}

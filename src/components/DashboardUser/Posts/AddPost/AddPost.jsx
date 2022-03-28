@@ -35,6 +35,7 @@ const AddPost = () => {
 
     await dispatch(createPost(formData));
     await dispatch(getAllPost())
+    
   }
 
   const printChallenges = allChallenges.map((challenge) => {
@@ -43,7 +44,7 @@ const AddPost = () => {
         )})
 
   return (
-    <div className="create-post_form">
+    <div className="create-post_form card animate__animated animate__fadeInRight">
       <h3>Crear una publicación</h3>
       <form method="post" onSubmit={onSubmit}>
         <textarea name="description" placeholder="Escribe aqui tu publicación"></textarea>
@@ -56,7 +57,6 @@ const AddPost = () => {
                     <option>Elige un desafio</option>
                 {printChallenges}
                 </select>
-          <button type="button" name="button">Cancelar</button>
           <button type="submit" name="button">Publicar</button>
         </div>
       </form>

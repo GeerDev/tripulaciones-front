@@ -32,17 +32,20 @@ const PostDetail = () => {
 
   return (
     <div className="comments">
-      <p> soy el nombre del usuario {post.userId?.name}</p>
-      <p>Soy el texto que hay en el publicación {post.description}</p>
-      <h2>Comentarios</h2>
-      <hr />
-      <div>
-      {
-      comments?.map(comment => 
-      <div>
-      <span><p>El nombre de quien comenta {user?.user.name}</p></span>
-      <p>El texto que lleva el comentario {comment?.comment}</p>
-                <div className="likes">
+      <div className="posts">
+      <p className="user-name-comment"> {post.userId?.name}</p>
+      <p className="comment-user">{post.description}</p>
+      </div>
+      <div className="map-coment">
+      <h2 className="title-map-comments">Comentarios de la publicación</h2>
+        {
+          comments?.map(comment =>
+            <div className="coments-content">
+              <p className="name-coment">El nombre de quien comenta {user?.user.name}</p>
+              <p className="text-comment">El texto que lleva el comentario {comment?.comment}</p>
+              <div className="toolbar">
+              <div className="likes">
+
                 {comment?.likes.includes(user?.user._id) ? (
                   <HeartFilled
                     style={{ fontSize: "20px", color: "#FF0000" }}
@@ -62,13 +65,14 @@ const PostDetail = () => {
                     }
                   />
                 )}
-                </div>
-      <button onClick={() => deleteNow(comment._id)}>Borra</button>
+              </div>
+              <button onClick={() => deleteNow(comment._id)}>Borra</button>
+            </div>
+              </div>
+          )
+        }
       </div>
-      )
-      }
-      </div>
-      <AddComment _id = {_id} />
+      <AddComment _id={_id} />
     </div>
   );
 };
