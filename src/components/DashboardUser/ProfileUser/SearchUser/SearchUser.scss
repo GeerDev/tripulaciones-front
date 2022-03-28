@@ -23,6 +23,14 @@
     font-size: 18px;
 }
 .centrateporDIOS{
+    margin-top:15px;
+    padding: 10px;
     overflow: scroll;
-    height: 39vh;
+    overflow-x: hidden;
+    height: 40em;
+    :-webkit-scrollbar-thumb {
+        width: 10px;
+        background: red; 
+        border-radius: 10px;
+      }
 }

@@ -26,7 +26,6 @@ const ProfileUser = () => {
 
   return (
     <>
-    
       <div className="container-1">
         <main className="profile-info">
 	      <div id="profil-container">

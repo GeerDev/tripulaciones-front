@@ -11,6 +11,14 @@
         color: $firstblue;
     }
 }
+.tabs{
+	overflow: scroll;
+    overflow-x: hidden;
+    height: 10em;
+}
+.ant-tabs{
+	width: 107%;
+}
 .post-book{
     text-align: center;
     width: 50%;

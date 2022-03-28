@@ -51,17 +51,19 @@ const Sidebar = () => {
                                                     src={`http://localhost:4000/images/User/` + companyInfo.imageCompany}
                                                 />
                                             </div>
+                                                <h3 className="name-profile-sidebar">{companyInfo.name}</h3>
+                                                
                         <ul>
-                            <li>
-                                <Link to={`/company/profile/${company?.company._id}`}>
-                                <img src={profile} />
-                               <span>{company?.company.name}</span>
-                                </Link>
-                            </li>
                             <li>
                                 <Link to={`/company`}>
                                 <img src={home} />
-                                    <span>Home</span>
+                               <span>Home</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/company/profile/${company?.company._id}`}>
+                                <img src={profile} />
+                                    <span>{company?.company.name}</span>
                                 </Link>
                             </li>
                             <li>
