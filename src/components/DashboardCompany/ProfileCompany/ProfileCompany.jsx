@@ -26,9 +26,8 @@ const ProfileCompany = () => {
 	  <div id="container-info">
 		  <ul>
 			<li><h3 id="name">{ name }</h3></li>
-      <li id="mail">{nameCEO}</li>
 			<li id="mail">{ email }</li>
-      <li><h3 id="mail">score: { score }</h3></li>
+      <li><h3 id="mail">score de tu empresa: { score }</h3></li>
 			<li className="line"></li>
       <div id="button">
     <div id="save" className="button">Borra Tu Cuenta</div>
