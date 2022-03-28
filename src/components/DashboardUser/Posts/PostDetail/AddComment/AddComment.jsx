@@ -32,14 +32,14 @@ export const AddComment = ({_id}) => {
     }
 
   return (
-    <>
-    <h3 className='card animate__animated animate__fadeIn'>Añade un comentario:</h3>
-    <div className='order card animate__animated animate__fadeIn'>
-    <form onSubmit={onSubmit}>
-        <input type="text" name="comment" value={comment} onChange={onChange}/>
-            <button type="submit">Este es un botón para borrarlo con CSS</button>
+    <div className='comment-content'>
+    <p className='comment-title card animate__animated animate__fadeIn'>Añade un comentario:</p>
+    <section className='comment-form order card animate__animated animate__fadeIn'>
+    <form onSubmit={onSubmit} className='form-post'>
+        <textarea type="text" name="comment" value={comment} onChange={onChange}/>
+            <button className='button-comment' type="submit">Comenta</button>
     </form>
+    </section>
     </div>
-    </>
   )
 }

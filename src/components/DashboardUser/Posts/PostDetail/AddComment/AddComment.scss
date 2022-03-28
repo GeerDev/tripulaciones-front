@@ -1,2 +1,66 @@
 @import '../../../../../colors.scss';
 
+.comment-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    margin: 90px auto;
+    .form-post{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        textarea{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 1px solid $firstblue;
+            border-radius: 12px;
+            margin: 0;
+            padding: 12px;
+            font-size: 20px;
+            line-height: 24px;
+            height: calc(24px * 6);
+            resize: none;
+            &:focus {
+                outline: none;
+            }
+        }
+        .button-comment{
+            -webkit-appearance: none;
+             -moz-appearance:    none;
+             appearance:         none;
+             padding: 0px 16px;
+             border: 0;
+             border-radius: 100px;
+             background: $firstblue;
+             color: $white;
+             max-width: max-content;
+             font-size: 20px;
+             font-weight: 700;
+             margin: 12px 0 12px auto;
+             cursor: pointer;
+             
+        }
+    }
+}
+.comment-content{
+    margin: 40px auto;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .comment-title{
+        width: 100%;
+        font-size: 20px;
+        line-height: 24px;
+        p{
+            width: 100%;
+        }
+    }  
+}
+
