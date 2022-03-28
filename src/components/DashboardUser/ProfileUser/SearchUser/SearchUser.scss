@@ -6,6 +6,7 @@
 }
 
 .info-user-search{
+    overflow: hidden;
     margin: 25px;
     padding: 20px;
     border: 1px solid rgb(228, 222, 222);
@@ -28,9 +29,4 @@
     overflow: scroll;
     overflow-x: hidden;
     height: 40em;
-    :-webkit-scrollbar-thumb {
-        width: 10px;
-        background: red; 
-        border-radius: 10px;
-      }
 }
