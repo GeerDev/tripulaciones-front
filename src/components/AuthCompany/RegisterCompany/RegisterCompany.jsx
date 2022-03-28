@@ -51,7 +51,8 @@ const RegisterCompany = () => {
       return notification.error({message: 'error',description: "Las contraseñas no coinciden",
       });
     } else {
-      dispatch(register(formData));
+      console.log(formData);
+      // dispatch(register(formData));
     }
   }
   return (
@@ -66,7 +67,7 @@ const RegisterCompany = () => {
       <h2 className='register-title'>Registra tu empresa</h2>
       <form onSubmit={onSubmit}>
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Nombre de la empresa" />
-        <select value={companyType} name="companyType" className="input-select" >
+        <select name="companyType" className="input-select" onChange={onChange}>
             <option value="">Tipo de empresa</option>
             <option value="PYME">PYME</option>
             <option value="Grande">Grande</option>
