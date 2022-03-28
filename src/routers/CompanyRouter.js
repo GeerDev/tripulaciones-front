@@ -6,13 +6,17 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 export const CompanyRouter = () => {
     return (
-        <div className='route-div'>
-        <Sidebar />
-            <Routes>
-                <Route path="/" element={< DashboardCompany/>} />
-                <Route path="/profile/:_id" element={<ProfileCompany />} />
-                <Route path="/edit/:_id" element={<EditCompany />} />
-            </Routes>
+        <div className='router-div-company'>
+            <Sidebar />
+            <div className='container-company-routes'>
+                <Routes>
+
+                    <Route path="/" element={< DashboardCompany />} />
+                    <Route path="/profile/:_id" element={<ProfileCompany />} />
+                    <Route path="/edit/:_id" element={<EditCompany />} />
+                </Routes>
             </div>
-            )
+
+        </div>
+    )
 }
