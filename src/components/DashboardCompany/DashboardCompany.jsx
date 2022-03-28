@@ -9,9 +9,15 @@ const DashboardCompany = () => {
     return (
       
       <>
-      <SearchCompany />
-      <hr />
+      <div className="container-stats-search">
+        <div className="stats-company-container">
       <StatsCompany />
+        </div>
+        <div className="search-company-container">
+      <SearchCompany />
+        </div>
+      </div>
+      <hr />
       <hr />
       <RankingCompanies />
       </>

@@ -17,5 +17,4 @@ const DashboardUser = () => {
   )
 }
 
-  
 export default DashboardUser

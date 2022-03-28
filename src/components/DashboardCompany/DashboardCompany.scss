@@ -1,2 +1,9 @@
 @import '../../colors.scss';
 
+.container-stats-search{
+    display: flex;
+    flex-direction: column;
+}
+.stats-company-container,.search-company-container{
+    width: 50%;
+}

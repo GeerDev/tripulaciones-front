@@ -10,7 +10,6 @@ export const CompanyRouter = () => {
             <Sidebar />
             <div className='container-company-routes'>
                 <Routes>
-
                     <Route path="/" element={< DashboardCompany />} />
                     <Route path="/profile/:_id" element={<ProfileCompany />} />
                     <Route path="/edit/:_id" element={<EditCompany />} />
