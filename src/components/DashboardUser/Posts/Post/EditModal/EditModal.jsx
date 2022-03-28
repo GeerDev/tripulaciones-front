@@ -4,42 +4,42 @@ import {  getAllPost, updatePost } from '../../../../../features/post/postSlice'
 
 import { Modal } from 'antd';
 
-const EditModal = ({visible, setVisible}) => {
+const EditModal = ({visible, setVisible, _id}) => {
+  console.log(_id)
+  const [descriptionValue, setDescriptionValue] = useState("");
 
    const dispatch = useDispatch()
    const { post } = useSelector( state => state.post )
 
-   useEffect(() => {
-    setFormData({...post})
-   },[post])
+   const { description } = post
  
-   const handleOk = async (e) => {
-     await dispatch(updatePost(formData))
-     setVisible(false)
-     await dispatch(getAllPost())
-   };
+    const onSubmit = (e) => {
+      const formData = new FormData();
+      // if (e.target.imagePost.files[0]) formData.set('imagePost', e.target.imagePost.files[0]);
+      formData.set('description', e.target.description.value)
+        dispatch(updatePost(formData))
+       console.log(formData)
+       setVisible(false)
+        dispatch(getAllPost())
+    }
+
+   
  
    const handleCancel = () => {
     setVisible(false)
    };
 
-   const [formData, setFormData] = useState({
-    description: ''
-    })
-
-    const { description } = formData
-
-   const onChange = (e)=>{
-    setFormData((prevState)=> ({
-        ...prevState,
-        [e.target.name]:e.target.value,
-    }))
-    }
+   useEffect(() => {
+    setDescriptionValue(description)
+  },[description])
 
   return (
-    <Modal title="Editar Publicación" visible={visible} onOk={handleOk} onCancel={handleCancel}>
-        <input type="file" name="imagePost"/>
-        <input type="text" name="description" placeholder="Escribe aqui tu publicacion" value={description || ''} onChange={onChange}/>
+    <Modal title="Editar Publicación" visible={visible} onCancel={handleCancel}>
+      <form onSubmit={onSubmit}>
+        {/* <input type="file" name="imagePost"/> */}
+        <input type="text" name="description" placeholder="Escribe aqui tu publicacion" value={descriptionValue || ''} onChange={(e) => setDescriptionValue(e.target.value)}/>
+        <button type="submit">Editar</button>
+        </form>
     </Modal>
   )
 }
