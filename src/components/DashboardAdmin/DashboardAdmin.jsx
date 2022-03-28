@@ -1,12 +1,14 @@
-import CompaniesAdmin from "./CompaniesAdmin/CompaniesAdmin"
+import CompaniesAdmin from "./CompaniesAdmin/CompaniesAdmin";
+import "./DashboardAdmin.scss";
 
 const DashboardAdmin = () => {
-    return (
-      <>
+  return (
+    <>
       <div>DashboardAdmin</div>
-     <CompaniesAdmin /> 
-      </>
-    )
-  }
-  
-  export default DashboardAdmin
+
+      <CompaniesAdmin />
+    </>
+  );
+};
+
+export default DashboardAdmin;

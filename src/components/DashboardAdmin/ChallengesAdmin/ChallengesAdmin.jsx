@@ -1,35 +1,30 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAll } from '../../../features/challenge/challengeSlice'
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAll } from "../../../features/challenge/challengeSlice";
 
-import ChallengeAdmin from './ChallengeAdmin/ChallengeAdmin'
-import AddChallenge from '../AddChallenge/AddChallenge'
+import ChallengeAdmin from "./ChallengeAdmin/ChallengeAdmin";
+import AddChallenge from "../AddChallenge/AddChallenge";
 
 const ChallengesAdmin = () => {
+  const dispatch = useDispatch();
+  const { challenges } = useSelector((state) => state.challenge);
 
-  const dispatch = useDispatch()
-  const { challenges } = useSelector( state => state.challenge)
-
-  const arrayChallenges = challenges || []
+  const arrayChallenges = challenges || [];
 
   useEffect(() => {
-    dispatch(getAll())
-  },[])
+    dispatch(getAll());
+  }, []);
 
   return (
     <>
-    <h2>Retos</h2>
-    <AddChallenge />
-    {
-      arrayChallenges.map(challenge => (
-        <ChallengeAdmin 
-            key= { challenge._id } 
-            {...challenge}
-            />
-      ))
-    }
+      <AddChallenge />
+      <div className="challenges-div">
+        {arrayChallenges.map((challenge) => (
+          <ChallengeAdmin key={challenge._id} {...challenge} />
+        ))}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ChallengesAdmin
+export default ChallengesAdmin;
