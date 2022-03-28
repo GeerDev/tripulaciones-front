@@ -4,9 +4,6 @@ import React from 'react'
 import ChallengesUser from "./ChallengesUser/ChallengesUser"
 import './DashboardUser.scss'
 
-
-
-
 const DashboardUser = () => {
   const { userNow } = useSelector(state => state.user)
   const { name, imageUser } = userNow

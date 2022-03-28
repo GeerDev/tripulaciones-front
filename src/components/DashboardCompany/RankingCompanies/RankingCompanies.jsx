@@ -35,7 +35,6 @@ const RankingCompanies = () => {
     scores.push(companies[i].score);
     names.push(companies[i].name);
   }
-
   return (
     <>
       <Bar
