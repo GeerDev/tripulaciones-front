@@ -12,7 +12,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -26,16 +25,14 @@ ChartJS.register(
 const RankingCompanies = () => {
   const dispatch = useDispatch();
   const { companies } = useSelector((state) => state.company);
-  const { stats, ranking, forms } = useSelector((state) => state.datascience);
-  console.log("Stats: ", stats);
-  // console.log("Ranking: ", ranking);
-  // console.log("Forms: ", forms);
+  const { stats, ranking } = useSelector((state) => state.datascience);
+  // console.log("Stats: ", stats);
+  console.log("Ranking: ", ranking);
 
   useEffect(() => {
     dispatch(getRankingCompanies());
     dispatch(getRanking())
     dispatch(getStats())
-    dispatch(getForm())
   }, []);
   const scores = [];
   const names = [];
