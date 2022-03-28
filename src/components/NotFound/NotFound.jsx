@@ -1,4 +1,4 @@
-// import './NotFound.scss';
+import './NotFound.scss';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
@@ -26,9 +26,6 @@ const NotFound = () => {
     <div className="error__message message">
       <h1 className="message__title">Página no encontrada</h1>
       <p className="message__text">Lo sentimos, la página que buscaba no se encuentra aquí. El enlace que ha seguido puede estar roto o ya no existe.</p>
-    </div>
-    <div className="error__nav e-nav">
-<Link Link to='/user' class="e-nav__link" ></Link>
     </div>
   </div>
 

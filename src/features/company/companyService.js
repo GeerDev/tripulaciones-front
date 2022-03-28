@@ -35,7 +35,7 @@ const logout = async() =>{
 
 const getAllCompanies = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios(API_URL + "/companies/admin", {
+    const res = await axios(API_URL + "/companies", {
         headers: {
           authorization: user?.token
         },
@@ -78,6 +78,15 @@ const getCompanyById = async (_id) => {
     return res.data
 }
 
+// const updateCompany = async (companyData) => {
+//     const user = JSON.parse(localStorage.getItem("user"));
+//     const res = await axios.put(API_URL + `/users/`, companyData, {
+//       headers: {
+//         authorization: user?.token,
+//       },
+//     });
+//     return res.data;
+//   };
 
 const companyService = {
     register,
