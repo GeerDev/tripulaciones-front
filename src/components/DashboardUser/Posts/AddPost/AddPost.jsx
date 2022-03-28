@@ -56,7 +56,6 @@ const AddPost = () => {
                     <option>Elige un desafio</option>
                 {printChallenges}
                 </select>
-          <button type="button" name="button">Cancelar</button>
           <button type="submit" name="button">Publicar</button>
         </div>
       </form>
