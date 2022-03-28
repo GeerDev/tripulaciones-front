@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from "react-router-dom";
 import { updateUser, getById } from '../../../features/user/userSlice'
-
+import './EditUser.scss'
 const EditUser = () => {
 
   const [nameValue, setNameValue] = useState("");
@@ -38,12 +38,26 @@ const EditUser = () => {
   },[name, email])
 
   return (
-    <form onSubmit={onSubmit}>
-        <input type="file" name="imageUser"/>
-        <input type="text" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
-        <input type="text" name="email" placeholder="Email..." value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
-        <button type="submit">Editar</button>
-    </form>
+    
+    <div className="card-form-edit card animate__animated animate__fadeInRight">
+  <form className="signup-edit" onSubmit={onSubmit}>
+    <div className="form-title-edit">Tu información</div>
+    <div className="form-body-edit">
+      <div className="row-edit">
+        <input type="text" className="input-editUser" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
+        <input type="text" className="input-editUser" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
+      </div>
+      <div className="row-edit">
+      <input type="file" name="imageUser"/>
+
+      </div>
+    </div>
+    <div className="rule-edit"></div>
+    <div className="form-footer-edit">
+      <button className="button-edit" type="submit">Editar</button>
+    </div>
+  </form>
+</div>
   )
 }
 

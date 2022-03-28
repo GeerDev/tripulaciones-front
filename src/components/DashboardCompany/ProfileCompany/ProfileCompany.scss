@@ -1,5 +1,6 @@
 @import '../../../colors.scss';
-.user-profile{
+
+.company-profile{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,33 +13,19 @@
     }
 }
 .tabs{
-	overflow: hidden;
-
+	overflow: scroll;
+    overflow-x: hidden;
     height: 10em;
 }
 .ant-tabs{
 	width: 107%;
 }
-.post-book{
-    text-align: center;
-    width: 50%;
-    border: 1px solid rgb(228, 222, 222);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
+
 .main-container{
     display: flex;
     flex-direction: column;
 }
-.posts-favs{
-    padding: 2em;
-	transform: translatex(-0%);
-	background-color: #fff;
-	width: 500px;
-    height: 20%;
-	border-radius: 40px;
-	margin-bottom: 50px;   
-}
+
 .profile-info{
     padding: 2em;
 	top: 50px;
@@ -74,9 +61,6 @@
 		width: 150px;
 		height: 150px;
 	}
-	.container-1{
-		background-color: rgba($firstblue, 5%);
-	}
 	#container-info {
 		position: absolute;
 		top: 60%;
@@ -103,6 +87,11 @@
 				text-align: center;
 				letter-spacing: 1px;
 			}
+            #score{
+                color: $secondblue;
+				text-align: center;
+				letter-spacing: 1px;
+            }
 			.line {
 				width: 80%;
 				margin: 10px auto;

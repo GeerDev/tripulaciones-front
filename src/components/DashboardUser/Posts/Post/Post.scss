@@ -11,6 +11,7 @@
     box-sizing: border-box;
     border-radius: 12px;
     margin: 12px 24px;
+    box-shadow: 0 19px 27px rgba(0, 0, 0, 0.1);
     
     .post-author{
         padding: 12px;
@@ -61,9 +62,15 @@
             border: 0;
             margin-left: 16px;
             background: #EF5DA8;
+            cursor: pointer;
                 &[type="submit"] {
                 background: #5D5FEF;
+                &:hover{
+                    background: #4648b8;
+                    cursor: pointer;
+                    }
                 }
+
         }
         .comment-length{
             margin-left: 16px;

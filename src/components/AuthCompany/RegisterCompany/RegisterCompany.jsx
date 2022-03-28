@@ -52,7 +52,7 @@ const RegisterCompany = () => {
       });
     } else {
       console.log(formData);
-      // dispatch(register(formData));
+      dispatch(register(formData));
     }
   }
   return (
