@@ -39,13 +39,13 @@ const RankingCompanies = () => {
   return (
     <>
       <Bar
-        width={4600}
-        height={3400}
+        width={1100}
+        height={1100}
         data={{
           labels: names,
           datasets: [
             {
-              label: "months",
+              label: "Score",
               data: scores,
               backgroundColor: ["red", "blue", "yellow", "black"],
             },
