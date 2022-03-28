@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { createComment } from '../../../../../features/comment/commentSlice'
 import { getByIdPost, reset } from "../../../../../features/post/postSlice";
+import './AddComment.scss'
 
 export const AddComment = ({_id}) => {
 

@@ -45,21 +45,22 @@ const objeto = [
     }
 ]
 
-  const myForm = objeto.map ((elemento) => (
+  const myForm = objeto.map((elemento) => (
+    <div className="form-content">
     <section key = {elemento.question.id}>
-        
-        <p>{elemento.question.content}</p>
+        <p>Soy una pregunta {elemento.question.content}</p>
         {elemento.answer.map ((e, index) => {
           return (
           <div className = 'cuestionario'>
             <p className = 'elemento'>
-                <label for={index}>{e.content}</label>
+                <label for={index}> hola soy un label{e.content}</label>
                 <input id={index} type="radio" name={elemento.question.id} value={e.id} />
             </p>
         </div>)
         })}
       
       </section>
+      </div>
     ))
 
   return (
