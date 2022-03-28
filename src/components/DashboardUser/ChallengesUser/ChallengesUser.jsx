@@ -17,7 +17,8 @@ const ChallengesUser = () => {
 
   return (
     <>
-    {
+      {
+        
       arrayChallenges.map(challenge => (
         <ChallengeUser 
             key= { challenge._id } 
