@@ -72,6 +72,15 @@ export const companySlice = createSlice({
         builder.addCase(getCompanyById.fulfilled, (state, action) => {
             state.companyInfo = action.payload
         });
+        builder.addCase(updateCompany.fulfilled, (state, action) => {
+            const company = state.company.map((element) => {
+              if (element._id === action.payload.company._id) {
+                element = action.payload.company;
+              }
+              return element
+          })
+          state.company = company
+          })
     }
 })
 
@@ -110,7 +119,7 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
     }
   });
 
-  export const confirm = createAsyncThunk("posts/confirmCompany", async (_id) => {
+  export const confirm = createAsyncThunk("companies/confirmCompany", async (_id) => {
     try {
       return await companyService.confirm(_id);
     } catch (error) {
@@ -135,7 +144,7 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
     }
   });
 
-  export const getCompanyById = createAsyncThunk("user/getCompanyById", async (_id, thunkApi) => {
+  export const getCompanyById = createAsyncThunk("companies/getCompanyById", async (_id, thunkApi) => {
     try {
         return await companyService.getCompanyById(_id)
     } catch (error) {
@@ -143,6 +152,15 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
         return thunkApi.rejectWithValue(message)
     }
 })
+
+export const updateCompany = createAsyncThunk("companies/updateCompany", async (company, thunkAPI) => {
+    try {
+      return await companyService.updateCompany(company);
+    } catch (error) {
+      const message = error.response.data;
+      return thunkAPI.rejectWithValue(message);
+    }
+  });
 
 export const { reset, resetSearchCompany } = companySlice.actions;
 export default companySlice.reducer;

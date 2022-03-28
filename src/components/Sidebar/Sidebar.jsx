@@ -46,7 +46,7 @@ const Sidebar = () => {
                         <ul>
                             <li>
                                 <Link to={`/company/profile/${company?.company._id}`}>
-                                {company?.company.name}
+                                {companyInfo.name}
                                 </Link>
                             </li>
                             <li>
