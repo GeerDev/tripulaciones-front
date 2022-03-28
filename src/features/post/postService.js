@@ -34,11 +34,12 @@ const getByIdPost = async (_id) => {
 
 const updatePost = async (post) => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios.put(API_URL + "/posts/" + post._id, post,{
+    const res = await axios.put(API_URL + "/posts/" + post._id , post ,{
         headers: {
             authorization: user?.token,
         }
     })
+    console.log("el res del service",res.data)
     return res.data;
 }
 

@@ -34,7 +34,6 @@ const PostUser = () => {
   };
 
   const post = allPosts.map((post) => {
-    console.log(post)
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
@@ -130,11 +129,13 @@ const PostUser = () => {
         <button onClick={() => showModal(post._id)}>Edita</button>
         <button onClick={() => deleteHere(post._id)}>Eliminar</button>
       </div>
-        <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
         </div>
     );
   });
-  return <div>{post}</div>;
+  return <div>
+          {post}
+          <EditModal visible={isModalVisible} setVisible={setIsModalVisible} />
+        </div>;
 
 };
 

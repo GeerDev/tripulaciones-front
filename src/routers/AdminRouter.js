@@ -3,17 +3,18 @@ import ChallengesAdmin from "../components/DashboardAdmin/ChallengesAdmin/Challe
 
 import DashboardAdmin from "../components/DashboardAdmin/DashboardAdmin";
 import Sidebar from "../components/Sidebar/Sidebar";
+import AdminZone from "../guards/AdminZone";
 
 export const AdminRouter = () => {
   return (
-    <div className="router-div-company">
-      <Sidebar />
-      <div className="container-company-routes">
+    <>
+      <AdminZone>
+        <Sidebar />
         <Routes>
           <Route path="/" element={<DashboardAdmin />} />
           <Route path="/challenges" element={<ChallengesAdmin />} />
         </Routes>
-      </div>
-    </div>
+      </AdminZone>
+    </>
   );
 };
