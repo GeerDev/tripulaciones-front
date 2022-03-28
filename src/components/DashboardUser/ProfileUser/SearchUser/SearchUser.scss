@@ -22,3 +22,15 @@
     color: $secondblue;
     font-size: 18px;
 }
+.centrateporDIOS{
+    margin-top:15px;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 40em;
+    :-webkit-scrollbar-thumb {
+        width: 10px;
+        background: red; 
+        border-radius: 10px;
+      }
+}

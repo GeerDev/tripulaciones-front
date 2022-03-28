@@ -29,5 +29,4 @@ const ChallengesUser = () => {
     </>
   )
 }
-
 export default ChallengesUser

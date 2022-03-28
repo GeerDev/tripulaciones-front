@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRankingCompanies } from "../../../features/company/companySlice";
+import { getRanking, getForm, getStats } from "../../../features/datascience/datascienceSlice";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +12,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -25,9 +25,14 @@ ChartJS.register(
 const RankingCompanies = () => {
   const dispatch = useDispatch();
   const { companies } = useSelector((state) => state.company);
+  const { stats, ranking } = useSelector((state) => state.datascience);
+  // console.log("Stats: ", stats);
+  console.log("Ranking: ", ranking);
 
   useEffect(() => {
     dispatch(getRankingCompanies());
+    dispatch(getRanking())
+    dispatch(getStats())
   }, []);
   const scores = [];
   const names = [];
@@ -35,7 +40,6 @@ const RankingCompanies = () => {
     scores.push(companies[i].score);
     names.push(companies[i].name);
   }
-
   return (
     <>
       <Bar
