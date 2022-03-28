@@ -1,0 +1,9 @@
+@import '../../colors.scss';
+
+.container-stats-search{
+    display: flex;
+    flex-direction: row;
+}
+.stats-company-container,.search-company-container{
+    width: 100%;
+}

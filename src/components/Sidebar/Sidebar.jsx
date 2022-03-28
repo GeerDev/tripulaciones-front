@@ -3,12 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, getCompanyById } from "../../features/company/companySlice";
 import { logoutUser, getById } from "../../features/user/userSlice";
 import { useEffect } from 'react';
-import './Sidebar.scss';
 import profile from '../../img/profile.svg'
 import home from '../../img/home.svg'
 import checklist from '../../img/checklist.svg'
 import logoSidebar from '../../img/logo-sidebar.svg'
 import logoutapp from '../../img/logout.svg'
+import './Sidebar.scss';
 
 
 const Sidebar = () => {
@@ -41,25 +41,39 @@ const Sidebar = () => {
     return (
         <>
             {company ?
-                <nav>
+                <nav className="sidebar-nav">
                     <>
+                    <img src={logoSidebar} className="logo-sidebar" />
+                    <div className="profile-div">
+                    <div className="profile-img">
+                                                <img
+                                                    className="img-company-profile"
+                                                    src={`http://localhost:4000/images/User/` + companyInfo.imageCompany}
+                                                />
+                                            </div>
+                                                <h3 className="name-profile-sidebar">{companyInfo.name}</h3>
+                                                
                         <ul>
                             <li>
-                                <Link to={`/company/profile/${company?.company._id}`}>
-                                {company?.company.name}
+                                <Link to={`/company`}>
+                                <img src={home} />
+                               <span>Home</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/company`}>
-                                    Inicio
+                                <Link to={`/company/profile/${company?.company._id}`}>
+                                <img src={profile} />
+                                    <span>{company?.company.name}</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to='/logincompany' onClick={onLogoutCompany}>
-                                    Logout
+                                <img src={logoutapp} />
+                                   <span>Logout</span>
                                 </Link>
                             </li>
                         </ul>
+                    </div>
                     </>
                 </nav>
                 :
