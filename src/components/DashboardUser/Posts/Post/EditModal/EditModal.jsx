@@ -1,45 +1,44 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {  getAllPost, updatePost } from '../../../../../features/post/postSlice'
+import { getAllPost, updatePost } from '../../../../../features/post/postSlice'
 
 import { Modal } from 'antd';
 
-const EditModal = ({visible, setVisible, _id}) => {
-  console.log(_id)
-  const [descriptionValue, setDescriptionValue] = useState("");
+const EditModal = ({visible, setVisible}) => {
 
    const dispatch = useDispatch()
    const { post } = useSelector( state => state.post )
 
-   const { description } = post
- 
-    const onSubmit = (e) => {
-      const formData = new FormData();
-      // if (e.target.imagePost.files[0]) formData.set('imagePost', e.target.imagePost.files[0]);
-      formData.set('description', e.target.description.value)
-        dispatch(updatePost(formData))
-       console.log(formData)
-       setVisible(false)
-        dispatch(getAllPost())
-    }
+   const [formData, setFormData] = useState({
+    description: ''
+    })
 
-   
+    const { description } = formData
+    
+   useEffect(() => {
+    setFormData({...post})
+   },[post])
  
+    const handleOk = async () => {
+      await dispatch(updatePost(formData))
+      await dispatch(getAllPost())
+      setVisible(false)
+    };
+
    const handleCancel = () => {
     setVisible(false)
    };
 
-   useEffect(() => {
-    setDescriptionValue(description)
-  },[description])
+  const onChange = (e)=>{
+  setFormData((prevState)=> ({
+      ...prevState,
+      [e.target.name]:e.target.value,
+  }))
+  }
 
   return (
-    <Modal title="Editar Publicación" visible={visible} onCancel={handleCancel}>
-      <form onSubmit={onSubmit}>
-        {/* <input type="file" name="imagePost"/> */}
-        <input type="text" name="description" placeholder="Escribe aqui tu publicacion" value={descriptionValue || ''} onChange={(e) => setDescriptionValue(e.target.value)}/>
-        <button type="submit">Editar</button>
-        </form>
+    <Modal title="Editar Publicación" visible={visible} onOk={handleOk} onCancel={handleCancel}>
+        <input type="text" name="description" value={description || ''} onChange={onChange}/>
     </Modal>
   )
 }
