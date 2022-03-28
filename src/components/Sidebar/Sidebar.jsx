@@ -117,13 +117,10 @@ const Sidebar = () => {
                   <img src={logoSidebar} className="logo-sidebar" />
                   <div className="profile-div">
                     <div className="profile-img">
-                      <img onLoad="this.style.viibility='visible'"
-                        className="img-user-profile"
-                        src={
-                          `http://localhost:4000/images/User/` +
-                          userNow.imageUser
-                        }
-                      />
+                    {userNow.imageUser ? (
+	  <img className="img-user-profile" src={`http://localhost:4000/images/User/` + userNow.imageUser} alt="Imagen User"/>
+    ) : (<img className="img-user-profile" src={`https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg`} alt="Imagen User"/>)
+    }
                     </div>
                     <h3 className="name-profile-sidebar">{userNow.name}</h3>
                     <ul>
