@@ -35,7 +35,7 @@ const logout = async() =>{
 
 const getAllCompanies = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios(API_URL + "/companies/admin", {
+    const res = await axios(API_URL + "/companies", {
         headers: {
           authorization: user?.token
         },

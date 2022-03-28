@@ -3,6 +3,7 @@ import { confirm } from "../../../../features/company/companySlice";
 
 const CompanyAdmin = () => {
     const { companies } = useSelector((state) => state.company);
+    console.log(companies)
     const enterprise = companies || []
     const dispatch = useDispatch();
 
