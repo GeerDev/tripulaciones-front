@@ -12,7 +12,7 @@
     }
 }
 .tabs{
-	overflow: scroll;
+	overflow: hidden;
     overflow-x: hidden;
     height: 10em;
 }
@@ -65,7 +65,6 @@
 		}
 	}
 	#profile-picture {
-		visibility: hidden;
 		position: absolute;
 		top: 160px;
 		left: 50%;
@@ -74,6 +73,9 @@
 		border-radius: 50%;
 		width: 150px;
 		height: 150px;
+	}
+	.container-1{
+		background-color: rgba($firstblue, 5%);
 	}
 	#container-info {
 		position: absolute;

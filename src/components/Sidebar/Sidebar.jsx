@@ -117,7 +117,7 @@ const Sidebar = () => {
                   <img src={logoSidebar} className="logo-sidebar" />
                   <div className="profile-div">
                     <div className="profile-img">
-                      <img onLoad="this.style.viibility='visible'"
+                      <img
                         className="img-user-profile"
                         src={
                           `http://localhost:4000/images/User/` +

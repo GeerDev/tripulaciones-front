@@ -65,7 +65,7 @@ const Forms = () => {
       id="CuestionarioData"
       name="Cuestionario_DataScience"
       onSubmit={onSubmit}
-    >
+    className="card animate__animated animate__fadeIn">
       {myForm}
       <button type="submit" id="CuestionarioDataButton">
         Enviar
