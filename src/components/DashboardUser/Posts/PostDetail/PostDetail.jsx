@@ -7,6 +7,7 @@ import { getByIdPost, reset } from "../../../../features/post/postSlice";
 import { AddComment } from "./AddComment/AddComment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { like, dislike, deleteComment, getComments } from "../../../../features/comment/commentSlice";
+import './PostDetail.scss'
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -30,17 +31,17 @@ const PostDetail = () => {
   };
 
   return (
-    <div>
-      <p>{post.userId?.name}</p>
-      <p>{post.description}</p>
+    <div className="comments">
+      <p> soy el nombre del usuario {post.userId?.name}</p>
+      <p>Soy el texto que hay en el publicación {post.description}</p>
       <h2>Comentarios</h2>
       <hr />
       <div>
       {
       comments?.map(comment => 
       <div>
-      <span><p>{user?.user.name}</p></span>
-      <p>{comment?.comment}</p>
+      <span><p>El nombre de quien comenta {user?.user.name}</p></span>
+      <p>El texto que lleva el comentario {comment?.comment}</p>
                 <div className="likes">
                 {comment?.likes.includes(user?.user._id) ? (
                   <HeartFilled
