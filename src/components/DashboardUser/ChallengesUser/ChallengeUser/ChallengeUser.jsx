@@ -3,8 +3,7 @@ const ChallengeUser = ({ _id, title, description, imageChallenge }) => {
 
   return (
     <div className="challenge">
-      <div key={_id}>
-        <div className="challenge-name">
+        <div className="challenge-name" key={_id}>
           <h3>{title}</h3>
         </div>
         <div className='challenge-content'>
@@ -14,9 +13,10 @@ const ChallengeUser = ({ _id, title, description, imageChallenge }) => {
             width={320}
           />
         </div>
-        <div className='toolbar'></div>
+        <div className='toolbar'>
+          <p>Aquí estaría de descripción</p>
+        </div>
       </div>
-    </div>
   );
 };
 
