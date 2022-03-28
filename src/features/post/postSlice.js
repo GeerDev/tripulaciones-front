@@ -93,7 +93,7 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
       builder.addCase(createPost.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.message = action.payload;
-        state.posts = [action.payload, ...state.posts];
+        state.posts = [ action.payload, ...state.posts ];
       });
       builder.addCase(createPost.rejected, (state, action) => {
         state.isError = true;
