@@ -18,7 +18,7 @@ const ProfileCompany = () => {
 
   return (
     <>
-    <main className="profile-info">
+    <main className="profile-info card animate__animated animate__backInRight">
 	      <div id="profil-container">
 		      <h1 id="profile">Profile</h1>
 	      </div>
@@ -38,8 +38,8 @@ const ProfileCompany = () => {
         </Link></h2>
       </li>
 		</ul>
-	</div>
-    </main>
+	  </div>
+  </main>
        {/*  
         
         <img

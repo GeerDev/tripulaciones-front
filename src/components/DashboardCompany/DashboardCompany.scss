@@ -3,7 +3,11 @@
 .container-stats-search{
     display: flex;
 }
-.stats-company-container,.search-company-container{
-    width: 50%;
-    height: 50%;
+.stats-company-container{
+height: 20em;
+width: 20em;
+}
+
+.search-company-container{
+height: 20em;
 }

@@ -35,14 +35,12 @@ const EditCompany = () => {
   useEffect(() => {
     dispatch(getCompanyById(_id))
   },[])
-
   useEffect(() => {
     setNameValue(name)
     setNameCEOValue(nameCEO)
     setEmailValue(email)
     setPhoneValue(phone)
   },[name, email, nameCEO, phone])
-
   return (
     <form onSubmit={onSubmit}>
     <input type="file" name="imageCompany"/>
@@ -54,5 +52,4 @@ const EditCompany = () => {
 </form>
   )
 }
-
 export default EditCompany

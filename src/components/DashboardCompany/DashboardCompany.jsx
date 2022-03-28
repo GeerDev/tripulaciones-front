@@ -10,9 +10,9 @@ const DashboardCompany = () => {
       
       <>
       <div className="container-stats-search card animate__animated animate__fadeIn">
-        <div className="stats-company-container">
+        {/* <div className="stats-company-container">
       <StatsCompany />
-        </div>
+        </div> */}
         <div className="search-company-container">
       <RankingCompanies />
         </div>
