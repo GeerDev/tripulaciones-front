@@ -48,7 +48,7 @@ const Sidebar = () => {
                     <div className="profile-img">
                                                 <img
                                                     className="img-company-profile"
-                                                    src={`http://localhost:4000/images/User/` + companyInfo.imageCompany}
+                                                    src={`http://localhost:4000/images/Company/` + companyInfo.imageCompany}
                                                 />
                                             </div>
                                                 <h3 className="name-profile-sidebar">{companyInfo.name}</h3>
@@ -63,9 +63,10 @@ const Sidebar = () => {
                             <li>
                                 <Link to={`/company/profile/${company?.company._id}`}>
                                 <img src={profile} />
-                                    <span>{company?.company.name}</span>
+                                    <span>{companyInfo.name}</span>
                                 </Link>
                             </li>
+                 
                             <li>
                                 <Link to='/logincompany' onClick={onLogoutCompany}>
                                 <img src={logoutapp} />
