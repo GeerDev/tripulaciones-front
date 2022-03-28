@@ -35,6 +35,7 @@ const AddPost = () => {
 
     await dispatch(createPost(formData));
     await dispatch(getAllPost())
+    
   }
 
   const printChallenges = allChallenges.map((challenge) => {
