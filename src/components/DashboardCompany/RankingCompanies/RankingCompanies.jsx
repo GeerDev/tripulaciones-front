@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRankingCompanies } from "../../../features/company/companySlice";
 import {
   getRanking,
-  getForm,
   getStats,
 } from "../../../features/datascience/datascienceSlice";
 import {
@@ -36,7 +35,6 @@ ChartJS.register(
 
 const RankingCompanies = () => {
   const dispatch = useDispatch();
-  const { companies } = useSelector((state) => state.company);
   const { stats, ranking } = useSelector((state) => state.datascience);
   console.log(stats);
   useEffect(() => {
@@ -55,14 +53,34 @@ const RankingCompanies = () => {
   for (let i = 0; i < stats.length; i++) {
     statsNames.push(stats[i].category_name);
   }
+  console.log(statsNames)
+
+  const scoreStats1 = stats.map((element) => {
+    return element.score[0]
+  })
+
+  const scoreStats2 = stats.map((element) => {
+    return element.score[1]
+  })
+
+  console.log(scoreStats1);
+  console.log(scoreStats2);
+
   const data = {
     labels: statsNames,
     datasets: [
       {
-        label: "Nombre Empresa",
-        data: [6, 7, 9, 7, 9, 10, 8, 5, 2, 5],
+        label: "Valor Empresa",
+        data: scoreStats1,
         backgroundColor: "blue",
         borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 2,
+      },
+      {
+        label: "Valor Cers",
+        data: scoreStats2,
+        backgroundColor: "red",
+        borderColor: "rgba(00, 255, 00, 0.1)",
         borderWidth: 2,
       },
     ],
