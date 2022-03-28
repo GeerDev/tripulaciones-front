@@ -17,7 +17,6 @@ const CompanyAdmin = () => {
           <p>{company.nameCEO}</p>
           <p>{company.phone}</p>
           <p>{company.email}</p>
-          <p>{company.employees}</p>
           <p>{company.companyType}</p>
 
     {company.confirmed ? 

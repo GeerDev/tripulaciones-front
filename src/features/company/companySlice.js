@@ -6,7 +6,7 @@ const company = JSON.parse(localStorage.getItem("company"));
 const initialState = {
     company: company ? company : null,
     companies: [],
-    companyInfoProfile: {},
+    companyInfo: {},
     companySearch: [],
     isError: false,
     isSuccess: false,
@@ -68,6 +68,9 @@ export const companySlice = createSlice({
           });
         builder.addCase(getRankingCompanies.fulfilled, (state, action) => {
             state.companies = action.payload;
+        });
+        builder.addCase(getCompanyById.fulfilled, (state, action) => {
+            state.companyInfo = action.payload
         });
     }
 })
@@ -131,6 +134,15 @@ export const getAllCompanies = createAsyncThunk("companies/getAllCompanies", asy
       return thunkAPI.rejectWithValue(message);
     }
   });
+
+  export const getCompanyById = createAsyncThunk("user/getCompanyById", async (_id, thunkApi) => {
+    try {
+        return await companyService.getCompanyById(_id)
+    } catch (error) {
+        const message = error.response.data.message;
+        return thunkApi.rejectWithValue(message)
+    }
+})
 
 export const { reset, resetSearchCompany } = companySlice.actions;
 export default companySlice.reducer;

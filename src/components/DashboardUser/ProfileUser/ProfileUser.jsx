@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { deleteMySelf, getById } from '../../../features/user/userSlice'
 import './ProfileUser.scss'
 
@@ -9,12 +9,9 @@ import SearchUser from './SearchUser/SearchUser';
 const { TabPane } = Tabs;
 
 const ProfileUser = () => {
-  const { companies } = useSelector((state) => state.company);
-
 
   const { _id } = useParams();
   const dispatch = useDispatch()
-  const navigate = useNavigate();
 
   const { userNow } = useSelector( state => state.user )
   const { name, email, imageUser, postIds, favorites } = userNow
