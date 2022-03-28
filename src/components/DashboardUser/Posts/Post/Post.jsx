@@ -132,8 +132,9 @@ const PostUser = () => {
         </div>
     );
   });
-  return <div>{post}
-          <EditModal visible={isModalVisible} setVisible={setIsModalVisible} _id={post._id} />
+  return <div>
+          {post}
+          <EditModal visible={isModalVisible} setVisible={setIsModalVisible} />
         </div>;
 
 };
