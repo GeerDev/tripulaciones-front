@@ -2,4 +2,94 @@
 
 .comments{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    background-color: rgba($firstblue, 15%);
+    .posts{
+        width: calc(620px - 48px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 24px;
+        background: #FFFFFF;
+        border: 1px solid $white;
+        box-sizing: border-box;
+        border-radius: 12px;
+        margin: 12px auto;
+        order: 0;
+        .user-name-comment{
+            width: 100%;
+            color: $thirdblue;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .comment-user{
+            width: 100%;
+            font-family: "Montserrat";
+            display: flex;
+            font-size: 24px;
+            line-height: 1.4;
+            color: $black;
+        }
+    }
+    .map-coment{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 2;
+        max-width: 620px;
+        margin: 0 auto;
+            .title-map-comments{
+                width: 100%;
+                color: $thirdblue;
+                font-weight: 700;
+                font-size: 36px;
+
+            }
+       .coments-content{
+           width: 100%;
+           background: $white;
+           height: auto;
+           border-radius: 12px;
+           display: flex;
+           flex-direction: column;
+           padding: 12px;
+           margin-bottom: 24px;
+           .name-coment{
+               color: $secondblue;
+               font-weight: 700;
+               font-size: 20px;
+           }
+    }
+    }
+    .toolbar{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        .likes{
+            
+        }
+
+        button{
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            display: flex;
+            justify-content: center;
+            max-width: max-content;
+            height: auto;
+            font-weight: 500;
+            color: $white;
+            border: 0;
+            border-radius: 12px;
+            background: #EF5DA8;
+            padding: 8px 24px;
+        }
+    }
 }
