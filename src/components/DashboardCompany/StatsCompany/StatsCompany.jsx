@@ -55,14 +55,14 @@ const StatsCompany = () => {
     labels: statsNames,
     datasets: [
       {
-        label: '# of Votes',
+        label: 'CERS',
         data: [1,2,3,4,5,6,7,8,9,10],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
       },
       {
-        label: '# of Votes',
+        label: 'Datos Empresa',
         data: scoreStats2,
         backgroundColor: 'rgba(25, 19, 72, 0.3)',
         borderColor: 'rgba(25, 19, 72, 0.3)',
