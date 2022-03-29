@@ -6,7 +6,6 @@ import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import EditModal from "./EditModal/EditModal";
 import { useState } from "react";
 import './Post.scss'
-import { useTranslation } from "react-i18next";
 
 
 const PostUser = () => {
