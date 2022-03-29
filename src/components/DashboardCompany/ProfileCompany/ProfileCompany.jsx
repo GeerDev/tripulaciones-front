@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from "react-router-dom";
-import { getCompanyById } from '../../../features/company/companySlice'
+import { getCompanyById, deleteCompany } from '../../../features/company/companySlice'
 import './ProfileCompany'
 const ProfileCompany = () => {
 
@@ -15,6 +15,10 @@ const ProfileCompany = () => {
   useEffect(() => {
     dispatch(getCompanyById(_id))
   },[])
+
+  const deleteCompanies = (async ()=> {
+    await dispatch(deleteCompany(companyInfo._id));
+  })
 
   return (
     <>
@@ -35,7 +39,10 @@ const ProfileCompany = () => {
       <li><h3 id="mail">score de tu empresa: { score }</h3></li>
 			<li className="line"></li>
       <div id="button">
-    <div id="save" className="button">Borra Tu Cuenta</div>
+      <Link to={`/`}>
+
+    <div id="save" className="button" onClick={() =>deleteCompanies(companyInfo._id)}>Borra Tu Cuenta</div>
+    </Link>
 	</div>
       <li>
         <h2 className="info" id="link-edit"><Link to={`/company/edit/${_id}`}>

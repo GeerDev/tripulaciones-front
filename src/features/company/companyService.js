@@ -88,6 +88,16 @@ const updateCompany = async (companyData) => {
     return res.data;
   };
 
+  const deleteCompany = async () => {
+    const company = JSON.parse(localStorage.getItem('company'))
+    const res = await axios.delete(API_URL + '/companies/', {
+        headers: {
+            authorization: company?.token
+        }
+    })
+    return res.data
+}
+
 const companyService = {
     register,
     login,
@@ -97,7 +107,8 @@ const companyService = {
     getRankingCompanies,
     searchByCompanyName,
     getCompanyById,
-    updateCompany
+    updateCompany,
+    deleteCompany
 }
 
 export default companyService;

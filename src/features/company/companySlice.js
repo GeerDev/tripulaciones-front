@@ -81,6 +81,10 @@ export const companySlice = createSlice({
           })
           state.company = company
           })
+          .addCase(deleteCompany.fulfilled, (state, action) => {
+            state.company = null;
+            state.message = action.payload;
+          });
     }
 })
 
@@ -159,6 +163,14 @@ export const updateCompany = createAsyncThunk("companies/updateCompany", async (
     } catch (error) {
       const message = error.response.data;
       return thunkAPI.rejectWithValue(message);
+    }
+  });
+
+  export const deleteCompany = createAsyncThunk("user/deleteCompany", async () => {
+    try {
+      return await companyService.deleteCompany();
+    } catch (error) {
+      console.error(error);
     }
   });
 
