@@ -14,7 +14,7 @@ const DashboardCompany = () => {
       <StatsCompany />
         </div>
         <div className="search-company-container">
-      {/* <RankingCompanies /> */}
+      <RankingCompanies />
         </div>
       </div>
       <hr />
