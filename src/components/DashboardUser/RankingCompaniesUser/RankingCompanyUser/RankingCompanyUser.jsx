@@ -13,9 +13,9 @@ const RakingCompanyUser = () => {
                   <>
               <img src={company.imageCompany} className="img-ranking-company" />
                 <div className="ranking-company-info">                  
-              {company.name}
-              {company.score}
-                </div>
+              <p>{company.name}</p>
+              <p>{company.score}</p>
+                </div>  
 
               </>
               ) : ( 
