@@ -45,13 +45,20 @@ const Sidebar = () => {
             <img src={logoSidebar} className="logo-sidebar" />
             <div className="profile-div">
               <div className="profile-img">
-                <img
+                {companyInfo.imageCompany ?
+(                <img
                   className="img-company-profile"
                   src={
                     `http://localhost:4000/images/Company/` +
                     companyInfo.imageCompany
                   }
-                />
+                />) : (<img
+                  className="img-company-profile"
+                  src={
+                    `https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg`
+                  }
+                />)
+              }
               </div>
               <h3 className="name-profile-sidebar">{companyInfo.name}</h3>
 
