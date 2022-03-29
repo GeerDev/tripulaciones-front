@@ -43,20 +43,19 @@ const PostUser = () => {
       <div className="post card animate__animated animate__fadeInleft">
         <div className="post-author">
           <Link to={"/user/post/" + post._id}>
-            {post.userId?.name && (<span><strong>{post.userId?.name}</strong><p>from {post.userId.company?.name}</p></span>)}
+            {post.userId?.name && (<span><strong>{post.userId?.name}</strong><p>de {post.userId.company?.name}</p></span>)}
           </Link>
         </div>
         <div className="post-content">
           {post.imagePost ? (        
             <>
+            <p>{post.description}</p>
           <img
               src={`http://localhost:4000/images/Post/` + post.imagePost}
               alt="Imagen Post"
               width={320}
           />
-          
-           <p>{post.description}</p>
-           <p>{post.challengeId?.title}</p>
+          <p>{post.challengeId?.title}</p>
            </>
            ) : (  
              <>
