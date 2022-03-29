@@ -16,6 +16,9 @@ const PostUser = () => {
   const allPosts = posts || [];
   const dispatch = useDispatch();
 
+  const author = user.user.postIds
+  console.log(author);
+
   if (isLoading) {
     return (
       <h1>
@@ -127,8 +130,14 @@ const PostUser = () => {
           )}
           <span className="comment-length">{post.comments.length} comentarios</span>
         </span>
-        <button onClick={() => showModal(post._id)}>Edita</button>
-        <button onClick={() => deleteHere(post._id)}>Eliminar</button>
+        {
+          author.includes(post._id) ?
+          <>
+                  <button onClick={() => showModal(post._id)}>Edita</button>
+                  <button onClick={() => deleteHere(post._id)}>Eliminar</button>
+          </> :
+          null
+        }
       </div>
         </div>
     );
