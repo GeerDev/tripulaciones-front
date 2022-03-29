@@ -27,7 +27,6 @@ const LoginCompany = () => {
       notification.error({message: "Error al iniciar sesión", description: message,});
     }
     if(isSuccess){
-      console.log(message)
       notification.success({message: "Hola!", description: message?.message,});
       setTimeout(()=>{
         navigate("/company")

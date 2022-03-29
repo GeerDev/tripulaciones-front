@@ -36,7 +36,6 @@ export const getByIdPost = createAsyncThunk("posts/getById", async (_id) => {
 
   export const updatePost = createAsyncThunk("posts/editPost", async (post) => {
     try {
-      console.log("el slice" ,post)
       return await postUserService.updatePost(post);
     } catch (error) {
       console.error(error);

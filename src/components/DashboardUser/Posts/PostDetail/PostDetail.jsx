@@ -15,7 +15,6 @@ const PostDetail = () => {
   const { post, isLoading } = useSelector((state) => state.post);
   const { user } = useSelector((state) => state.user);
   const { comments } = useSelector((state) => state.comment);
-  console.log(post)
   useEffect(async () => {
     await dispatch(getByIdPost(_id));
     await dispatch(getComments(_id))

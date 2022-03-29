@@ -29,7 +29,6 @@ const addChallenge = async (challenge) => {
         authorization: user?.token
       },
     });
-    console.log("Axios Challenges: ", res.data);
   return res.data;
 };
 

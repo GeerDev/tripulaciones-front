@@ -51,7 +51,6 @@ const RegisterCompany = () => {
       return notification.error({message: 'error',description: "Las contraseñas no coinciden",
       });
     } else {
-      console.log(formData);
       dispatch(register(formData));
     }
   }

@@ -16,7 +16,6 @@ const Sidebar = () => {
   const { user, userNow } = useSelector((state) => state.user);
 
   const { company, companyInfo } = useSelector((state) => state.company);
-  console.log(company)
 
   const onLogoutUser = (e) => {
     e.preventDefault();

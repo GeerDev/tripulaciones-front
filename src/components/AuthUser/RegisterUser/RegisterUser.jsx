@@ -53,7 +53,6 @@ const RegisterUser = () => {
             });
 
         } else {
-            console.log(formData)
             return dispatch(registerUser(formData))
         }
     }

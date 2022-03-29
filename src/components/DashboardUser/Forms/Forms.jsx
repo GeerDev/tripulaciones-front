@@ -24,16 +24,12 @@ const Forms = () => {
   }, []);
 
   useEffect(() => {
-    console.log(formData);
     setResult((pre) => [...pre, formData])
   }, [formData]);
 
-  console.log("Resultado: ", result);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // La acción de mandar todo el formulario - DATA SCIENCE
-    console.log(result.slice(1)); 
     const dataForDataScience = result.slice(1)
     await dispatch(postForm(dataForDataScience))
     notification.success({ message: "El formulario se ha enviado con éxito" });

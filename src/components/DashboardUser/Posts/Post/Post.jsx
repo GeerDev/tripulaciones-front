@@ -12,7 +12,6 @@ const PostUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { posts, isLoading } = useSelector((state) => state.post);
   const { user } = useSelector((state) => state.user);
-  console.log(posts)
   const allPosts = posts || [];
   const dispatch = useDispatch();
 

@@ -64,7 +64,6 @@ const CompanyAdmin = () => {
       buttons: [company.confirmed, company._id]
     }
   });
-  console.log(enterprises);
 
     return <Table dataSource={enterprises} columns={columns} />;;
 

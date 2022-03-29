@@ -34,8 +34,6 @@ const RankingCompanies = () => {
   const dispatch = useDispatch();
   const { stats, ranking } = useSelector((state) => state.datascience);
   const { companies } = useSelector((state) => state.company);
-
-  console.log(companies);
   
   useEffect(() => {
     dispatch(getRanking());

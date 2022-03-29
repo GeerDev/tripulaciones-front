@@ -55,7 +55,6 @@ export const getForm = createAsyncThunk("datascience/getForm", async (thunkAPI) 
 
 export const postForm = createAsyncThunk("datascience/postForm", async (thunkAPI) => {
     try {
-      console.log("He pasado por aqui");
       return await datascienceService.postForm();
     } catch (error) {
       const message = error.response.data;
