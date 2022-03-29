@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRanking,} from "../../../features/datascience/datascienceSlice";
+import { getRanking } from "../../../features/datascience/datascienceSlice";
+import { getRankingCompanies } from "../../../features/company/companySlice";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -32,20 +33,19 @@ ChartJS.register(
 const RankingCompanies = () => {
   const dispatch = useDispatch();
   const { stats, ranking } = useSelector((state) => state.datascience);
-  console.log(stats);
+  const { companies } = useSelector((state) => state.company);
+
+  console.log(companies);
+  
   useEffect(() => {
     dispatch(getRanking());
+    dispatch(getRankingCompanies())
   }, []);
   const scores = [];
   const names = [];
-  for (let i = 0; i < ranking.length; i++) {
-    scores.push(ranking[i].score);
-    names.push(ranking[i].company_name);
-  }
-  const statsNames = [];
-
-  for (let i = 0; i < stats.length; i++) {
-    statsNames.push(stats[i].category_name);
+  for (let i = 0; i < companies.length; i++) {
+    scores.push(companies[i].score);
+    names.push(companies[i].name);
   }
   
   return (
@@ -58,7 +58,7 @@ const RankingCompanies = () => {
             labels: names,
             datasets: [
               {
-                label: "Score",
+                label: "Ranking de puntuación general",
                 data: scores,
                 backgroundColor: ["rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)"],
               },

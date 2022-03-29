@@ -34,7 +34,6 @@ const StatsCompany = () => {
   for (let i = 0; i < stats.length; i++) {
     statsNames.push(stats[i].category_name);
   }
-  console.log(statsNames)
 
   const scoreStats1 = stats.map((element) => {
     return Math.trunc(element.score[0])
@@ -44,26 +43,23 @@ const StatsCompany = () => {
     return Math.trunc(element.score[1])
   })
 
-  console.log(scoreStats1);
-  console.log(scoreStats2);
-
   useEffect(() => {
     dispatch(getStats());
   }, []);
 
   const data = {
-    labels: statsNames,
+    labels: ['a','b','a','a','a','a','a','a','a','a'],
     datasets: [
       {
         label: 'CERS',
-        data: [1,2,3,4,5,6,7,8,9,10],
+        data: [8,7,7,5,8,6,7,8,6,9],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
       },
       {
         label: 'Datos Empresa',
-        data: scoreStats2,
+        data: [9,8,10,8,9,9,8,8,7,10],
         backgroundColor: 'rgba(25, 19, 72, 0.3)',
         borderColor: 'rgba(25, 19, 72, 0.3)',
         borderWidth: 1,
