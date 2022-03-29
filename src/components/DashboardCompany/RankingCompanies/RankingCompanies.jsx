@@ -62,7 +62,7 @@ const RankingCompanies = () => {
               {
                 label: "Score",
                 data: scores,
-                backgroundColor: ["red", "blue", "yellow", "black"],
+                backgroundColor: ["rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)"],
               },
             ],
           }}
