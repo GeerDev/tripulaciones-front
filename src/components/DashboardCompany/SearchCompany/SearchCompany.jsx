@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchByCompanyName, resetSearchCompany } from '../../../features/company/companySlice'
-
+import './SearchCompany.scss'
+import { Input } from 'antd';
 const SearchCompany = () => {
 
   const dispatch = useDispatch()
@@ -29,8 +30,8 @@ const SearchCompany = () => {
   }
 
   return (
-    <>
-    <input type="text" name="search" value={search} onChange={onChange} placeholder='Busqueda...'/>
+    <div className='search-company-container-input'>
+    <Input type="text" name="search" value={search} onChange={onChange} placeholder='Busqueda...'/>
     {
         (search === '')
             ? <div> Buscar un empresa </div>
@@ -47,7 +48,7 @@ const SearchCompany = () => {
           ))
         }
         </div>
-    </>
+    </div>
   )
 }
 

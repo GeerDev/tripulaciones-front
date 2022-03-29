@@ -54,8 +54,8 @@ const RankingCompanies = () => {
     <>
       {
         <Bar
-          width={1100}
-          height={1100}
+          width={500}
+          height={500}
           data={{
             labels: names,
             datasets: [

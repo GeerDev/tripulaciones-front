@@ -1,6 +1,6 @@
 @import '../../../colors.scss';
 
-.card-form-edit{
+.card-form-editCompany{
     height: 50vh;
     margin-left: 20px;
     margin-top: 4em;
@@ -9,8 +9,7 @@
     background: white;
     box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
     
-    .form-title-edit{
-      color: $white;
+    .form-title-editCompany{
       width: 100%;
       display: flex;
       align-items: center;
@@ -22,15 +21,15 @@
       border-radius: 10px 10px 0 0;
     }
     
-    .form-body-edit{
+    .form-body-editCompany{
       padding: 10px;
       
-      .row-edit{
+      .row-editCompany{
         display: flex;
         justify-content: space-around;
         padding: 10px;
         
-        .input-editUser{
+        .input-editCompany{
           appearance: none;
           width: 100%;
           margin: 0 15px;
@@ -46,7 +45,7 @@
       }
     }
     
-.button-edit{
+.button-editCompany{
     background-color: $firstblue;
     color: white;
     font-size: 15px;
@@ -90,13 +89,13 @@
     }
 }
 
-    .rule-edit{
+    .rule-editCompany{
       height: 2px;
       background: #e8ebed;
       margin: 0px 35px;
     }
     
-    .form-footer-edit{
+    .form-footer-editCompany{
         align-items: center;
       margin: 0 25px 15px 25px;
       padding: 15px 10px;
@@ -117,6 +116,3 @@
         margin-left: 8px;
       }
     }
-    
-  
-  
