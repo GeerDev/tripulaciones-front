@@ -3,8 +3,9 @@ import "./DashboardAdmin.scss";
 
 const DashboardAdmin = () => {
   return (
-    <div>
-      <h2>DashboardAdmin</h2>
+    <div className="admin_ancho">
+      <h2 className="title">Panel de administración</h2>
+      <hr />
 
       <CompaniesAdmin />
     </div>
