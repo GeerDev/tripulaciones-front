@@ -1,0 +1,8 @@
+@import '../../../colors.scss';
+
+.ranking-companies-dashboard{
+    display: flex;
+    flex-direction: space-around;
+    color: $firstblue;
+    margin-left: 55px;
+}

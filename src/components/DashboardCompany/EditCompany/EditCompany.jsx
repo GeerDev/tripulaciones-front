@@ -54,10 +54,10 @@ const EditCompany = () => {
         </div>
         <div className="row-editCompany">
         <input type="file" name="imageCompany"/>
+        <button className="" type="submit">Editar</button>
         </div>
         <div className="button-flex">
 
-        <button className="" type="submit">Editar</button>
         </div>
 
       </div>
