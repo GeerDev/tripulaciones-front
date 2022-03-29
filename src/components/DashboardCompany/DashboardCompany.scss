@@ -4,9 +4,11 @@
   display: flex;
   justify-content: space-around;
   width: 70vw;
-  margin: 1em;
+  margin-top: 3em;
+  background-color: rgba($firstblue, 15%);
 }
 .stats-company-container,
 .search-company-container {
   width: 100%;
+  background-color: white;
 }

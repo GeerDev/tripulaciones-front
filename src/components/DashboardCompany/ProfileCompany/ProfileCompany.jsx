@@ -20,7 +20,7 @@ const ProfileCompany = () => {
     <>
     <main className="profile-info card animate__animated animate__backInRight">
 	      <div id="profil-container">
-		      <h1 id="profile">Profile</h1>
+		      <h1 id="profile">Perfil de empresa</h1>
 	      </div>
         { imageCompany ?  (
           	  <img id="profile-picture" src={`http://localhost:4000/images/Company/` + imageCompany} alt="Imagen Empresa"/>
