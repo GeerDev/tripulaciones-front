@@ -17,7 +17,6 @@ const PostUser = () => {
   const dispatch = useDispatch();
 
   const author = user.user.postIds
-  console.log(author);
 
   if (isLoading) {
     return (
