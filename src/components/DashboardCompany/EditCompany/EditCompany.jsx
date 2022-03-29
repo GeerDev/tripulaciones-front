@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from "react-router-dom";
 import { updateCompany, getCompanyById } from '../../../features/company/companySlice'
-
+import './EditCompany.scss'
 const EditCompany = () => {
 
   const [nameValue, setNameValue] = useState("");
@@ -42,14 +42,36 @@ const EditCompany = () => {
     setPhoneValue(phone)
   },[name, email, nameCEO, phone])
   return (
-    <form onSubmit={onSubmit}>
+    <div className="card-form-editCompany card animate__animated animate__fadeInRight">
+    <form className="signup-editCompany" onSubmit={onSubmit}>
+      <div className="form-title-editCompany">Información de tu empresa</div>
+      <div className="form-body-editCompany">
+        <div className="row-editCompany">
+          <input type="text" className="input-editCompany" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" value={nameCEOValue} onChange={(e) =>setNameCEOValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" value={phoneValue}  onChange={(e) =>setPhoneValue(e.target.value)}/>
+        </div>
+        <div className="row-editCompany">
+        <input type="file" name="imageCompany"/>
+  
+        </div>
+      </div>
+      <div className="rule-editCompany"></div>
+      <div className="form-footer-editCompany">
+        <button className="button-editCompany" type="submit">Editar</button>
+      </div>
+    </form>
+  </div>
+
+    /*<form onSubmit={onSubmit}>
     <input type="file" name="imageCompany"/>
     <input type="text" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
     <input type="text" name="nameCEO" placeholder="Nombre del CEO..." value={ nameCEOValue } onChange={(e) => setNameCEOValue(e.target.value)}/>
     <input type="text" name="email" placeholder="Email..." value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
     <input type="text" name="phone" placeholder="Teléfono..." value={ phoneValue } onChange={(e) => setPhoneValue(e.target.value)}/>
     <button type="submit">Editar</button>
-</form>
+</form>*/
   )
 }
 export default EditCompany
