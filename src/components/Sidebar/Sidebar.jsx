@@ -16,6 +16,7 @@ const Sidebar = () => {
   const { user, userNow } = useSelector((state) => state.user);
 
   const { company, companyInfo } = useSelector((state) => state.company);
+  console.log(company)
 
   const onLogoutUser = (e) => {
     e.preventDefault();
@@ -45,12 +46,12 @@ const Sidebar = () => {
             <img src={logoSidebar} className="logo-sidebar" />
             <div className="profile-div">
               <div className="profile-img">
-                {companyInfo.imageCompany ?
+                {company.company.imageCompany ?
 (                <img
                   className="img-company-profile"
                   src={
                     `http://localhost:4000/images/Company/` +
-                    companyInfo.imageCompany
+                    company.company.imageCompany
                   }
                 />) : (<img
                   className="img-company-profile"
@@ -61,7 +62,7 @@ const Sidebar = () => {
               }
               </div>
               
-              <h3 className="name-profile-sidebar">{companyInfo.name}</h3>
+              <h3 className="name-profile-sidebar">{company?.company.name}</h3>
 
               <ul>
                 <li>
@@ -73,7 +74,7 @@ const Sidebar = () => {
                 <li>
                   <Link to={`/company/profile/${company?.company._id}`}>
                     <img src={profile} />
-                    <span>{companyInfo.name}</span>
+                    <span>{company?.company.name}</span>
                   </Link>
                 </li>
 
