@@ -12,6 +12,7 @@ const PostUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { posts, isLoading } = useSelector((state) => state.post);
   const { user } = useSelector((state) => state.user);
+  console.log(posts)
   const allPosts = posts || [];
   const dispatch = useDispatch();
 
@@ -43,7 +44,7 @@ const PostUser = () => {
       <div className="post card animate__animated animate__fadeInUp">
         <div className="post-author">
           <Link to={"/user/post/" + post._id}>
-            {post.userId.name && (<strong>{post.userId?.name}</strong>)}
+            {post.userId.name && (<span><strong>{post.userId?.name}</strong><p>from {post.userId.company?.name}</p></span>)}
           </Link>
         </div>
         <div className="post-content">
