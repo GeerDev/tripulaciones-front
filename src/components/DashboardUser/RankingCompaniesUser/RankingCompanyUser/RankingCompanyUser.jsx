@@ -9,20 +9,13 @@ const RakingCompanyUser = () => {
 
         return (
           <div className="ranking-company">
-              {company.imageCompany ? (
-                  <>
-              <img src={company.imageCompany} className="img-ranking-company" />
-                <div className="ranking-company-info">                  
-              <p>{company.name}</p>
-              <p>{company.score}</p>
-                </div>  
-
-              </>
-              ) : ( 
-            <>
-            {company.name}
+              {(
+                  <div>
+              <img src={company.imageCompany ?'http://localhost:4000/images/Company/'+ company.imageCompany : 'https://empleo.camaravalencia.com/tenancy/assets/images/logo-empresa-default.png'} className="img-ranking-company" />
+              {company.name}
+              <div className='toolbar-ranking'></div>
             <p className="ranking-company-score">score: {company.score}</p>
-            </>
+                </div>
             )
             }
 

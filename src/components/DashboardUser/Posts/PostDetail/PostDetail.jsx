@@ -42,8 +42,9 @@ const PostDetail = () => {
         {
           comments?.map(comment =>
             <div className="coments-content">
-              <p className="name-coment">El nombre de quien comenta {user?.user.name}</p>
-              <p className="text-comment">El texto que lleva el comentario {comment?.comment}</p>
+              <p className="name-coment">{user?.user.name}</p>
+              <div className="toolbar-detail"></div>
+              <p className="text-comment">{comment?.comment}</p>
               <div className="toolbar">
               <div className="likes">
 

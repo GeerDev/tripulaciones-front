@@ -26,7 +26,7 @@ const ProfileUser = () => {
 
   return (
     <>
-      <div className="container-1 card animate__animated animate__fadeInRight">
+      <div className="container-1 card animate__animated animate__backInRight">
         <main className="profile-info">
 	      <div id="profil-container">
 		      <h1 id="profile">Profile</h1>
