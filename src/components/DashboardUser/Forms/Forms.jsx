@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
-import { getForm } from "../../../features/datascience/datascienceSlice";
+import { getForm, postForm } from "../../../features/datascience/datascienceSlice";
 import './Forms.scss'
 
 const Forms = () => {
@@ -13,21 +13,33 @@ const Forms = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState([
+  const [formData, setFormData] = useState(
     { employee_id: "", question_id: "", answer_id: "", company_id: "" },
-  ]);
+  );
+
+  const [result, setResult] = useState([])
+
   useEffect(() => {
     dispatch(getForm());
   }, []);
+
   useEffect(() => {
     console.log(formData);
+    setResult((pre) => [...pre, formData])
   }, [formData]);
+
+  console.log("Resultado: ", result);
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    // La acción de mandar todo el formulario - DATA SCIENCE
+    console.log(result.slice(1)); 
+    const dataForDataScience = result.slice(1)
+    await dispatch(postForm(dataForDataScience))
     notification.success({ message: "El formulario se ha enviado con éxito" });
     navigate("/user");
   };
+
 
   const onChange = async (e) => {
     setFormData(() => ({
