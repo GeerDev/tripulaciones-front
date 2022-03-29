@@ -61,7 +61,7 @@ const EditCompany = () => {
         </div>
 
       </div>
-      <div className="rule-editCompany"></div>
+      <div className="rule-editC  ompany"></div>
     </form>
   </div>
 
