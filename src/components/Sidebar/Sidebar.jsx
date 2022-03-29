@@ -68,7 +68,7 @@ const Sidebar = () => {
                 <li>
                   <Link to={`/company`}>
                     <img src={home} />
-                    <span>Home</span>
+                    <span>Inicio</span>
                   </Link>
                 </li>
                 <li>
@@ -81,7 +81,7 @@ const Sidebar = () => {
                 <li>
                   <Link to="/logincompany" onClick={onLogoutCompany}>
                     <img src={logoutapp} />
-                    <span>Logout</span>
+                    <span>Cerrar sesión</span>
                   </Link>
                 </li>
               </ul>
@@ -110,7 +110,7 @@ const Sidebar = () => {
                       <Link to={`/admin`}>
                         {" "}
                         <img src={home} />
-                        <span>Home</span>
+                        <span>Inicio</span>
                       </Link>
                     </li>
                     <li>
@@ -122,7 +122,7 @@ const Sidebar = () => {
                     <li>
                       <Link to="/loginuser" onClick={onLogoutUser}>
                         <img src={logoutapp} />
-                        <span>Logout</span>
+                        <span>Cerrar sesión</span>
                       </Link>
                     </li>
                   </ul>
@@ -146,13 +146,13 @@ const Sidebar = () => {
                       <li>
                         <Link to={`/user`}>
                           <img src={home} />
-                          <span>Home</span>
+                          <span>Inicio</span>
                         </Link>
                       </li>
                       <li>
                         <Link to={`/user/profile/${user?.user._id}`}>
                           <img src={profile} />
-                          <span>Profile</span>
+                          <span>Perfil</span>
                         </Link>
                       </li>
                       <li>
@@ -164,7 +164,7 @@ const Sidebar = () => {
                       <li>
                         <Link to="/loginuser" onClick={onLogoutUser}>
                           <img src={logoutapp} />
-                          <span>Logout</span>
+                          <span>Cerrar sesión</span>
                         </Link>
                       </li>
                     </ul>

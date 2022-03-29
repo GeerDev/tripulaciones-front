@@ -32,7 +32,7 @@ const RegisterUser = () => {
             notification.error({ message: "Ha habido un error", description: message });
         }
         if (isSuccess) {
-            notification.success({ message: "Bienveni@", description: message?.message })
+            notification.success({ message: "Bienvenid@", description: message?.message })
         }
         await dispatch(reset())
         await dispatch(getRankingCompanies())
@@ -49,7 +49,7 @@ const RegisterUser = () => {
         if (password !== password2) {
             return notification.error({
                 message: "Error",
-                description: "The password does not match",
+                description: "La contraseña no coincide",
             });
 
         } else {

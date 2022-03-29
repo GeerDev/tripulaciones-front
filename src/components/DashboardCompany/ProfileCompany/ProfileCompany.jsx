@@ -36,7 +36,7 @@ const ProfileCompany = () => {
 		  <ul>
 			<li><h3 id="name">{ name }</h3></li>
 			<li id="mail">{ email }</li>
-      <li><h3 id="mail">score de tu empresa: { score }</h3></li>
+      <li><h3 id="mail">Puntuación de tu empresa: { score }</h3></li>
 			<li className="line"></li>
       <div id="button">
       <Link to={`/`}>

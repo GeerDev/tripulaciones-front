@@ -58,7 +58,7 @@ const RankingCompanies = () => {
             labels: names,
             datasets: [
               {
-                label: "Score",
+                label: "Puntuación",
                 data: scores,
                 backgroundColor: ["rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)", "rgba(25, 19, 72, 0.3)"],
               },
