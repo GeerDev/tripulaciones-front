@@ -6,6 +6,7 @@ import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import EditModal from "./EditModal/EditModal";
 import { useState } from "react";
 import './Post.scss'
+import { useTranslation } from "react-i18next";
 
 
 const PostUser = () => {
@@ -14,6 +15,9 @@ const PostUser = () => {
   const { user } = useSelector((state) => state.user);
   const allPosts = posts || [];
   const dispatch = useDispatch();
+
+  const author = user.user.postIds
+  console.log(author);
 
   if (isLoading) {
     return (
@@ -126,8 +130,14 @@ const PostUser = () => {
           )}
           <span className="comment-length">{post.comments.length} comentarios</span>
         </span>
-        <button onClick={() => showModal(post._id)}>Edita</button>
-        <button onClick={() => deleteHere(post._id)}>Eliminar</button>
+        {
+          author.includes(post._id) ?
+          <>
+                  <button onClick={() => showModal(post._id)}>Edita</button>
+                  <button onClick={() => deleteHere(post._id)}>Eliminar</button>
+          </> :
+          null
+        }
       </div>
         </div>
     );
