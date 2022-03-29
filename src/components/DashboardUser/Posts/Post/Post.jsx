@@ -44,7 +44,7 @@ const PostUser = () => {
       <div className="post card animate__animated animate__fadeInUp">
         <div className="post-author">
           <Link to={"/user/post/" + post._id}>
-            {post.userId.name && (<span><strong>{post.userId?.name}</strong><p className="isAuthor-post">de {post.userId.company?.name}</p></span>)}
+            {post.userId?.name && (<span><strong>{post.userId?.name}</strong><p>from {post.userId.company?.name}</p></span>)}
           </Link>
         </div>
         <div className="post-content">

@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getRanking,
-} from "../../../features/datascience/datascienceSlice";
+import { getRanking,} from "../../../features/datascience/datascienceSlice";
 import {
   Chart as ChartJS,
   RadialLinearScale,
