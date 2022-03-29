@@ -13,32 +13,32 @@ const CompanyAdmin = () => {
 
     const columns = [
         {
-          title: 'Name',
+          title: 'Nombre',
           dataIndex: 'name',
           key: 'name',
         },
         {
-          title: 'NameCEO',
+          title: 'Nombre CEO',
           dataIndex: 'nameCEO',
           key: 'nameCEO',
         },
         {
-          title: 'Email',
+          title: 'Correo',
           dataIndex: 'email',
           key: 'email',
         },
         {
-          title: 'Phone',
+          title: 'Teléfono',
           dataIndex: 'phone',
           key: 'phone',
         },
         {
-          title: 'CompanyType',
+          title: 'Tipo de compañia',
           dataIndex: 'companyType',
           key: 'companyType',
         },
         {
-          title: 'Buttons',
+          title: 'Registrar Empresa',
           dataIndex: 'buttons',
           key: 'buttons',
           render: buttons => 

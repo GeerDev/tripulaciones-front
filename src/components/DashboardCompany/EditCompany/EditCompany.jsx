@@ -64,15 +64,6 @@ const EditCompany = () => {
       <div className="rule-editC  ompany"></div>
     </form>
   </div>
-
-    /*<form onSubmit={onSubmit}>
-    <input type="file" name="imageCompany"/>
-    <input type="text" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
-    <input type="text" name="nameCEO" placeholder="Nombre del CEO..." value={ nameCEOValue } onChange={(e) => setNameCEOValue(e.target.value)}/>
-    <input type="text" name="email" placeholder="Email..." value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
-    <input type="text" name="phone" placeholder="Teléfono..." value={ phoneValue } onChange={(e) => setPhoneValue(e.target.value)}/>
-    <button type="submit">Editar</button>
-</form>*/
   )
 }
 export default EditCompany

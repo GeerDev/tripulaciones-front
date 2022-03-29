@@ -43,14 +43,16 @@ const EditUser = () => {
   <form className="signup-edit" onSubmit={onSubmit}>
     <div className="form-title-edit">Tu información</div>
     <div className="form-body-edit">
+
       <div className="row-edit">
-        <input type="text" className="input-editUser" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
-        <input type="text" className="input-editUser" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
+        <input type="text" className="input-editUser" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
+        <input type="text" className="input-editUser" name="email" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
       </div>
+
       <div className="row-edit">
       <input type="file" name="imageUser"/>
-
       </div>
+
     </div>
     <div className="rule-edit"></div>
     <div className="form-footer-edit">
