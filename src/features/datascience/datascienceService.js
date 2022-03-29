@@ -14,14 +14,12 @@ const getRanking = async () => {
 
 const getForm = async () => {
     const res = await axios.get(API_URL + '/getForm/')
-    console.log("Forms Service Correcta: ", res.data);
     return res.data
 }
 
 const postForm = async (dataForm) => {
     try {
         const res = await axios.post(API_URL + "/postAnswers/", dataForm);
-        console.log("Contestacion post Form: ", res.data);
         return res.data
     } catch (error) {
         console.error(error)

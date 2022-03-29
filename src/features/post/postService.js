@@ -39,7 +39,6 @@ const updatePost = async (post) => {
             authorization: user?.token,
         }
     })
-    console.log("el res del service",res.data)
     return res.data;
 }
 

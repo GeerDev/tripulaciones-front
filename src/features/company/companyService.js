@@ -21,7 +21,6 @@ const login = async(companyData)=>{
 
 const logout = async() =>{
     const company = JSON.parse(localStorage.getItem('company'));
-    console.log(company);
     const res = await axios.delete(API_URL + '/companies/logout', {
         headers:{
             authorization: company?.token, 
