@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://tripulacionesback.herokuapp.com";
 
 const createComment = async (data) => {
         const { _id, ...rest } = data

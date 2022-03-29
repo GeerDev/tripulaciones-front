@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://tripulacionesback.herokuapp.com";
 
 const getAll = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
