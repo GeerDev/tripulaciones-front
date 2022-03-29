@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import './RankingCompanyUser.scss'
 const RakingCompanyUser = () => {
     const { companies } = useSelector((state) => state.company);
     const allCompanies = companies || [];
@@ -8,17 +8,20 @@ const RakingCompanyUser = () => {
     const company = allCompanies.map((company) => {
 
         return (
-          <div>
+          <div className="ranking-company">
               {company.imageCompany ? (
                   <>
-              <img src={company.imageCompany} />
+              <img src={company.imageCompany} className="img-ranking-company" />
+                <div className="ranking-company-info">                  
               {company.name}
               {company.score}
+                </div>
+
               </>
               ) : ( 
             <>
             {company.name}
-            <p>score: {company.score}</p>
+            <p className="ranking-company-score">score: {company.score}</p>
             </>
             )
             }
