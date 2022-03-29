@@ -1,5 +1,5 @@
 import Posts from "./Posts/Posts"
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import React from 'react'
 import ChallengesUser from "./ChallengesUser/ChallengesUser"
 import './DashboardUser.scss'
@@ -10,11 +10,16 @@ const DashboardUser = () => {
   const { name, imageUser } = userNow
   return (
     <div className="user-principal">
-      <h1>Dashboard User</h1>
-      <Posts/>
-      <h2>Challenges</h2>
-      <ChallengesUser />
-      <RakingCompaniesUser/>
+      <h1>Dashboard Empleado</h1>
+      <div className="container-posts-challenges">
+        <Posts />
+        <div className="challenge-container">
+          <RakingCompaniesUser />
+
+        </div>
+      </div>
+        <h2>Challenges</h2>
+        <ChallengesUser />
 
     </div>
   )

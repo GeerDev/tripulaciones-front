@@ -1,5 +1,14 @@
 @import '../../../../colors.scss';
 
+.toolbar-detail{
+    padding: 12px;
+    width: calc(100% - 0px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid $firstblue;
+}
+
 .comments{
     width: 100%;
     display: flex;

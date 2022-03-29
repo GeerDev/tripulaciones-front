@@ -157,7 +157,7 @@ const Sidebar = () => {
                       <li>
                         <Link to="/user/forms">
                           <img src={checklist} />
-                          <span>Forms</span>
+                          <span>Formularios</span>
                         </Link>
                       </li>
                       <li>
