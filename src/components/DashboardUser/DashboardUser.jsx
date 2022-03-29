@@ -3,6 +3,7 @@ import {useSelector } from "react-redux";
 import React from 'react'
 import ChallengesUser from "./ChallengesUser/ChallengesUser"
 import './DashboardUser.scss'
+import RakingCompaniesUser from "./RankingCompaniesUser/RankingCompaniesUser";
 
 const DashboardUser = () => {
   const { userNow } = useSelector(state => state.user)
@@ -13,6 +14,8 @@ const DashboardUser = () => {
       <Posts/>
       <h2>Challenges</h2>
       <ChallengesUser />
+      <RakingCompaniesUser/>
+
     </div>
   )
 }
