@@ -29,7 +29,7 @@ const ProfileUser = () => {
       <div className="container-1 card animate__animated animate__backInRight">
         <main className="profile-info">
 	      <div id="profil-container">
-		      <h1 id="profile">Profile</h1>
+		      <h1 id="profile">Perfil</h1>
 	      </div>
       {imageUser ? (
 	  <img id="profile-picture" src={`http://localhost:4000/images/User/` + imageUser}  alt="Imagen User"/>

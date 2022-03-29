@@ -33,8 +33,9 @@ const PostDetail = () => {
   return (
     <div className="comments">
       <div className="posts">
-      <p className="user-name-comment"> {post?.userId?.name} from {post?.userId?.company?.name}</p>
+      <p className="user-name-comment"> {post?.userId?.name} de {post?.userId?.company?.name}</p>
       <p className="comment-user">{post.description}</p>
+      <img className = "postdetail-image" src={`http://localhost:4000/images/Post/` + post?.imagePost} alt="Imagen Post"/>
       <p>{post.challengeId?.title}</p>
       </div>
       <div className="map-coment">
