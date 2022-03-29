@@ -41,7 +41,7 @@ const PostUser = () => {
     const isAlreadyLiked = post.likes?.includes(user?.user?._id);
     const isLiked = post.likes?.length;
     return (
-      <div className="post card animate__animated animate__fadeInUp">
+      <div className="post card animate__animated animate__fadeInleft">
         <div className="post-author">
           <Link to={"/user/post/" + post._id}>
             {post.userId?.name && (<span><strong>{post.userId?.name}</strong><p>from {post.userId.company?.name}</p></span>)}
