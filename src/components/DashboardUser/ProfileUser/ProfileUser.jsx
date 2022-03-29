@@ -21,7 +21,7 @@ const ProfileUser = () => {
   },[])
 
   const deleteUser = (async ()=> {
-    await dispatch(deleteMySelf());
+    await dispatch(deleteMySelf(userNow._id));
   })
 
   return (
@@ -42,7 +42,7 @@ const ProfileUser = () => {
 			<li className="line"></li>
       <div id="button">
     <Link to={`/`}>
-    <button id="save" className="button">Borra Tu Cuenta</button>
+    <button id="save" className="button" onClick={() =>deleteUser(userNow._id)} >Borra Tu Cuenta</button>
     </Link>
 	</div>
       <li>
