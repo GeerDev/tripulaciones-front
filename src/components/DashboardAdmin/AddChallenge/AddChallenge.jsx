@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
 import { addChallenge } from "../../../features/challenge/challengeSlice";
+import "./AddChallenge.scss";
+import { Button, Input } from 'antd';
+
+
 
 const AddChallenge = () => {
   const dispatch = useDispatch();
@@ -11,17 +15,18 @@ const AddChallenge = () => {
       formData.set("imageChallenge", e.target.imageChallenge.files[0]);
     formData.set("title", e.target.title.value);
     formData.set("description", e.target.description.value);
-    console.log(e.target.imageChallenge.files[0]);
     dispatch(addChallenge(formData));
   };
 
   return (
+    <div className="add-challenge-container">
     <form onSubmit={onSubmit}>
-      <input type="file" name="imageChallenge" />
-      <input type="text" placeholder="Título..." name="title" />
-      <input type="text" placeholder="Descripción..." name="description" />
-      <button type="submit">Añade un reto</button>
+      <Input className="challenge-input" type="file" name="imageChallenge" />
+      <Input className="challenge-input" type="text" placeholder="Título..." name="title" />
+      <Input className="challenge-input" type="text" placeholder="Descripción..." name="description" />
+      <Button className="challenge-button" type="primary" htmlType="submit">Añade un reto</Button>
     </form>
+    </div>
   );
 };
 
