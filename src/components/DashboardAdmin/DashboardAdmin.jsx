@@ -3,11 +3,11 @@ import "./DashboardAdmin.scss";
 
 const DashboardAdmin = () => {
   return (
-    <>
-      <div>DashboardAdmin</div>
+    <div>
+      <h2>DashboardAdmin</h2>
 
       <CompaniesAdmin />
-    </>
+    </div>
   );
 };
 
