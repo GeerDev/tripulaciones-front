@@ -1,7 +1,7 @@
 @import '../../../colors.scss';
 
 .card-form-editCompany{
-    height: 50vh;
+    height: 60vh;
     margin-left: 20px;
     margin-top: 4em;
     width: 500px;
@@ -26,13 +26,14 @@
       
       .row-editCompany{
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
         padding: 10px;
         
         .input-editCompany{
           appearance: none;
           width: 100%;
-          margin: 0 15px;
+          margin: 0.5em;
           height: 35px;
           padding: 5px 15px;
           border-radius: 5px;
@@ -115,4 +116,13 @@
       span{
         margin-left: 8px;
       }
+    }
+    .button-flex{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button{
+            margin-top: 5em;
+            width: 50%!important;
+        }
     }

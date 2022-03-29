@@ -47,20 +47,21 @@ const EditCompany = () => {
       <div className="form-title-editCompany">Información de tu empresa</div>
       <div className="form-body-editCompany">
         <div className="row-editCompany">
-          <input type="text" className="input-editCompany" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
-          <input type="text" className="input-editCompany" value={nameCEOValue} onChange={(e) =>setNameCEOValue(e.target.value)}/>
-          <input type="text" className="input-editCompany" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
-          <input type="text" className="input-editCompany" value={phoneValue}  onChange={(e) =>setPhoneValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" name="name" placeholder="Nombre..." value={ nameValue } onChange={(e) => setNameValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" name="nameCEO" value={nameCEOValue} onChange={(e) =>setNameCEOValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" name="email" placeholder="Email" value={ emailValue } onChange={(e) => setEmailValue(e.target.value)}/>
+          <input type="text" className="input-editCompany" name="phone" value={phoneValue}  onChange={(e) =>setPhoneValue(e.target.value)}/>
         </div>
         <div className="row-editCompany">
         <input type="file" name="imageCompany"/>
-  
         </div>
+        <div className="button-flex">
+
+        <button className="" type="submit">Editar</button>
+        </div>
+
       </div>
-      <div className="rule-editCompany"></div>
-      <div className="form-footer-editCompany">
-        <button className="button-editCompany" type="submit">Editar</button>
-      </div>
+      <div className="rule-editC  ompany"></div>
     </form>
   </div>
 

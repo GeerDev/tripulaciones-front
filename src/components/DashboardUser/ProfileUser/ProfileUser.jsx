@@ -41,7 +41,9 @@ const ProfileUser = () => {
 			<li id="mail">{ email }</li>
 			<li className="line"></li>
       <div id="button">
-    <div id="save" className="button">Borra Tu Cuenta</div>
+    <Link to={`/`}>
+    <button id="save" className="button">Borra Tu Cuenta</button>
+    </Link>
 	</div>
       <li>
         <h2 className="info" id="link-edit"><Link to={`/user/edit/${_id}`}>
@@ -85,52 +87,7 @@ const ProfileUser = () => {
           <SearchUser />
               </div>
     </div>
-  
-      {/* <div className='user-profile'>
-        <img
-        src={`http://localhost:4000/images/User/` + imageUser}
-        alt="Imagen User"
-        width={320}
-        />
-        <div className="profile-info">
-          <h3>{ name }</h3>
-          <h4>{ email }</h4>
-        <Link to={`/user/edit/${_id}`}>
-        <button>Edita Perfil</button>
-        </Link>
-        <Link to={`/`}>
-        <button onClick={() => deleteUser()}>Borra Tu Cuenta</button>
-        </Link>
-        <Tabs defaultActiveKey="1">
-                  <TabPane tab="Tus publicaciones" key="1">
-                    <div className="tabs">
-                    {
-                        postIds && postIds.map(post => (
-                            <div key = {post._id} className='inside card animate__animated animate__fadeIn'>
-                                        <p>{ post.description }</p>
-                            </div>
-                          ))
-                    }
-                    </div>
-                  </TabPane>
-                  <TabPane tab="Tus favoritos" key="2">
-                  <div className="tabs">
-                    {
-                        favorites && favorites.map(post => (
-                            <div key = {post._id} className='inside card animate__animated animate__fadeIn'>
-                                        <p>{ post.description }</p>
-                            </div>
-                          ))
-                    }
-                    </div>
-                  </TabPane>
-              </Tabs>
-        </div>
-        <SearchUser />
-        </div> */}
     </>
-
-
   )
 }
 

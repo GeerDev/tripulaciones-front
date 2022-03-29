@@ -2,7 +2,9 @@
 
 .container-stats-search {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  width: 70vw;
+  margin: 1em;
 }
 .stats-company-container,
 .search-company-container {
