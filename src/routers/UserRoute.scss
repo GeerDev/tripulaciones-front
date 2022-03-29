@@ -15,12 +15,11 @@
 }
 .container-company-routes form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
   gap: 1.5em;
-  margin-top: 7em;
 }
 .container-company-routes form button {
   font-size: 0.9em;
@@ -79,7 +78,6 @@
   -moz-appearance: none;
   max-width: 350px;
   appearance: none;
-  width: calc(100% - 20px - 20px);
   border: 0;
   margin-bottom: 20px;
   height: 42px;

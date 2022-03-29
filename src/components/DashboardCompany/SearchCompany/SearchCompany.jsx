@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchByCompanyName, resetSearchCompany } from '../../../features/company/companySlice'
 import './SearchCompany.scss'
-import { Input } from 'antd';
+import { Input, Card } from 'antd';
 const SearchCompany = () => {
 
   const dispatch = useDispatch()
@@ -40,10 +40,16 @@ const SearchCompany = () => {
         <div className="centrateporDIOS">
         {
           companySearch && companySearch.map(company => (
+
+            <div className="site-card-border-less-wrapper">
+        
+          </div>,
             <div key = {company._id} className='element_search card animate__animated animate__fadeIn'>
-                { company.imageUser && <img src={`http://localhost:4000/images/Challenge/` + company.imageCompany } alt="Imagen Empresa Buscada" width={320}/>}
-                <h3>{ company.name }</h3>
+                  <Card title={ company.name } bordered={false} style={{ width: 300 }}>
+                  { company.imageUser && <img src={`http://localhost:4000/images/Challenge/` + company.imageCompany } alt="Imagen Empresa Buscada" width={320}/>}
                 <p>{ company.email }</p>
+            </Card>
+    
             </div>
           ))
         }
