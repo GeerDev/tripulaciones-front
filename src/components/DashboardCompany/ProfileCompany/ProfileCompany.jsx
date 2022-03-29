@@ -22,7 +22,12 @@ const ProfileCompany = () => {
 	      <div id="profil-container">
 		      <h1 id="profile">Profile</h1>
 	      </div>
-	  <img id="profile-picture" src={`http://localhost:4000/images/Company/` + imageCompany} alt="Imagen Empresa"/>
+        { imageCompany ?  (
+          	  <img id="profile-picture" src={`http://localhost:4000/images/Company/` + imageCompany} alt="Imagen Empresa"/>
+        ) : (
+          <img id="profile-picture" src={`https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg`} alt="Imagen Empresa"/>
+        )      
+        }
 	  <div id="container-info">
 		  <ul>
 			<li><h3 id="name">{ name }</h3></li>
