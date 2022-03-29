@@ -15,6 +15,7 @@ const PostDetail = () => {
   const { post, isLoading } = useSelector((state) => state.post);
   const { user } = useSelector((state) => state.user);
   const { comments } = useSelector((state) => state.comment);
+  const postNow = post || {}
   console.log(post)
   useEffect(async () => {
     await dispatch(getByIdPost(_id));
@@ -33,7 +34,7 @@ const PostDetail = () => {
   return (
     <div className="comments">
       <div className="posts">
-      {/* <p className="user-name-comment"> {post.userId?.name} from {post.userId.company?.name}</p> */}
+      <p className="user-name-comment"> {postNow.userId?.name} from {postNow.userId.company?.name}</p>
       <p className="comment-user">{post.description}</p>
       <p>{post.challengeId?.title}</p>
       </div>
