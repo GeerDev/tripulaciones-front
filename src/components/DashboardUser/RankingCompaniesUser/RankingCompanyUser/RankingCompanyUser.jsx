@@ -14,7 +14,7 @@ const RakingCompanyUser = () => {
               <img src={company.imageCompany ?'http://localhost:4000/images/Company/'+ company.imageCompany : 'https://empleo.camaravalencia.com/tenancy/assets/images/logo-empresa-default.png'} className="img-ranking-company" />
               {company.name}
               <div className='toolbar-ranking'></div>
-            <p className="ranking-company-score">score: {company.score}</p>
+            <p className="ranking-company-score">Puntuación: {company.score}</p>
                 </div>
             )
             }

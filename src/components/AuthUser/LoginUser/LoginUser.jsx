@@ -22,7 +22,7 @@ const LoginUserAdmin = () => {
         notification.error({ message: "Error", description: message, });
     }
     if (isSuccess) {
-        notification.success({ message: "Success", description: message?.message, });
+        notification.success({ message: "Éxito", description: message?.message, });
         selectRole()
     }
     dispatch(reset())

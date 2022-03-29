@@ -27,7 +27,7 @@ const AddPost = () => {
     }
     if (isSuccess) {
       notification.success({
-        message: "Success",
+        message: "Éxito",
         description: message?.message,
       });
     }
