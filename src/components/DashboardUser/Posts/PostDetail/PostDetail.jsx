@@ -33,7 +33,7 @@ const PostDetail = () => {
   return (
     <div className="comments">
       <div className="posts">
-      <p className="user-name-comment"> {post.userId?.name} from {post.userId.company?.name}</p>
+      {/* <p className="user-name-comment"> {post.userId?.name} from {post.userId.company?.name}</p> */}
       <p className="comment-user">{post.description}</p>
       <p>{post.challengeId?.title}</p>
       </div>

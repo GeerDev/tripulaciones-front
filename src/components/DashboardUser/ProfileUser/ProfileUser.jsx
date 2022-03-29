@@ -41,7 +41,9 @@ const ProfileUser = () => {
 			<li id="mail">{ email }</li>
 			<li className="line"></li>
       <div id="button">
-    <div id="save" className="button">Borra Tu Cuenta</div>
+    <Link to={`/`}>
+    <button id="save" className="button">Borra Tu Cuenta</button>
+    </Link>
 	</div>
       <li>
         <h2 className="info" id="link-edit"><Link to={`/user/edit/${_id}`}>
