@@ -48,7 +48,7 @@ const StatsCompany = () => {
   }, []);
 
   const data = {
-    labels: ['a','b','a','a','a','a','a','a','a','a'],
+    labels: ['Acción Social','Compromiso','Política y RSC','Derechos Humanos','Sostenibilidad Estructural','Presupuesto Sostenibilidad','Innovación','Proveedores','Medio Ambiente','Personas'],
     datasets: [
       {
         label: 'CERS',

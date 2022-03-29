@@ -32,7 +32,6 @@ const Forms = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // La acción de mandar todo el formulario - DATA SCIENCE
     console.log(result.slice(1)); 
     const dataForDataScience = result.slice(1)
     await dispatch(postForm(dataForDataScience))
