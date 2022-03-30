@@ -18,7 +18,7 @@ const CompaniesAdmin = () => {
   
   return (
     <div>
-        <h1>Companies</h1>
+        <h1>Empresas</h1>
         <CompanyAdmin/>
     </div>
   )

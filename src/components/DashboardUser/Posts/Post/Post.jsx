@@ -15,7 +15,7 @@ const PostUser = () => {
   const allPosts = posts || [];
   const dispatch = useDispatch();
 
-  const author = user.user.postIds
+  const author = user?.user?.postIds
 
   if (isLoading) {
     return (

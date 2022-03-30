@@ -50,7 +50,7 @@ const Sidebar = () => {
                   className="img-company-profile"
                   src={
                     `http://localhost:4000/images/Company/` +
-                    company.company.imageCompany
+                    companyInfo.name
                   }
                 />) : (<img
                   className="img-company-profile"

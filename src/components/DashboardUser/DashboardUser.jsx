@@ -18,7 +18,7 @@ const DashboardUser = () => {
 
         </div>
       </div>
-        <h2>Challenges</h2>
+        <h2>Retos</h2>
         <ChallengesUser />
 
     </div>
